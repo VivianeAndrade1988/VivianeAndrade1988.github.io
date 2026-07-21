@@ -6,8 +6,14 @@
 }
 
 /* Estilo geral da página */
-body {
-    font-family: Arial, Helvetica, sans-serif;
+body{
+
+    font-family:'Poppins', sans-serif;
+
+    background:#F8FAFC;
+
+    color:#0F172A;
+
 }
 
 /* Seção principal */
@@ -37,14 +43,36 @@ body {
 }
 
 /* Botão */
-.hero button {
-    margin-top: 40px;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 8px;
-    background: #2563EB;
-    color: white;
-    cursor: pointer;
+.hero button{
+
+    margin-top:40px;
+
+    padding:16px 38px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563EB;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.hero button:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-3px);
+
 }
 
 
