@@ -1,0 +1,93 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral da página */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Seção principal */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Título */
+.hero h1 {
+    font-size: 60px;
+}
+
+/* Subtítulo */
+.hero h2 {
+    margin-top: 20px;
+    color: #2563EB;
+}
+
+/* Texto */
+.hero p {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+/* Botão */
+.hero button {
+    margin-top: 40px;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    background: #2563EB;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 60px;
+
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.menu{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+}
+
+.menu a{
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-weight:600;
+
+}
