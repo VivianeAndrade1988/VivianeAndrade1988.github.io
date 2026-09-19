@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise Executiva | O que faz um livro vender mais?</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --text:#182235; --muted:#667085;
+  --blue:#2457d6; --blue-soft:#eef3ff; --orange:#e98b32;
+  --line:#e5e9f2; --dark:#111827; --green:#16855b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Arial,sans-serif;line-height:1.75}
+.article{max-width:920px;margin:40px auto;background:var(--card);padding:58px 68px;border-radius:22px;box-shadow:0 10px 35px rgba(16,24,40,.06)}
+.tag{display:inline-block;background:var(--blue-soft);color:var(--blue);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:700}
+h1{font-size:42px;line-height:1.15;margin:18px 0 14px;letter-spacing:-1px}
+h2{font-size:27px;margin-top:52px;line-height:1.25}
+h3{font-size:20px;margin-top:30px}
+p{font-size:17px}
+.lead{font-size:20px;color:#4b5565;line-height:1.65}
+.note{border-left:4px solid var(--blue);background:var(--blue-soft);padding:18px 22px;margin:30px 0;border-radius:0 12px 12px 0}
+.problem{background:#fff8ef;border:1px solid #f4dfc8;padding:20px 24px;border-radius:14px;margin:25px 0}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
+.kpi{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+.kpi strong{display:block;font-size:25px;color:var(--blue);line-height:1.2}
+.kpi span{font-size:13px;color:var(--muted)}
+.tree{margin:30px 0;padding:26px;background:#fbfcff;border:1px solid var(--line);border-radius:18px;text-align:center}
+.node{display:inline-block;padding:12px 18px;border:1px solid #cfd7e6;border-radius:12px;background:white;margin:6px;font-weight:600}
+.root{background:var(--blue);color:white;border-color:var(--blue);font-size:18px}
+.branch{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.causes .node{font-weight:500;font-size:14px}
+.arrow{color:#8b95a7;font-size:24px}
+.insight{border:1px solid var(--line);padding:22px;border-radius:14px;margin:18px 0}
+.insight strong{color:var(--blue)}
+.result{border-left:4px solid var(--green);background:#f1faf6;padding:18px 22px;margin:22px 0;border-radius:0 12px 12px 0}
+table{width:100%;border-collapse:collapse;margin:25px 0;font-size:15px}
+th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f8f9fc}
+.badge{display:inline-block;padding:4px 9px;border-radius:12px;background:#f1f3f7;font-size:12px;font-weight:700}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
+.step{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
+.step b{color:var(--blue)}
+footer{margin-top:55px;padding-top:25px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media(max-width:700px){
+ .article{margin:0;padding:35px 24px;border-radius:0}
+ h1{font-size:34px}
+ .kpis{grid-template-columns:repeat(2,1fr)}
+ .steps{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<main class="article">
+
+<span class="tag">ANÁLISE EXECUTIVA · DATA SCIENCE</span>
+
+<h1>O que realmente faz um livro vender mais?</h1>
+
+<p class="lead">
+O mercado editorial publica milhares de títulos, mas apenas uma parcela alcança grande desempenho comercial.
+Este projeto investiga quais fatores estão mais associados às vendas de livros, combinando
+<strong>Ciência de Dados, Estatística e visão de negócio</strong>.
+</p>
+
+<div class="note">
+<strong>Pergunta executiva:</strong><br>
+Quais características estão mais relacionadas ao sucesso comercial de um livro — avaliação,
+engajamento dos leitores, preço, reputação do autor ou gênero?
+</div>
+
+<h2>1. O problema de negócio</h2>
+
+<p>
+Uma editora precisa decidir onde concentrar esforços de marketing, precificação e lançamento.
+Uma nota média alta parece, à primeira vista, um possível indicador de sucesso. Mas uma boa avaliação
+não necessariamente significa alto volume de vendas.
+</p>
+
+<p>
+Por isso, a análise foi estruturada para separar <strong>percepção de qualidade</strong> de
+<strong>desempenho comercial</strong> e identificar quais variáveis apresentam relação mais relevante
+com as vendas.
+</p>
+
+<div class="kpis">
+<div class="kpi"><strong>1.070</strong><span>livros analisados</span></div>
+<div class="kpi"><strong>669</strong><span>autores</span></div>
+<div class="kpi"><strong>9</strong><span>editoras</span></div>
+<div class="kpi"><strong>4</strong><span>gêneros</span></div>
+</div>
+
+<h2>2. Árvore de hipóteses</h2>
+
+<p>
+Antes de testar os dados, o problema foi decomposto em hipóteses. A árvore não representa causas
+confirmadas: ela organiza as perguntas que a análise precisa responder.
+</p>
+
+<div class="tree">
+<div class="node root">PROBLEMA: baixo desempenho comercial</div>
+<div class="arrow">↓</div>
+<div class="branch">
+<div class="node">Avaliação</div>
+<div class="node">Engajamento</div>
+<div class="node">Preço</div>
+<div class="node">Autor</div>
+<div class="node">Editora</div>
+<div class="node">Gênero</div>
+</div>
+<div class="arrow">↓</div>
+<div class="branch causes">
+<div class="node">nota média</div>
+<div class="node">nº de avaliações</div>
+<div class="node">preço de venda</div>
+<div class="node">reputação do autor</div>
+<div class="node">receita por editora</div>
+<div class="node">desempenho por gênero</div>
+</div>
+</div>
+
+<h2>3. As perguntas que orientaram a investigação</h2>
+
+<table>
+<thead>
+<tr><th>Hipótese</th><th>Pergunta analítica</th><th>Abordagem</th></tr>
+</thead>
+<tbody>
+<tr><td>A avaliação influencia as vendas</td><td>Livros com notas maiores vendem mais?</td><td>Correlação</td></tr>
+<tr><td>Engajamento influencia o desempenho</td><td>O número de avaliações está associado às vendas?</td><td>Correlação</td></tr>
+<tr><td>Preço reduz o volume</td><td>Livros mais caros apresentam menor volume de vendas?</td><td>EDA e comparação</td></tr>
+<tr><td>Autores famosos vendem mais</td><td>Existe diferença estatística entre grupos de autores?</td><td>Teste t</td></tr>
+<tr><td>Gênero altera o desempenho</td><td>Quais gêneros concentram títulos e avaliações?</td><td>Análise descritiva</td></tr>
+<tr><td>Editoras concentram receita</td><td>Quais editoras apresentam maior participação comercial?</td><td>Análise comparativa</td></tr>
+</tbody>
+</table>
+
+<h2>4. O que os dados mostraram</h2>
+
+<div class="insight">
+<strong>01 · A nota média não explica as vendas.</strong><br>
+A análise não encontrou uma relação significativa entre a avaliação média dos livros e o volume de vendas.
+Isso indica que uma nota alta, isoladamente, não deve ser tratada como indicador suficiente de sucesso comercial.
+</div>
+
+<div class="insight">
+<strong>02 · Engajamento aparece como um sinal mais relevante.</strong><br>
+O número de avaliações apresentou correlação moderada com as vendas, com
+<strong>correlação de 0,49</strong>. O resultado sugere uma associação relevante entre participação dos leitores
+e desempenho comercial.
+</div>
+
+<div class="insight">
+<strong>03 · Autor famoso não significa necessariamente mais vendas.</strong><br>
+O teste estatístico não identificou diferença significativa entre os grupos analisados,
+com <strong>p-valor de 0,5121</strong>. A reputação do autor, sozinha, não explica o desempenho comercial.
+</div>
+
+<div class="insight">
+<strong>04 · Preço importa.</strong><br>
+Livros acima de <strong>US$ 15</strong> apresentaram baixo volume de vendas quando comparados aos títulos
+de menor preço, indicando que a precificação pode ser uma variável relevante para o alcance comercial.
+</div>
+
+<div class="insight">
+<strong>05 · Ficção concentra alcance e engajamento.</strong><br>
+O gênero Fiction concentra a maior quantidade de títulos e também o maior volume de avaliações no conjunto analisado.
+</div>
+
+<h2>5. A principal descoberta</h2>
+
+<div class="result">
+<strong>O sucesso comercial parece estar mais relacionado ao engajamento do público do que à nota média.</strong><br><br>
+O número de avaliações foi o indicador que apresentou a relação mais relevante com as vendas entre as variáveis
+investigadas. Isso muda a pergunta estratégica: em vez de olhar apenas para “qualidade percebida”,
+é necessário observar também o quanto o público está participando e interagindo com o título.
+</div>
+
+<h2>6. O que isso significa para o negócio?</h2>
+
+<p>
+Os resultados não significam que avaliação, preço, autor ou gênero sejam irrelevantes.
+Eles mostram que essas variáveis precisam ser interpretadas dentro de um contexto maior e que
+<strong>não é adequado tomar decisões editoriais com base em um único indicador</strong>.
+</p>
+
+<div class="steps">
+<div class="step"><b>01 — Engajamento</b><br>Estimular avaliações e participação dos leitores.</div>
+<div class="step"><b>02 — Precificação</b><br>Considerar preço como parte da estratégia comercial.</div>
+<div class="step"><b>03 — Portfólio</b><br>Explorar oportunidades em gêneros com maior alcance.</div>
+</div>
+
+<h2>7. Recomendações executivas</h2>
+
+<table>
+<thead>
+<tr><th>Achado</th><th>Implicação</th><th>Recomendação</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Correlação de 0,49 entre avaliações e vendas</td>
+<td>Engajamento é um sinal comercial relevante</td>
+<td>Estimular campanhas de avaliação e interação com leitores</td>
+</tr>
+<tr>
+<td>Nota média não explica as vendas</td>
+<td>Rating isolado é insuficiente</td>
+<td>Combinar avaliação com volume de avaliações e vendas</td>
+</tr>
+<tr>
+<td>Preço acima de US$ 15 apresenta menor volume</td>
+<td>Maior preço pode limitar alcance</td>
+<td>Usar precificação competitiva conforme objetivo do título</td>
+</tr>
+<tr>
+<td>Ficção concentra títulos e avaliações</td>
+<td>Existe forte presença do gênero na base</td>
+<td>Avaliar oportunidades de alcance e portfólio em Fiction</td>
+</tr>
+</tbody>
+</table>
+
+<h2>8. Como a análise foi construída</h2>
+
+<p>
+O projeto seguiu a metodologia <strong>CRISP-DM</strong>, conectando o problema de negócio às etapas
+de preparação, exploração, estatística e geração de recomendações.
+</p>
+
+<div class="steps">
+<div class="step"><b>01 — Business Understanding</b><br>Definição do problema e das perguntas.</div>
+<div class="step"><b>02 — Data Understanding</b><br>Exploração das variáveis e qualidade dos dados.</div>
+<div class="step"><b>03 — Data Preparation</b><br>Tratamento, limpeza e preparação da base.</div>
+<div class="step"><b>04 — EDA</b><br>Distribuições, relações, outliers e comparações.</div>
+<div class="step"><b>05 — Estatística</b><br>Correlação de Pearson e teste t.</div>
+<div class="step"><b>06 — Business Insights</b><br>Interpretação dos resultados e recomendações.</div>
+</div>
+
+<h2>9. Ferramentas utilizadas</h2>
+
+<p>
+<strong>Python</strong> para tratamento e análise dos dados; <strong>Pandas</strong> e
+<strong>NumPy</strong> para manipulação; <strong>Matplotlib</strong> e <strong>Seaborn</strong>
+para visualização; <strong>SciPy</strong> para análises estatísticas; e
+<strong>Jupyter Notebook</strong> para documentar a investigação.
+</p>
+
+<h2>10. Conclusão executiva</h2>
+
+<p>
+A análise mostra que o desempenho comercial de um livro não pode ser explicado apenas por sua nota média
+ou pela fama do autor. Entre as variáveis investigadas, o <strong>número de avaliações</strong> apresentou
+a associação mais relevante com as vendas.
+</p>
+
+<p>
+Para decisões de marketing, precificação e lançamento, a recomendação é olhar para o conjunto de sinais:
+<strong>engajamento do público, preço, gênero e desempenho comercial</strong>, evitando decisões baseadas
+em um único indicador.
+</p>
+
+<div class="note">
+<strong>Mensagem final:</strong><br>
+Não basta perguntar se o leitor gostou do livro. Para entender o sucesso comercial,
+é preciso investigar <strong>quanto o público está se envolvendo com ele e como esse engajamento se relaciona às vendas</strong>.
+</div>
+
+<footer>
+Análise Executiva · Análise de Vendas de Livros · Portfólio de Viviane Andrade
+</footer>
+
+</main>
+</body>
+</html>

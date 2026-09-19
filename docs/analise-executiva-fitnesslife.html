@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise Executiva — Por que a receita caiu? | Viviane Andrade</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --navy:#1E2761;
+    --navy-dark:#141A45;
+    --navy-deep:#2A3480;
+    --ice:#CADCFC;
+    --ice-soft:#EEF3FD;
+    --white:#FFFFFF;
+    --ink:#1B2340;
+    --muted:#5B6584;
+    --coral:#E85C41;
+    --good:#1F9D6B;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter', sans-serif; background:var(--white); color:var(--ink); line-height:1.6;}
+h1,h2,h3{font-family:'Playfair Display', serif;}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 6%;}
+
+.kicker{display:block; font-size:12px; font-weight:800; letter-spacing:2px; color:var(--navy); margin-bottom:16px;}
+.kicker.on-dark{ color:var(--ice); }
+.kicker.coral{ color:var(--coral); }
+
+.back-bar{position:sticky; top:0; z-index:50; background:rgba(20,26,69,0.96); backdrop-filter:blur(6px); padding:16px 6%;}
+.back-bar a{color:var(--ice); text-decoration:none; font-size:14px; font-weight:600; transition:.3s;}
+.back-bar a:hover{ color:var(--white); }
+
+/* CAPA */
+.cover{position:relative; min-height:82vh; background:linear-gradient(135deg, var(--navy) 0%, var(--navy) 55%, var(--navy-dark) 100%); color:var(--white); display:flex; align-items:center; overflow:hidden;}
+.cover::before{content:""; position:absolute; left:-140px; bottom:-160px; width:420px; height:420px; border-radius:50%; background:var(--navy-deep); opacity:.55;}
+.cover::after{content:""; position:absolute; left:-40px; bottom:-100px; width:220px; height:220px; border-radius:50%; background:#2E3980; opacity:.6;}
+.cover-inner{position:relative; z-index:2; max-width:760px; padding:80px 6%;}
+.cover h1{font-size:clamp(32px, 4.8vw, 52px); font-weight:800; line-height:1.12; letter-spacing:-1px; margin-bottom:26px;}
+.cover p.lead{font-size:17px; color:var(--ice); max-width:600px; margin-bottom:34px; line-height:1.7;}
+.cover-divider{width:70px; height:2px; background:var(--ice); margin-bottom:26px;}
+.cover-author strong{display:block; font-size:15px; margin-bottom:4px;}
+.cover-author span{font-size:14px; color:var(--ice);}
+.cover-tools{margin-top:34px; display:flex; flex-wrap:wrap; gap:8px;}
+.cover-tools span{padding:7px 14px; border-radius:20px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); color:var(--ice); font-size:12px; font-weight:600;}
+
+/* SEÇÃO GERAL */
+section.block{padding:90px 0;}
+section.block.on-dark{background:var(--navy); color:var(--white);}
+h2.section-title{font-size:clamp(26px,3.4vw,34px); font-weight:800; line-height:1.2; letter-spacing:-0.5px; color:var(--ink); max-width:820px; margin-bottom:18px;}
+.on-dark h2.section-title{ color:var(--white); }
+p.section-lead{font-size:15.5px; color:var(--muted); max-width:790px; line-height:1.75;}
+.on-dark p.section-lead{ color:var(--ice); }
+
+/* SUMÁRIO */
+.summary-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:44px;}
+.summary-card{background:var(--ice-soft); border-radius:14px; padding:26px 22px;}
+.summary-icon{width:44px; height:44px; border-radius:50%; background:var(--navy); color:var(--white); display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:22px;}
+.summary-card .label{display:block; font-size:10.5px; font-weight:800; letter-spacing:1px; color:var(--navy); margin-bottom:10px;}
+.summary-card .value{font-family:'Playfair Display', serif; font-size:18px; font-weight:700; line-height:1.3; color:var(--ink);}
+
+/* ARQUITETURA MEDALHÃO */
+.arch-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:44px; align-items:start;}
+.arch-panel{background:var(--navy); border-radius:14px; padding:32px;}
+.arch-panel h4{font-size:11px; font-weight:800; letter-spacing:1.2px; color:var(--ice); margin-bottom:20px;}
+.arch-layer{background:var(--navy-dark); border-radius:8px; padding:16px 18px; margin-bottom:14px;}
+.arch-layer:last-child{ margin-bottom:0; }
+.arch-layer .name{color:var(--ice); font-weight:700; font-size:13.5px; margin-bottom:4px;}
+.arch-layer .desc{color:var(--white); font-size:11.5px;}
+
+/* GRÁFICO DIVERGENTE */
+.diverge-wrap{ margin-top:44px; }
+.diverge-title{ text-align:center; font-size:12.5px; font-weight:700; color:var(--muted); margin-bottom:18px; }
+.diverge-top, .diverge-bottom{ display:grid; gap:14px; height:170px; }
+.diverge-top{ align-items:end; }
+.diverge-bottom{ align-items:start; }
+.diverge-zero{ height:1px; background:#D7E3FA; }
+.diverge-col{ display:flex; flex-direction:column; align-items:center; width:100%; }
+.diverge-top .diverge-col{ justify-content:flex-end; height:100%; }
+.diverge-bottom .diverge-col{ justify-content:flex-start; height:100%; }
+.diverge-col .bar{ width:70%; max-width:80px; border-radius:6px; }
+.diverge-top .bar{ border-radius:6px 6px 0 0; }
+.diverge-bottom .bar{ border-radius:0 0 6px 6px; }
+.diverge-col .val{ font-size:13px; font-weight:700; margin:0 0 6px; color:var(--ink); }
+.diverge-bottom .val{ margin:6px 0 0; }
+.diverge-labels{ display:grid; gap:14px; margin-top:8px; }
+.diverge-labels span{ text-align:center; font-size:12.5px; color:var(--muted); font-weight:600; }
+
+/* DIAGNÓSTICO */
+.diag-grid{display:grid; grid-template-columns:1fr 1.05fr; gap:24px; margin-top:44px;}
+.diag-card{background:var(--navy-dark); border-radius:14px; padding:32px;}
+.diag-card h4{font-size:11px; font-weight:800; letter-spacing:1px; color:var(--ice); margin-bottom:16px;}
+.diag-card .big{font-family:'Playfair Display', serif; font-size:52px; font-weight:800; color:var(--white); margin-bottom:16px;}
+.diag-card p{font-size:13px; color:var(--ice); line-height:1.6; margin-bottom:18px;}
+.diag-card hr{border:none; border-top:1px solid #3B4694; margin-bottom:16px;}
+.diag-card .tag{font-size:13px; font-weight:700; color:var(--white);}
+.discard-item{display:flex; align-items:flex-start; gap:10px; padding:10px 0; color:var(--white); font-size:13px; line-height:1.4;}
+.discard-item .x{color:var(--coral); font-weight:800;}
+.diag-note{font-size:11px; font-style:italic; color:var(--ice); line-height:1.5; margin-top:12px;}
+
+/* RECOMENDAÇÕES */
+.rec-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px 48px; margin-top:44px;}
+.rec-item{display:flex; gap:18px;}
+.rec-item .rnum{font-family:'Playfair Display', serif; font-size:26px; font-weight:800; color:var(--ice); flex:0 0 auto;}
+.rec-item h3{font-size:15.5px; font-weight:700; color:var(--ink); margin-bottom:6px;}
+.rec-item p{font-size:13.5px; color:var(--muted); line-height:1.6;}
+
+/* RISCOS */
+.risk-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:44px;}
+.risk-card{background:var(--ice-soft); border-radius:12px; overflow:hidden; padding:0 0 22px;}
+.risk-card .bar-top{height:6px; background:var(--coral);}
+.risk-card .inner{ padding:22px 20px 0; }
+.risk-card h3{font-size:14px; font-weight:700; color:var(--ink); margin-bottom:12px; line-height:1.3;}
+.risk-card p.desc{font-size:12px; color:var(--muted); line-height:1.55; margin-bottom:18px;}
+.risk-card .mit-label{font-size:10px; font-weight:800; letter-spacing:1px; color:var(--good); margin-bottom:8px;}
+.risk-card p.mit{font-size:12px; color:var(--ink); line-height:1.5;}
+
+/* PRÓXIMOS PASSOS */
+.roadmap-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:44px;}
+.roadmap-card{background:var(--navy-deep); border-radius:14px; padding:28px 26px;}
+.roadmap-card.active{background:var(--ice);}
+.roadmap-card .phase{font-size:11px; font-weight:800; letter-spacing:1px; color:var(--ice); margin-bottom:10px;}
+.roadmap-card.active .phase{ color:var(--navy); }
+.roadmap-card .when{font-family:'Playfair Display', serif; font-size:19px; font-weight:800; color:var(--white); margin-bottom:20px;}
+.roadmap-card.active .when{ color:var(--ink); }
+.roadmap-card ul{list-style:none;}
+.roadmap-card li{position:relative; padding-left:18px; margin-bottom:12px; font-size:13px; color:var(--ice); line-height:1.5;}
+.roadmap-card.active li{ color:var(--ink); }
+.roadmap-card li::before{content:"●"; position:absolute; left:0; font-size:8px; top:5px;}
+
+/* ENCERRAMENTO */
+.closing{background:var(--navy-dark); color:var(--white); padding:110px 0; position:relative; overflow:hidden;}
+.closing::before{content:""; position:absolute; right:-120px; top:-140px; width:360px; height:360px; border-radius:50%; background:var(--navy-deep); opacity:.5;}
+.closing-inner{position:relative; z-index:2; max-width:840px;}
+.closing blockquote{font-family:'Playfair Display', serif; font-size:clamp(22px,2.8vw,28px); font-weight:700; font-style:italic; line-height:1.4; margin-bottom:44px;}
+.closing-divider{width:60px; height:2px; background:var(--ice); margin-bottom:24px;}
+.closing-author strong{display:block; font-size:15px; margin-bottom:4px;}
+.closing-author span{display:block; font-size:13.5px; color:var(--ice); margin-bottom:2px;}
+
+/* RODAPÉ */
+.page-footer{padding:44px 0; text-align:center; background:var(--ice-soft);}
+.page-footer a.btn{display:inline-block; margin-top:16px; padding:14px 30px; border-radius:10px; background:var(--navy); color:var(--white); text-decoration:none; font-weight:700; font-size:14px; transition:.3s;}
+.page-footer a.btn:hover{background:var(--navy-dark); transform:translateY(-2px);}
+.page-footer p{font-size:13.5px; color:var(--muted);}
+
+/* RESPONSIVO */
+@media (max-width:900px){
+    .summary-grid{ grid-template-columns:repeat(2,1fr); }
+    .arch-grid{ grid-template-columns:1fr; gap:32px; }
+    .diag-grid{ grid-template-columns:1fr; }
+    .rec-grid{ grid-template-columns:1fr; }
+    .risk-grid{ grid-template-columns:repeat(2,1fr); }
+    .roadmap-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:600px){
+    section.block{ padding:60px 0; }
+    .summary-grid{ grid-template-columns:1fr; }
+    .risk-grid{ grid-template-columns:1fr; }
+    .cover-inner{ padding:60px 6%; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="back-bar">
+    <a href="index.html#projetos">← Voltar aos projetos</a>
+</div>
+
+
+<!-- CAPA -->
+<section class="cover">
+    <div class="cover-inner">
+
+        <span class="kicker on-dark">DATA WAREHOUSE · SQL · BUSINESS INTELLIGENCE</span>
+
+        <h1>Por que a receita caiu mesmo com mais clientes?</h1>
+
+        <p class="lead">
+            Análise executiva da queda de receita da FitnessLife em 2023,
+            da causa raiz às recomendações.
+        </p>
+
+        <div class="cover-divider"></div>
+
+        <div class="cover-author">
+            <strong>Viviane Andrade</strong>
+            <span>Data Analyst | Business Intelligence</span>
+        </div>
+
+        <div class="cover-tools">
+            <span>SQL Server</span>
+            <span>Data Warehouse</span>
+            <span>Power BI</span>
+            <span>DAX</span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SUMÁRIO EXECUTIVO -->
+<section class="block">
+    <div class="wrap">
+
+        <span class="kicker">SUMÁRIO EXECUTIVO</span>
+        <h2 class="section-title">Mais clientes, menos receita: um problema de monetização</h2>
+        <p class="section-lead">
+            Construímos um pipeline de dados de ponta a ponta (SQL Server,
+            arquitetura medalhão, Power BI) para investigar por que a receita
+            da academia caiu em 2023 mesmo com crescimento da base de clientes
+            — e encontramos uma causa raiz clara e acionável.
+        </p>
+
+        <div class="summary-grid">
+
+            <div class="summary-card">
+                <div class="summary-icon">◎</div>
+                <span class="label">PERGUNTA DE NEGÓCIO</span>
+                <div class="value">Por que a receita caiu apesar de mais clientes?</div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon">◆</div>
+                <span class="label">CAUSA RAIZ</span>
+                <div class="value">Descontinuação do Cross Training em mar/23</div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon">▲</div>
+                <span class="label">IMPACTO</span>
+                <div class="value">~70% da queda total, R$ 525 mil</div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon">→</div>
+                <span class="label">PRÓXIMO PASSO</span>
+                <div class="value">Repor a modalidade ou campanha de win-back</div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CONTEXTO E ARQUITETURA -->
+<section class="block" style="background:#F8FAFC;">
+    <div class="wrap">
+
+        <span class="kicker">O DESAFIO DE NEGÓCIO</span>
+        <h2 class="section-title">Um pipeline de ponta a ponta para investigar a causa raiz</h2>
+
+        <div class="arch-grid">
+
+            <p class="section-lead" style="margin-top:14px;">
+                O projeto foi estruturado com arquitetura medalhão (Bronze,
+                Silver, Gold), da engenharia de dados em SQL Server até o
+                dashboard executivo em Power BI, para garantir rastreabilidade
+                completa entre o dado bruto e a conclusão de negócio.
+            </p>
+
+            <div class="arch-panel">
+                <h4>ARQUITETURA MEDALHÃO</h4>
+
+                <div class="arch-layer">
+                    <div class="name">Bronze</div>
+                    <div class="desc">Ingestão dos dados brutos</div>
+                </div>
+
+                <div class="arch-layer">
+                    <div class="name">Silver</div>
+                    <div class="desc">Tratamento e qualidade de dados</div>
+                </div>
+
+                <div class="arch-layer">
+                    <div class="name">Gold</div>
+                    <div class="desc">Modelagem analítica e views para BI</div>
+                </div>
+
+                <div class="arch-layer">
+                    <div class="name">Power BI</div>
+                    <div class="desc">Dashboard e storytelling executivo</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ACHADO 1 — O QUADRO GERAL -->
+<section class="block">
+    <div class="wrap">
+
+        <span class="kicker">O QUE OS DADOS REVELARAM · O QUADRO GERAL</span>
+        <h2 class="section-title">Crescimento na base, retração na monetização</h2>
+        <p class="section-lead">
+            A receita caiu 25% frente a 2022, mesmo com 19% mais clientes. O
+            ticket médio despencou 37% — e a modalidade Cross Training foi o
+            principal driver da queda, com retração de 86% frente ao ano anterior.
+        </p>
+
+        <div class="diverge-wrap">
+            <div class="diverge-title">VARIAÇÃO 2023 VS. 2022</div>
+
+            <div class="diverge-top" style="grid-template-columns:repeat(4,1fr);">
+                <div class="diverge-col"></div>
+                <div class="diverge-col"><span class="val">+19%</span><div class="bar" style="height:31px; background:#1F9D6B;"></div></div>
+                <div class="diverge-col"></div>
+                <div class="diverge-col"></div>
+            </div>
+
+            <div class="diverge-zero"></div>
+
+            <div class="diverge-bottom" style="grid-template-columns:repeat(4,1fr);">
+                <div class="diverge-col"><div class="bar" style="height:41px; background:#E85C41;"></div><span class="val">-25%</span></div>
+                <div class="diverge-col"></div>
+                <div class="diverge-col"><div class="bar" style="height:60px; background:#E85C41;"></div><span class="val">-37%</span></div>
+                <div class="diverge-col"><div class="bar" style="height:140px; background:#E85C41;"></div><span class="val">-86%</span></div>
+            </div>
+
+            <div class="diverge-labels" style="grid-template-columns:repeat(4,1fr);">
+                <span>Receita</span>
+                <span>Clientes</span>
+                <span>Ticket médio</span>
+                <span>Cross Training</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- DIAGNÓSTICO -->
+<section class="block on-dark">
+    <div class="wrap">
+
+        <span class="kicker on-dark">DIAGNÓSTICO EXECUTIVO</span>
+        <h2 class="section-title">A saída de um professor derrubou 70% da receita perdida</h2>
+        <p class="section-lead">
+            A receita apresentou retração significativa devido à deterioração
+            da monetização da base de clientes, impulsionada principalmente
+            pela descontinuação da modalidade Cross Training em março de 2023
+            — quando o professor responsável pela modalidade saiu, comprometendo
+            retenção, percepção de valor, receita premium e ticket médio.
+        </p>
+
+        <div class="diag-grid">
+
+            <div class="diag-card">
+                <h4>IMPACTO NA RECEITA</h4>
+                <div class="big">~70%</div>
+                <p>da queda total de receita concentrada numa única modalidade</p>
+                <hr>
+                <span class="tag">Equivalente a R$ 525 mil em receita perdida</span>
+            </div>
+
+            <div class="diag-card">
+                <h4>O QUE O DADO DESCARTOU</h4>
+
+                <div class="discard-item"><span class="x">✕</span> Concentração num único plano de assinatura</div>
+                <div class="discard-item"><span class="x">✕</span> Queda generalizada em todas as modalidades</div>
+                <div class="discard-item"><span class="x">✕</span> Problema pontual de um único mês</div>
+
+                <p class="diag-note">
+                    A queda foi distribuída entre os planos, descartando
+                    concentração num único produto — o driver real foi a
+                    modalidade.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- RECOMENDAÇÕES -->
+<section class="block" style="background:#F8FAFC;">
+    <div class="wrap">
+
+        <span class="kicker">RECOMENDAÇÕES DE NEGÓCIO</span>
+        <h2 class="section-title">Da causa raiz à ação</h2>
+
+        <div class="rec-grid">
+
+            <div class="rec-item">
+                <span class="rnum">01</span>
+                <div>
+                    <h3>Repor a modalidade Cross Training</h3>
+                    <p>Contratar ou realocar um profissional qualificado para retomar a modalidade o quanto antes, estancando a perda de receita.</p>
+                </div>
+            </div>
+
+            <div class="rec-item">
+                <span class="rnum">02</span>
+                <div>
+                    <h3>Campanha de win-back</h3>
+                    <p>Reengajar clientes que saíram ou reduziram o ticket após o fim da modalidade, com oferta direcionada.</p>
+                </div>
+            </div>
+
+            <div class="rec-item">
+                <span class="rnum">03</span>
+                <div>
+                    <h3>Reduzir dependência de pessoa-chave</h3>
+                    <p>Estruturar plano de contingência para modalidades de alto valor que dependem de um único profissional.</p>
+                </div>
+            </div>
+
+            <div class="rec-item">
+                <span class="rnum">04</span>
+                <div>
+                    <h3>Monitorar ticket médio por modalidade</h3>
+                    <p>Acompanhar o ticket médio por modalidade como indicador antecedente, não só a receita total.</p>
+                </div>
+            </div>
+
+            <div class="rec-item">
+                <span class="rnum">05</span>
+                <div>
+                    <h3>Diversificar modalidades premium</h3>
+                    <p>Reduzir a concentração de receita numa única modalidade de alto valor agregado.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- RISCOS -->
+<section class="block">
+    <div class="wrap">
+
+        <span class="kicker coral">RISCOS E MITIGAÇÕES</span>
+        <h2 class="section-title">O que pode limitar essas conclusões</h2>
+
+        <div class="risk-grid">
+
+            <div class="risk-card">
+                <div class="bar-top"></div>
+                <div class="inner">
+                    <h3>Risco de recorrência</h3>
+                    <p class="desc">A dependência de um único profissional-chave pode se repetir em outras modalidades premium.</p>
+                    <div class="mit-label">MITIGAÇÃO</div>
+                    <p class="mit">Mapear todas as modalidades com risco de dependência similar, não só o Cross Training.</p>
+                </div>
+            </div>
+
+            <div class="risk-card">
+                <div class="bar-top"></div>
+                <div class="inner">
+                    <h3>Causalidade simplificada</h3>
+                    <p class="desc">A análise aponta a saída do professor como driver principal, mas outros fatores podem contribuir.</p>
+                    <div class="mit-label">MITIGAÇÃO</div>
+                    <p class="mit">Aprofundar com pesquisa de saída (churn) dos clientes que cancelaram no período.</p>
+                </div>
+            </div>
+
+            <div class="risk-card">
+                <div class="bar-top"></div>
+                <div class="inner">
+                    <h3>Custo do win-back</h3>
+                    <p class="desc">Campanhas de reengajamento têm custo e taxa de conversão incerta.</p>
+                    <div class="mit-label">MITIGAÇÃO</div>
+                    <p class="mit">Rodar piloto pequeno e medir retorno antes de escalar o investimento.</p>
+                </div>
+            </div>
+
+            <div class="risk-card">
+                <div class="bar-top"></div>
+                <div class="inner">
+                    <h3>Janela de dados limitada</h3>
+                    <p class="desc">A análise cobre um único ano fiscal, o que limita a validação de tendência.</p>
+                    <div class="mit-label">MITIGAÇÃO</div>
+                    <p class="mit">Reavaliar com dados de 2024 assim que disponíveis para confirmar o padrão.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PRÓXIMOS PASSOS -->
+<section class="block on-dark">
+    <div class="wrap">
+
+        <span class="kicker on-dark">PRÓXIMOS PASSOS</span>
+        <h2 class="section-title">Roteiro de implementação</h2>
+
+        <div class="roadmap-grid">
+
+            <div class="roadmap-card active">
+                <div class="phase">CURTO PRAZO</div>
+                <div class="when">0–30 dias</div>
+                <ul>
+                    <li>Contratar/realocar professor para Cross Training</li>
+                    <li>Mapear clientes que cancelaram após mar/23</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-card">
+                <div class="phase">MÉDIO PRAZO</div>
+                <div class="when">1–3 meses</div>
+                <ul>
+                    <li>Rodar piloto de campanha de win-back</li>
+                    <li>Monitorar ticket médio por modalidade no dashboard</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-card">
+                <div class="phase">LONGO PRAZO</div>
+                <div class="when">3–6 meses</div>
+                <ul>
+                    <li>Plano de contingência para modalidades-chave</li>
+                    <li>Reavaliar diagnóstico com dados de 2024</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ENCERRAMENTO -->
+<section class="closing">
+    <div class="wrap">
+        <div class="closing-inner">
+
+            <blockquote>
+                "Crescer em clientes não é o mesmo que crescer em receita —
+                a monetização depende de manter o que gera valor percebido."
+            </blockquote>
+
+            <div class="closing-divider"></div>
+
+            <div class="closing-author">
+                <strong>Viviane Andrade</strong>
+                <span>Data Analyst | Business Intelligence</span>
+                <span>github.com/VivianeAndrade1988/Projeto_Analise_Receita_FitnessLife</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- RODAPÉ -->
+<footer class="page-footer">
+    <p>Projeto desenvolvido por Viviane Andrade</p>
+    <a href="index.html#projetos" class="btn">← Voltar ao portfólio</a>
+</footer>
+
+</body>
+</html>

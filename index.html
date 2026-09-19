@@ -1,73 +1,1009 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">>
+<head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Viviane Andrade | Data Analyst</title>
+    <title>
+        Viviane Andrade | Data Analytics & Business Intelligence
+    </title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
 
 </head>
 
+
 <body>
 
-    <!-- MENU -->
-    <header>
 
-        <nav class="navbar">
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
 
-            <div class="logo">
-                Viviane Andrade
-            </div>
+    <header class="navbar">
 
-            <ul class="menu">
+        <div class="container navbar-content">
 
-                <li><a href="#">Home</a></li>
+            <a href="#inicio" class="logo">
+                VA
+            </a>
 
-                <li><a href="#">Sobre</a></li>
+            <nav>
 
-                <li><a href="#">Projetos</a></li>
+                <a href="#sobre">
+                    Sobre
+                </a>
 
-                <li><a href="#">Artigos</a></li>
+                <a href="#projetos">
+                    Projetos
+                </a>
 
-                <li><a href="#">Contato</a></li>
+                <a href="#contato">
+                    Contato
+                </a>
 
-            </ul>
+            </nav>
 
-        </nav>
+        </div>
 
     </header>
 
-    <!-- HERO -->
 
-    <section class="hero">
+    <!-- =========================================
+         HERO
+    ========================================== -->
 
-        <h1>Viviane Andrade</h1>
+    <main>
 
-        <h2>Data Analyst | Business Intelligence</h2>
+        <section
+            id="inicio"
+            class="hero"
+        >
 
-        <p>
-            Ajudo empresas a resolverem problemas de negócios por meio de dashboards interativos, 
-            
-          <p>
-            automação de relatórios e análises orientadas a dados.
+            <div class="hero-content">
 
-          <p>
-            Transformo dados em decisões estratégicas e resultados concretos.
-        </p>
+                <span class="hero-label">
+                    DATA ANALYTICS · BUSINESS INTELLIGENCE
+                </span>
 
-        <button>
-            Conheça meus projetos
-        </button>
 
-    </section>
+                <!-- FOTO DE PERFIL -->
+
+                <div class="profile-container">
+
+                    <img
+                        src="assets/images/profile.jpg"
+                        alt="Viviane Andrade"
+                        class="profile-photo"
+                    >
+
+                </div>
+
+
+                <h1>
+                    Transformando dados
+                    <br>
+                    em decisões.
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Analista de Dados com experiência prática em automação
+                    de processos, ETL e dashboards estratégicos —
+                    incluindo a automação de relatórios que aumentou a
+                    produtividade em até 98%. Formação em Administração e
+                    Ciência de Dados, com um portfólio de 6 projetos
+                    completos aplicando Power BI, SQL, Python e Estatística.
+
+                </p>
+
+
+                <!-- BOTÕES -->
+
+                <div class="hero-buttons">
+
+                    <a href="#projetos" class="btn btn-primary">
+                        Ver Projetos
+                    </a>
+
+
+                    <a href="docs/cv.pdf" target="_blank" class="btn btn-secondary">
+                        Download CV
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SOBRE
+        ========================================== -->
+
+        <section
+            id="sobre"
+            class="about"
+        >
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        QUEM SOU
+                    </span>
+
+                    <h2>
+                        Sobre mim
+                    </h2>
+
+                </div>
+
+
+                <div class="about-intro">
+
+                    <h3>
+                        Dados que geram decisões.
+                    </h3>
+
+
+                    <p>
+
+                        Sou formada em Administração e Ciência de Dados,
+                        com experiência prática em automação de processos,
+                        ETL e criação de dashboards estratégicos.
+                        Implementei melhorias que reduziram erros
+                        operacionais e transformaram tarefas que levavam
+                        horas em processos executados em minutos —
+                        incluindo a automação de relatórios com Power
+                        Query, que aumentou a produtividade em até 98%.
+
+                    </p>
+
+
+                    <p>
+
+                        Utilizo SQL e Python para coletar, tratar e
+                        analisar dados, transformando informações
+                        complexas em insights claros e acionáveis para a
+                        tomada de decisão. Complementei essa experiência
+                        com um portfólio de 6 projetos completos — do
+                        problema de negócio ao dashboard — porque acredito
+                        que aprender fazendo é a melhor forma de evoluir.
+
+                    </p>
+
+                </div>
+
+
+                <div class="skills-block">
+
+                    <span class="subsection-label">
+                        COMPETÊNCIAS TÉCNICAS
+                    </span>
+
+                    <div class="skills-grid">
+
+                        <div class="skill">
+                            <span class="skill-icon">📊</span>
+                            <strong>Power BI</strong>
+                            <span>Dashboards, DAX & modelagem de dados</span>
+                        </div>
+
+                        <div class="skill">
+                            <span class="skill-icon">🗄️</span>
+                            <strong>SQL</strong>
+                            <span>Consultas, tratamento & Data Warehouse</span>
+                        </div>
+
+                        <div class="skill">
+                            <span class="skill-icon">🐍</span>
+                            <strong>Python</strong>
+                            <span>Pandas, estatística & machine learning</span>
+                        </div>
+
+                        <div class="skill">
+                            <span class="skill-icon">⚙️</span>
+                            <strong>Excel & Power Query</strong>
+                            <span>Automação & preparação de dados</span>
+                        </div>
+
+                        <div class="skill">
+                            <span class="skill-icon">📈</span>
+                            <strong>Estatística Aplicada</strong>
+                            <span>Testes de hipótese & correlação</span>
+                        </div>
+
+                        <div class="skill">
+                            <span class="skill-icon">💬</span>
+                            <strong>Storytelling de Dados</strong>
+                            <span>Comunicação de insights para negócio</span>
+                        </div>
+
+                        <div class="skill">
+                            <span class="skill-icon">🔄</span>
+                            <strong>CRISP-DM</strong>
+                            <span>Metodologia de projetos ponta a ponta</span>
+                        </div>
+
+                        <div class="skill">
+                            <span class="skill-icon">🤖</span>
+                            <strong>Machine Learning</strong>
+                            <span>Modelos preditivos com scikit-learn</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skills-block">
+
+                    <span class="subsection-label">
+                        SOFT SKILLS
+                    </span>
+
+                    <div class="softskills-grid">
+
+                        <div class="softskill">
+                            <span class="skill-icon">🎯</span>
+                            <strong>Autoliderança</strong>
+                            <span>Disciplina, autonomia e foco em resultados</span>
+                        </div>
+
+                        <div class="softskill">
+                            <span class="skill-icon">🧩</span>
+                            <strong>Resolução de problemas</strong>
+                            <span>Identificação da causa raiz do problema</span>
+                        </div>
+
+                        <div class="softskill">
+                            <span class="skill-icon">🧠</span>
+                            <strong>Pensamento analítico</strong>
+                            <span>Análise lógica de forma estruturada</span>
+                        </div>
+
+                        <div class="softskill">
+                            <span class="skill-icon">🤝</span>
+                            <strong>Trabalho em equipe</strong>
+                            <span>Colaboração e foco em resultados coletivos</span>
+                        </div>
+
+                        <div class="softskill">
+                            <span class="skill-icon">🚀</span>
+                            <strong>Senso de dono</strong>
+                            <span>Responsabilidade e visão de negócio</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skills-block">
+
+                    <span class="subsection-label">
+                        COMO GERO VALOR COM DADOS
+                    </span>
+
+                    <div class="value-grid">
+
+                        <div class="value-card">
+                            <strong>Automação de relatórios</strong>
+                            <p>Redução de esforço operacional e aumento de produtividade, por meio da automação de relatórios e processos analíticos.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <strong>Dashboards estratégicos</strong>
+                            <p>Criação de dashboards claros e orientados a indicadores de performance para apoiar a tomada de decisão.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <strong>Business Analytics</strong>
+                            <ul>
+                                <li>Diagnóstico do problema</li>
+                                <li>Storytelling com dados</li>
+                                <li>Plano de ação com recomendações</li>
+                                <li>Apresentações executivas</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contribution-block">
+
+                    <span class="subsection-label">
+                        ONDE POSSO CONTRIBUIR
+                    </span>
+
+                    <div class="contribution-grid">
+
+                        <div class="contribution-card">
+                            <p>Construir e manter dashboards Power BI que respondem perguntas de negócio, não só mostram números.</p>
+                        </div>
+
+                        <div class="contribution-card">
+                            <p>Traduzir dados brutos em recomendações claras para quem decide, sem jargão técnico.</p>
+                        </div>
+
+                        <div class="contribution-card">
+                            <p>Automatizar relatórios e rotinas repetitivas com Power Query e Python, liberando tempo do time.</p>
+                        </div>
+
+                        <div class="contribution-card">
+                            <p>Aplicar estatística para validar hipóteses antes de decisões, em vez de intuição.</p>
+                        </div>
+
+                        <div class="contribution-card">
+                            <p>Organizar e modelar dados (SQL, esquema estrela) para relatórios confiáveis e escaláveis.</p>
+                        </div>
+
+                        <div class="contribution-card">
+                            <p>Aprender rápido e aplicar o que aprendo — os 6 projetos do meu portfólio nasceram assim.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PROJETOS
+        ========================================== -->
+<section id="projetos" class="projects">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>
+                PROJETOS
+            </span>
+
+            <h2>
+                Projetos que transformam
+                dados em decisões.
+            </h2>
+
+            <p>
+                Uma seleção de projetos desenvolvidos para
+                explorar problemas de negócio, analisar dados
+                e gerar insights.
+            </p>
+
+        </div>
+
+
+        <!-- ==========================================
+             CARROSSEL DE PROJETOS
+        =========================================== -->
+
+        <div class="projects-carousel">
+
+            <!-- SETA ESQUERDA -->
+
+            <button
+                class="carousel-arrow carousel-prev"
+                id="prevProject"
+                aria-label="Projeto anterior"
+            >
+                &#10094;
+            </button>
+
+
+            <!-- ÁREA VISÍVEL -->
+
+            <div class="projects-viewport">
+
+                <div
+                    class="projects-track"
+                    id="projectsTrack"
+                >
+
+
+                    <!-- =================================
+                         PROJETO 01 — LIVROS
+                    ================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/livros.png"
+                                alt="Análise de Vendas de Livros"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA SCIENCE · BUSINESS ANALYTICS
+                            </span>
+
+                            <h3>
+                                Análise de Vendas de Livros
+                            </h3>
+
+                            <p class="project-question">
+                                O que realmente faz um livro vender mais?
+                            </p>
+
+                            <p>
+                                Projeto de Ciência de Dados desenvolvido
+                                com a metodologia CRISP-DM para investigar
+                                os fatores associados ao sucesso comercial
+                                de livros.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                                <span>SciPy</span>
+                                <span>Estatística</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="analise-executiva-livros.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Analise_vendas_livros" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================
+                         PROJETO 02 — RFM
+                    ================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/rfm.jpg"
+                                alt="Segmentação de Clientes RFM"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA ANALYTICS · CUSTOMER ANALYTICS
+                            </span>
+
+                            <h3>
+                                Segmentação de Clientes — RFM
+                            </h3>
+
+                            <p class="project-question">
+                                Como entender o comportamento dos clientes?
+                            </p>
+
+                            <p>
+                                Projeto de análise de clientes utilizando
+                                a metodologia RFM para identificar perfis
+                                de comportamento e apoiar decisões de negócio.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>RFM</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="analise-executiva-rfm.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Segmentacao_clientes_Ecommerce_RFM" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================
+                         PROJETO 03 — CHURN
+                    ================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/churn.jpg"
+                                alt="Previsão de Churn Telecom"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA SCIENCE · MACHINE LEARNING
+                            </span>
+
+                            <h3>
+                                Previsão de Churn — Telecom
+                            </h3>
+
+                            <p class="project-question">
+                                Como reduzir a evasão de clientes?
+                            </p>
+
+                            <p>
+                                Projeto de análise e previsão de churn
+                                para identificar clientes com maior
+                                probabilidade de evasão.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>Scikit-learn</span>
+                                <span>Machine Learning</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="analise-executiva-churn.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Previs-o-de-churn-de-clientes--Telecom" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================
+                         PROJETO 04 — LOGÍSTICA
+                    ================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <div class="image-placeholder">
+                                CAPA DO PROJETO
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA ANALYTICS · LOGISTICS
+                            </span>
+
+                            <h3>
+                                Dashboard de Logística
+                            </h3>
+
+                            <p class="project-question">
+                                Como transformar dados logísticos em decisões?
+                            </p>
+
+                            <p>
+                                Projeto de análise de indicadores
+                                operacionais e desempenho logístico.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Power BI</span>
+                                <span>SQL</span>
+                                <span>Python</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="analise-executiva-logistica.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Dashboard-Log-stica" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================
+                         PROJETO 05 — RH
+                    ================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <div class="image-placeholder">
+                                CAPA DO PROJETO
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                PEOPLE ANALYTICS · BUSINESS ANALYTICS
+                            </span>
+
+                            <h3>
+                                Projeto RH
+                            </h3>
+
+                            <p class="project-question">
+                                Como transformar dados de pessoas em insights?
+                            </p>
+
+                            <p>
+                                Projeto de análise de dados de recursos
+                                humanos e indicadores para apoio à decisão.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Power BI</span>
+                                <span>Excel</span>
+                                <span>Data Analytics</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="analise-executiva-rh.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Projeto-RH" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================
+                         PROJETO 06 — COMERCIAL
+                    ================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <div class="image-placeholder">
+                                CAPA DO PROJETO
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                BUSINESS INTELLIGENCE · SALES
+                            </span>
+
+                            <h3>
+                                Projeto Comercial — Power BI
+                            </h3>
+
+                            <p class="project-question">
+                                Como transformar vendas em decisões comerciais?
+                            </p>
+
+                            <p>
+                                Projeto de análise comercial utilizando
+                                indicadores e visualizações para apoiar
+                                decisões de vendas.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Power BI</span>
+                                <span>DAX</span>
+                                <span>Business Analytics</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="analise-executiva-comercial.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Projeto-Comercial-Power-Bi" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================
+                         PROJETO 07 — FITNESSLIFE
+                    ================================== -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <div class="image-placeholder">
+                                CAPA DO PROJETO
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA ANALYTICS · BUSINESS INTELLIGENCE
+                            </span>
+
+                            <h3>
+                                Análise de Receita — FitnessLife
+                            </h3>
+
+                            <p class="project-question">
+                                O que explica a queda de receita?
+                            </p>
+
+                            <p>
+                                Projeto de análise de receita utilizando
+                                SQL, modelagem de dados, Power BI e DAX
+                                para investigar desempenho e indicadores.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>SQL</span>
+                                <span>Power BI</span>
+                                <span>DAX</span>
+                                <span>Business Analytics</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="analise-executiva-fitnesslife.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Projeto_Analise_Receita_FitnessLife" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- SETA DIREITA -->
+
+            <button
+                class="carousel-arrow carousel-next"
+                id="nextProject"
+                aria-label="Próximo projeto"
+            >
+                &#10095;
+            </button>
+
+        </div>
+
+    </div>
+
+</section>        <!-- =========================================
+             CONTATO
+        ========================================== -->
+
+        <section
+            id="contato"
+            class="contact"
+        >
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        CONTATO
+                    </span>
+
+                    <h2>
+                        Vamos transformar dados em resultados?
+                    </h2>
+
+                    <p>
+
+                        Estou disponível para novos projetos e
+                        oportunidades. Preencha o assunto e a mensagem, e
+                        escolha como prefere enviar.
+
+                    </p>
+
+                </div>
+
+
+                <form class="contact-form" id="contactForm" onsubmit="return false;">
+
+                    <div class="form-field">
+                        <label for="contactSubject">Assunto</label>
+                        <input type="text" id="contactSubject" placeholder="Ex: Oportunidade de vaga em BI">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contactMessage">Mensagem</label>
+                        <textarea id="contactMessage" rows="5" placeholder="Escreva sua mensagem aqui..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+
+                        <button type="button" class="btn btn-primary" onclick="sendViaEmail()">
+                            Enviar por E-mail
+                        </button>
+
+                        <button type="button" class="btn btn-whatsapp" onclick="sendViaWhatsapp()">
+                            Enviar por WhatsApp
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+                <div class="contact-links">
+
+
+                    <a href="https://www.linkedin.com/" target="_blank">
+                        LinkedIn
+                    </a>
+
+
+                    <a href="https://github.com/VivianeAndrade1988" target="_blank">
+                        GitHub
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+        function sendViaEmail() {
+            var subject = document.getElementById('contactSubject').value || 'Contato via portfólio';
+            var message = document.getElementById('contactMessage').value || '';
+            var email = 'viviane.analistadedados@gmail.com';
+            var url = 'mailto:' + email
+                + '?subject=' + encodeURIComponent(subject)
+                + '&body=' + encodeURIComponent(message);
+            window.location.href = url;
+        }
+
+        function sendViaWhatsapp() {
+            var subject = document.getElementById('contactSubject').value || 'Contato via portfólio';
+            var message = document.getElementById('contactMessage').value || '';
+            var phone = '5515997686058';
+            var text = subject + '\n\n' + message;
+            var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(text);
+            window.open(url, '_blank');
+        }
+    </script>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Viviane Andrade.
+                Data Analytics & Business Intelligence.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script
+        src="assets/js/script.js"
+    ></script>
+
 
 </body>
 

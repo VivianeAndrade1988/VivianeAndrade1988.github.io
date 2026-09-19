@@ -1,0 +1,1779 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        A empresa tinha milhões de dados… mas tomou uma decisão errada |
+        Viviane de Andrade
+    </title>
+
+    <meta name="description"
+          content="Como a Estatística ajuda empresas a transformar números em decisões estratégicas. Artigo 1 da série Estatística nos Negócios.">
+
+    <style>
+
+        /* =====================================================
+           CONFIGURAÇÕES GERAIS
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #202b3c;
+            line-height: 1.75;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: auto;
+            padding: 0 25px;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            height: 72px;
+            border-bottom: 1px solid #e5e8ed;
+            background: rgba(255,255,255,0.97);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            max-width: 1180px;
+            height: 72px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #12355b;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .menu {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: #566171;
+            font-size: 14px;
+        }
+
+        .menu a:hover {
+            color: #12355b;
+        }
+
+
+        /* =====================================================
+           BREADCRUMB
+        ===================================================== */
+
+        .breadcrumb {
+            padding-top: 35px;
+            color: #7a8492;
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: #12355b;
+        }
+
+
+        /* =====================================================
+           HERO DO ARTIGO
+        ===================================================== */
+
+        .article-hero {
+            max-width: 900px;
+            margin: auto;
+            padding: 65px 25px 70px;
+        }
+
+        .chapter {
+            color: #e07832;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .article-hero h1 {
+            color: #12355b;
+            font-size: 48px;
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .subtitle {
+            color: #667181;
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 780px;
+            margin-bottom: 28px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #edf2f7;
+            color: #38516c;
+            padding: 6px 11px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           LAYOUT DO ARTIGO
+        ===================================================== */
+
+        .article-layout {
+            max-width: 1180px;
+            margin: auto;
+            padding: 0 25px 100px;
+
+            display: grid;
+            grid-template-columns: 220px minmax(0, 760px);
+            gap: 70px;
+            align-items: start;
+        }
+
+
+        /* =====================================================
+           SUMÁRIO
+        ===================================================== */
+
+        .toc {
+            position: sticky;
+            top: 105px;
+            border-left: 2px solid #e5e8ed;
+            padding-left: 20px;
+        }
+
+        .toc-title {
+            color: #12355b;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 8px;
+        }
+
+        .toc a {
+            color: #687384;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .toc a:hover {
+            color: #e07832;
+        }
+
+
+        /* =====================================================
+           CONTEÚDO
+        ===================================================== */
+
+        .article-content {
+            min-width: 0;
+        }
+
+        .article-content section {
+            margin-bottom: 65px;
+            scroll-margin-top: 100px;
+        }
+
+        .article-content h2 {
+            color: #12355b;
+            font-size: 30px;
+            line-height: 1.25;
+            margin-bottom: 22px;
+        }
+
+        .article-content h3 {
+            color: #12355b;
+            font-size: 21px;
+            margin: 28px 0 12px;
+        }
+
+        .article-content p {
+            color: #4e5969;
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+
+        .article-content strong {
+            color: #253449;
+        }
+
+
+        /* =====================================================
+           DESTAQUE
+        ===================================================== */
+
+        .highlight {
+            background: #f5f7fa;
+            border-left: 4px solid #e07832;
+            padding: 25px 28px;
+            margin: 30px 0;
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #344154;
+            font-size: 17px;
+        }
+
+
+        /* =====================================================
+           QUOTE
+        ===================================================== */
+
+        blockquote {
+            border-left: 4px solid #12355b;
+            margin: 30px 0;
+            padding: 10px 25px;
+
+            color: #12355b;
+            font-size: 21px;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           TABELAS
+        ===================================================== */
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background: #12355b;
+            color: white;
+            text-align: left;
+            padding: 13px 15px;
+        }
+
+        td {
+            padding: 13px 15px;
+            border-bottom: 1px solid #e4e7ec;
+            color: #4f5968;
+        }
+
+        tr:nth-child(even) {
+            background: #f7f8fa;
+        }
+
+
+        /* =====================================================
+           COMPARAÇÃO DESCRITIVA / INFERENCIAL
+        ===================================================== */
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .comparison-card {
+            border: 1px solid #e1e5eb;
+            padding: 28px;
+        }
+
+        .comparison-card h3 {
+            margin-top: 0;
+            color: #12355b;
+        }
+
+        .comparison-card .question {
+            color: #e07832;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+
+        /* =====================================================
+           FLUXO
+        ===================================================== */
+
+        .flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+
+            margin: 35px 0;
+        }
+
+        .flow-item {
+            flex: 1;
+            background: #f5f7fa;
+            border: 1px solid #e2e6eb;
+            padding: 18px 10px;
+            text-align: center;
+
+            color: #12355b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .flow-arrow {
+            color: #e07832;
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           CÓDIGO
+        ===================================================== */
+
+        .code-title {
+            color: #12355b;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        pre {
+            background: #172333;
+            color: #e7edf5;
+            padding: 25px;
+            overflow-x: auto;
+            border-radius: 4px;
+            margin: 15px 0 25px;
+        }
+
+        code {
+            font-family: Consolas, Monaco, monospace;
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           INSIGHT
+        ===================================================== */
+
+        .insight {
+            background: #eef3f8;
+            border: 1px solid #dce4ec;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .insight-label {
+            color: #e07832;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .insight h3 {
+            margin: 0 0 12px;
+        }
+
+        .insight p {
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           LISTAS
+        ===================================================== */
+
+        .article-content ul,
+        .article-content ol {
+            margin: 15px 0 25px 25px;
+            color: #4e5969;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+
+        /* =====================================================
+           EXERCÍCIO
+        ===================================================== */
+
+        .exercise {
+            background: #f7f8fa;
+            border-top: 4px solid #12355b;
+            padding: 35px;
+            margin-top: 30px;
+        }
+
+        .exercise-label {
+            color: #e07832;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .exercise h3 {
+            color: #12355b;
+            font-size: 24px;
+            margin: 8px 0 15px;
+        }
+
+
+        /* =====================================================
+           MATEMÁTICA
+        ===================================================== */
+
+        .math-box {
+            border: 1px solid #dfe4ea;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .math-box h3 {
+            margin-top: 0;
+        }
+
+        .math-box p {
+            margin-bottom: 8px;
+        }
+
+
+        /* =====================================================
+           NAVEGAÇÃO ENTRE ARTIGOS
+        ===================================================== */
+
+        .article-navigation {
+            max-width: 1180px;
+            margin: auto;
+            padding: 0 25px 80px;
+
+            border-top: 1px solid #e5e8ed;
+            padding-top: 45px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .nav-card {
+            border: 1px solid #e1e5eb;
+            padding: 25px;
+            transition: 0.2s;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(20,40,70,0.07);
+        }
+
+        .nav-label {
+            color: #e07832;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .nav-card h3 {
+            color: #12355b;
+            font-size: 19px;
+            margin-top: 8px;
+        }
+
+        .nav-card p {
+            color: #687384;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #0d2742;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer p {
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .menu {
+                display: none;
+            }
+
+            .article-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .toc {
+                position: static;
+                order: -1;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .article-hero h1 {
+                font-size: 38px;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .flow-item {
+                width: 100%;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .article-navigation {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header>
+
+    <nav class="nav">
+
+        <div class="logo">
+            Viviane de Andrade
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="../../index.html">
+                    Início
+                </a>
+            </li>
+
+            <li>
+                <a href="../../projetos/index.html">
+                    Projetos
+                </a>
+            </li>
+
+            <li>
+                <a href="../../business-cases/index.html">
+                    Business Cases
+                </a>
+            </li>
+
+            <li>
+                <a href="../index.html">
+                    Artigos
+                </a>
+            </li>
+
+            <li>
+                <a href="../../estudos/index.html">
+                    Estudos
+                </a>
+            </li>
+
+            <li>
+                <a href="../../sobre.html">
+                    Sobre
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     BREADCRUMB
+====================================================== -->
+
+<div class="container">
+
+    <div class="breadcrumb">
+
+        <a href="../../index.html">
+            Início
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="../index.html">
+            Artigos
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="index.html">
+            Estatística
+        </a>
+
+        &nbsp; / &nbsp;
+
+        Capítulo 01
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="article-hero">
+
+    <div class="chapter">
+        Estatística nos Negócios · Capítulo 01
+    </div>
+
+    <h1>
+        A empresa tinha milhões de dados…
+        mas tomou uma decisão errada
+    </h1>
+
+    <p class="subtitle">
+        Como a Estatística ajuda empresas a transformar
+        números em decisões estratégicas.
+    </p>
+
+    <div class="tags">
+
+        <span class="tag">
+            Estatística
+        </span>
+
+        <span class="tag">
+            Business Analytics
+        </span>
+
+        <span class="tag">
+            Data Analytics
+        </span>
+
+        <span class="tag">
+            Decisão baseada em dados
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTEÚDO + SUMÁRIO
+====================================================== -->
+
+<main class="article-layout">
+
+
+    <!-- SUMÁRIO -->
+
+    <aside class="toc">
+
+        <div class="toc-title">
+            Neste artigo
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#problema">
+                    01 · O problema
+                </a>
+            </li>
+
+            <li>
+                <a href="#analista">
+                    02 · O papel do analista
+                </a>
+            </li>
+
+            <li>
+                <a href="#estatistica">
+                    03 · O que é Estatística?
+                </a>
+            </li>
+
+            <li>
+                <a href="#caminhos">
+                    04 · Descritiva x Inferencial
+                </a>
+            </li>
+
+            <li>
+                <a href="#novamarket">
+                    05 · O caso NovaMarket
+                </a>
+            </li>
+
+            <li>
+                <a href="#analise">
+                    06 · Como analisar
+                </a>
+            </li>
+
+            <li>
+                <a href="#erro">
+                    07 · O erro evitado
+                </a>
+            </li>
+
+            <li>
+                <a href="#aprendizados">
+                    08 · Aprendizados
+                </a>
+            </li>
+
+            <li>
+                <a href="#exercicio">
+                    09 · Exercício
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- ARTIGO -->
+
+    <article class="article-content">
+
+
+        <!-- =================================================
+             01
+        ================================================== -->
+
+        <section id="problema">
+
+            <h2>
+                01. O problema: quando muitos dados não significam boas decisões
+            </h2>
+
+            <p>
+                Imagine uma empresa chamada
+                <strong>NovaMarket</strong>, uma rede varejista com:
+            </p>
+
+            <ul>
+
+                <li>250 lojas;</li>
+
+                <li>5 milhões de clientes cadastrados;</li>
+
+                <li>milhões de transações realizadas todos os meses.</li>
+
+            </ul>
+
+            <p>
+                A empresa investiu nos últimos anos em tecnologia.
+                Agora possui ERP, CRM, aplicativo próprio,
+                programa de fidelidade e diversos dashboards.
+            </p>
+
+            <p>
+                A diretoria acredita que possui tudo que precisa
+                para crescer.
+            </p>
+
+            <p>
+                Porém, nos últimos meses surgiu uma oportunidade.
+            </p>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Indicador</th>
+                            <th>Resultado</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Receita anual</td>
+                            <td>+15%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Clientes cadastrados</td>
+                            <td>+20%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Número de pedidos</td>
+                            <td>+12%</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p>
+                O diretor comercial conclui:
+            </p>
+
+            <blockquote>
+                "Estamos crescendo. Precisamos abrir novas lojas imediatamente."
+            </blockquote>
+
+            <p>
+                O plano aprovado previa:
+            </p>
+
+            <ul>
+
+                <li>investimento de R$ 30 milhões;</li>
+
+                <li>abertura de 20 novas unidades;</li>
+
+                <li>contratação de 500 funcionários.</li>
+
+            </ul>
+
+            <div class="highlight">
+
+                <p>
+                    Antes da execução, a diretoria chama um
+                    Analista de Dados e faz uma pergunta simples:
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>
+                        "Esse crescimento realmente representa
+                        uma melhora geral da empresa?"
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             02
+        ================================================== -->
+
+        <section id="analista">
+
+            <h2>
+                02. O papel do Analista de Dados
+            </h2>
+
+            <p>
+                Um erro comum nas empresas é acreditar que:
+            </p>
+
+            <blockquote>
+                Mais dados = melhores decisões.
+            </blockquote>
+
+            <p>
+                Mas isso não é necessariamente verdade.
+            </p>
+
+            <p>
+                Dados sem análise podem gerar interpretações
+                equivocadas.
+            </p>
+
+            <p>
+                O papel do analista é transformar:
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-item">
+                    Dados
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-item">
+                    Informação
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-item">
+                    Insight
+                </div>
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+                <div class="flow-item">
+                    Decisão
+                </div>
+
+            </div>
+
+            <p>
+                Antes de responder:
+                <strong>"Devemos abrir novas lojas?"</strong>,
+                o analista precisa investigar:
+            </p>
+
+            <ul>
+
+                <li>Todas as lojas cresceram?</li>
+
+                <li>O crescimento aconteceu em todas as regiões?</li>
+
+                <li>Alguns produtos estão puxando o resultado?</li>
+
+                <li>Existem lojas com queda?</li>
+
+                <li>O crescimento é sustentável?</li>
+
+            </ul>
+
+            <p>
+                É aqui que entra a Estatística.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             03
+        ================================================== -->
+
+        <section id="estatistica">
+
+            <h2>
+                03. O que é Estatística?
+            </h2>
+
+            <p>
+                Estatística é a ciência responsável por coletar,
+                organizar, analisar e interpretar dados para
+                identificar padrões e apoiar decisões.
+            </p>
+
+            <h3>
+                Dentro das empresas, ela pode ajudar a responder:
+            </h3>
+
+            <p>
+                <strong>Comercial:</strong>
+                Qual vendedor realmente performa melhor?
+            </p>
+
+            <p>
+                <strong>Marketing:</strong>
+                A campanha aumentou as vendas ou foi apenas coincidência?
+            </p>
+
+            <p>
+                <strong>Supply Chain:</strong>
+                Qual fornecedor apresenta melhor desempenho?
+            </p>
+
+            <p>
+                <strong>Financeiro:</strong>
+                Esse investimento trouxe retorno?
+            </p>
+
+            <p>
+                <strong>Recursos Humanos:</strong>
+                Existe diferença salarial entre áreas?
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             04
+        ================================================== -->
+
+        <section id="caminhos">
+
+            <h2>
+                04. Os dois grandes caminhos da Estatística
+            </h2>
+
+            <p>
+                De forma simplificada, podemos pensar em dois
+                grandes grupos:
+            </p>
+
+
+            <div class="comparison">
+
+
+                <div class="comparison-card">
+
+                    <h3>
+                        Estatística Descritiva
+                    </h3>
+
+                    <div class="question">
+                        "O que aconteceu?"
+                    </div>
+
+                    <p>
+                        Seu objetivo é resumir e organizar
+                        os dados existentes.
+                    </p>
+
+                    <ul>
+
+                        <li>faturamento médio;</li>
+
+                        <li>produto mais vendido;</li>
+
+                        <li>região com maior venda;</li>
+
+                        <li>taxa de cancelamento;</li>
+
+                        <li>desempenho dos vendedores.</li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="comparison-card">
+
+                    <h3>
+                        Estatística Inferencial
+                    </h3>
+
+                    <div class="question">
+                        "O que podemos concluir?"
+                    </div>
+
+                    <p>
+                        Utiliza dados de uma amostra para
+                        tirar conclusões sobre uma população
+                        maior, sempre considerando a incerteza.
+                    </p>
+
+                    <ul>
+
+                        <li>pesquisas por amostragem;</li>
+
+                        <li>intervalos de confiança;</li>
+
+                        <li>testes de hipóteses;</li>
+
+                        <li>estimativas;</li>
+
+                        <li>modelos estatísticos.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                Um exemplo simples
+            </h3>
+
+            <p>
+                A NovaMarket analisa as vendas do último ano
+                e encontra:
+            </p>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Região</th>
+                            <th>Crescimento</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Sudeste</td>
+                            <td>+25%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Sul</td>
+                            <td>+18%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nordeste</td>
+                            <td>+3%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Norte</td>
+                            <td>-8%</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="insight">
+
+                <div class="insight-label">
+                    Insight
+                </div>
+
+                <h3>
+                    A média escondia um problema.
+                </h3>
+
+                <p>
+                    O crescimento não aconteceu de maneira
+                    uniforme. Algumas regiões cresceram muito,
+                    enquanto outra apresentou queda.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             05
+        ================================================== -->
+
+        <section id="novamarket">
+
+            <h2>
+                05. Voltando ao caso da NovaMarket
+            </h2>
+
+            <p>
+                O analista começou utilizando Estatística
+                Descritiva para entender a distribuição
+                do faturamento entre as lojas.
+            </p>
+
+            <h3>
+                Faturamento por loja
+            </h3>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Loja</th>
+                            <th>Faturamento</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Loja A</td>
+                            <td>R$ 500 mil</td>
+                        </tr>
+
+                        <tr>
+                            <td>Loja B</td>
+                            <td>R$ 520 mil</td>
+                        </tr>
+
+                        <tr>
+                            <td>Loja C</td>
+                            <td>R$ 510 mil</td>
+                        </tr>
+
+                        <tr>
+                            <td>Loja D</td>
+                            <td>R$ 2 milhões</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p>
+                A diretoria estava olhando apenas para o
+                crescimento total.
+            </p>
+
+            <p>
+                Porém, quando o analista abriu os dados por
+                unidade, encontrou algo importante:
+            </p>
+
+            <div class="highlight">
+
+                <p>
+                    <strong>
+                        Uma única loja apresentava desempenho
+                        muito acima das demais.
+                    </strong>
+                </p>
+
+                <br>
+
+                <p>
+                    O crescimento não era necessariamente
+                    generalizado.
+                </p>
+
+            </div>
+
+            <div class="insight">
+
+                <div class="insight-label">
+                    Pergunta de negócio
+                </div>
+
+                <h3>
+                    O que estava fazendo essa loja performar tão acima das outras?
+                </h3>
+
+                <p>
+                    Antes de replicar o modelo em 20 novas
+                    unidades, era necessário entender se
+                    aquele resultado poderia ser reproduzido.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             06
+        ================================================== -->
+
+        <section id="analise">
+
+            <h2>
+                06. Como um Analista de Dados faria essa análise?
+            </h2>
+
+            <p>
+                A análise poderia combinar diferentes ferramentas.
+                Cada uma cumpre um papel dentro do processo.
+            </p>
+
+
+            <h3>
+                SQL — extração e organização
+            </h3>
+
+            <p class="code-title">
+                Exemplo:
+            </p>
+
+            <pre><code>SELECT
+    loja,
+    SUM(valor_venda) AS faturamento
+FROM vendas
+GROUP BY loja
+ORDER BY faturamento DESC;</code></pre>
+
+            <p>
+                O objetivo dessa consulta é identificar
+                quais lojas geram maior faturamento.
+            </p>
+
+
+            <h3>
+                Python — exploração dos dados
+            </h3>
+
+            <p>
+                Em Python, bibliotecas como Pandas, NumPy
+                e Matplotlib podem ser utilizadas para
+                explorar os dados.
+            </p>
+
+            <pre><code>df.groupby("loja")["venda"].sum()</code></pre>
+
+            <p>
+                A análise pode evoluir para distribuição,
+                medidas de tendência central, variabilidade,
+                correlação e outras técnicas estatísticas.
+            </p>
+
+
+            <h3>
+                Power BI — comunicação da análise
+            </h3>
+
+            <p>
+                Depois de explorar os dados, o analista pode
+                transformar os principais achados em uma
+                visão executiva.
+            </p>
+
+            <ul>
+
+                <li>faturamento por loja;</li>
+
+                <li>crescimento mensal;</li>
+
+                <li>ranking de unidades;</li>
+
+                <li>comparação regional;</li>
+
+                <li>evolução dos indicadores.</li>
+
+            </ul>
+
+            <div class="highlight">
+
+                <p>
+                    <strong>
+                        A ferramenta não é o objetivo.
+                    </strong>
+                </p>
+
+                <br>
+
+                <p>
+                    SQL ajuda a consultar.
+                    Python ajuda a explorar.
+                    Power BI ajuda a comunicar.
+                    A análise é o que conecta tudo isso
+                    à decisão de negócio.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             07
+        ================================================== -->
+
+        <section id="erro">
+
+            <h2>
+                07. O erro que a Estatística evitou
+            </h2>
+
+            <p>
+                Sem uma análise mais detalhada, a empresa
+                poderia abrir 20 novas lojas com base em
+                uma interpretação equivocada do crescimento.
+            </p>
+
+            <p>
+                Entre as possíveis consequências:
+            </p>
+
+            <ul>
+
+                <li>aumento de custos;</li>
+
+                <li>lojas abaixo da meta;</li>
+
+                <li>excesso de capacidade;</li>
+
+                <li>retorno financeiro menor que o esperado;</li>
+
+                <li>capital investido em unidades pouco rentáveis.</li>
+
+            </ul>
+
+            <p>
+                Com a análise, a empresa decidiu seguir
+                outro caminho:
+            </p>
+
+            <ol>
+
+                <li>
+                    investigar a loja de maior desempenho;
+                </li>
+
+                <li>
+                    identificar as práticas que explicavam
+                    seu resultado;
+                </li>
+
+                <li>
+                    avaliar se essas práticas poderiam
+                    ser replicadas;
+                </li>
+
+                <li>
+                    testar a expansão antes de realizar
+                    um investimento maior.
+                </li>
+
+            </ol>
+
+            <div class="insight">
+
+                <div class="insight-label">
+                    Decisão
+                </div>
+
+                <h3>
+                    Antes de escalar um resultado, precisamos entender sua causa.
+                </h3>
+
+                <p>
+                    Um bom resultado não significa necessariamente
+                    que o mesmo padrão se repetirá em outro contexto.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             08
+        ================================================== -->
+
+        <section id="aprendizados">
+
+            <h2>
+                08. Principais aprendizados
+            </h2>
+
+            <h3>
+                01. Dados não são respostas.
+            </h3>
+
+            <p>
+                São evidências que precisam ser interpretadas
+                dentro de um contexto.
+            </p>
+
+
+            <h3>
+                02. Um número isolado pode enganar.
+            </h3>
+
+            <p>
+                Sempre precisamos investigar distribuição,
+                comparação, tendência e contexto.
+            </p>
+
+
+            <h3>
+                03. Estatística reduz decisões baseadas apenas em opinião.
+            </h3>
+
+            <p>
+                Ela permite estruturar evidências e quantificar
+                comportamentos e incertezas.
+            </p>
+
+
+            <h3>
+                04. O papel do analista não é apenas criar gráficos.
+            </h3>
+
+            <p>
+                É transformar perguntas de negócio em análises
+                capazes de apoiar decisões.
+            </p>
+
+
+            <div class="highlight">
+
+                <p>
+                    <strong>
+                        O objetivo final da análise não é produzir
+                        um número. É ajudar alguém a tomar uma
+                        decisão melhor.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MATEMÁTICA
+        ================================================== -->
+
+        <section>
+
+            <div class="math-box">
+
+                <div class="insight-label">
+                    Quer entender a matemática por trás?
+                </div>
+
+                <h3>
+                    A Estatística começa a ficar interessante
+                    quando entendemos o que existe por trás dos indicadores.
+                </h3>
+
+                <p>
+                    Nos próximos artigos vamos sair da visão
+                    conceitual e começar a calcular e interpretar
+                    medidas estatísticas aplicadas a problemas
+                    de negócio.
+                </p>
+
+                <p>
+                    Vamos começar por:
+                </p>
+
+                <ul>
+
+                    <li>Média;</li>
+
+                    <li>Mediana;</li>
+
+                    <li>Moda;</li>
+
+                    <li>e depois avançar para medidas de dispersão,
+                        como variância e desvio padrão.</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             09 — EXERCÍCIO
+        ================================================== -->
+
+        <section id="exercicio">
+
+            <div class="exercise">
+
+                <div class="exercise-label">
+                    Exercício para o leitor
+                </div>
+
+                <h3>
+                    Uma empresa informa:
+                    "Nosso faturamento cresceu 20% este ano."
+                </h3>
+
+                <p>
+                    Antes de comemorar, quais perguntas você faria?
+                </p>
+
+                <ul>
+
+                    <li>
+                        O crescimento aconteceu em todas as regiões?
+                    </li>
+
+                    <li>
+                        Quantos clientes novos vieram?
+                    </li>
+
+                    <li>
+                        O ticket médio aumentou?
+                    </li>
+
+                    <li>
+                        Quais produtos geraram o crescimento?
+                    </li>
+
+                    <li>
+                        O lucro também aumentou?
+                    </li>
+
+                    <li>
+                        O crescimento foi consistente ao longo do ano?
+                    </li>
+
+                </ul>
+
+                <p>
+                    <strong>
+                        A resposta não está necessariamente
+                        no crescimento de 20%. Ela está nas
+                        perguntas que fazemos depois dele.
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </article>
+
+</main>
+
+
+<!-- =====================================================
+     NAVEGAÇÃO
+====================================================== -->
+
+<section class="article-navigation">
+
+
+    <a href="index.html" class="nav-card">
+
+        <div class="nav-label">
+            ← Série
+        </div>
+
+        <h3>
+            Estatística nos Negócios
+        </h3>
+
+        <p>
+            Voltar para todos os artigos da série.
+        </p>
+
+    </a>
+
+
+    <a href="artigo-02-media-mediana-moda.html"
+       class="nav-card">
+
+        <div class="nav-label">
+            Próximo artigo →
+        </div>
+
+        <h3>
+            A média enganou a diretoria
+        </h3>
+
+        <p>
+            Média, Mediana e Moda aplicadas
+            a um problema de negócio.
+        </p>
+
+    </a>
+
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <p>
+        © 2026 Viviane de Andrade · Data Analyst Portfolio
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
+```

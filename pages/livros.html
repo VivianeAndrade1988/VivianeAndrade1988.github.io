@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Insights de Negócio | Análise de Vendas de Livros</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <section class="ins-hero">
+
+        <a href="projeto-livros.html" class="ins-back">
+            ← Voltar ao case
+        </a>
+
+        <span class="ins-tag">
+            ANÁLISE DE VENDAS DE LIVROS
+        </span>
+
+        <h1>
+            Insights de Negócio
+        </h1>
+
+        <p class="ins-hero-subtitle">
+            Síntese dos achados da análise traduzidos em leitura de negócio,
+            com o nível de confiança de cada um e recomendações práticas
+            associadas.
+        </p>
+
+    </section>
+
+
+    <!-- CONTEÚDO -->
+    <div class="ins-container">
+
+        <!-- ACHADO 1 -->
+        <div class="ins-insight">
+
+            <div class="ins-insight-head">
+                <div>
+                    <span class="ins-insight-number">ACHADO 01</span>
+                    <h3>Popularidade vende mais do que qualidade percebida</h3>
+                </div>
+                <span class="ins-badge alta">✅ Alta</span>
+            </div>
+
+            <span class="ins-block-label">ACHADO</span>
+            <p>
+                A quantidade de avaliações recebidas por um livro tem
+                correlação moderada e positiva (0,49) com suas vendas
+                brutas — a relação mais forte encontrada em toda a análise.
+            </p>
+
+            <span class="ins-block-label">BASE DA CONFIANÇA</span>
+            <p>
+                Maior correlação da base, com volume amostral robusto
+                (1.070 livros).
+            </p>
+
+            <div class="ins-recommendation">
+                <p>
+                    <strong>Recomendação:</strong> priorizar ações que
+                    aumentem o volume de avaliações e o engajamento do
+                    público (campanhas de review, parcerias com
+                    influenciadores, incentivos pós-compra) tende a gerar
+                    mais retorno comercial do que investir apenas em
+                    melhorar a percepção de qualidade.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ACHADO 2 -->
+        <div class="ins-insight">
+
+            <div class="ins-insight-head">
+                <div>
+                    <span class="ins-insight-number">ACHADO 02</span>
+                    <h3>Nota alta não é garantia de mais vendas</h3>
+                </div>
+                <span class="ins-badge alta">✅ Alta</span>
+            </div>
+
+            <span class="ins-block-label">ACHADO</span>
+            <p>
+                A correlação entre nota média e vendas brutas é
+                praticamente nula (-0,04). Livros com nota 4,5 vendem
+                tão pouco (ou tanto) quanto livros com nota 3,5.
+            </p>
+
+            <span class="ins-block-label">BASE DA CONFIANÇA</span>
+            <p>
+                Corroborado tanto pela correlação quanto pela inspeção
+                visual da dispersão (inclusive isolando a faixa de
+                vendas mais comum, abaixo de 10 mil unidades).
+            </p>
+
+            <div class="ins-recommendation">
+                <p>
+                    <strong>Recomendação:</strong> não usar a nota média
+                    isoladamente como critério de decisão editorial ou
+                    de investimento em marketing. Nota é indicador de
+                    satisfação do leitor, não de potencial comercial.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ACHADO 3 -->
+        <div class="ins-insight">
+
+            <div class="ins-insight-head">
+                <div>
+                    <span class="ins-insight-number">ACHADO 03</span>
+                    <h3>Preço baixo é necessário, mas não suficiente</h3>
+                </div>
+                <span class="ins-badge media">⚠️ Média</span>
+            </div>
+
+            <span class="ins-block-label">ACHADO</span>
+            <p>
+                Nenhum livro com preço acima de US$ 15 atingiu o patamar
+                de best-seller (mais de 30 mil unidades vendidas) na base
+                analisada. Ao mesmo tempo, a maioria dos livros com preço
+                baixo (US$ 1–5) também vende pouco — preço baixo não
+                garante sucesso, mas parece ser uma condição de entrada
+                para o sucesso em grande escala.
+            </p>
+
+            <span class="ins-block-label">BASE DA CONFIANÇA</span>
+            <p>
+                Padrão visualmente claro (gráfico de dispersão preço x
+                vendas), mas correlação linear é apenas fraca a moderada
+                (0,27), pois a relação não é proporcional/contínua.
+            </p>
+
+            <div class="ins-recommendation">
+                <p>
+                    <strong>Recomendação:</strong> manter preços
+                    competitivos (idealmente abaixo de US$ 15) para
+                    títulos com ambição de best-seller, mas sem esperar
+                    que o preço baixo, isoladamente, garanta alto volume
+                    de vendas — outros fatores (como engajamento)
+                    continuam sendo decisivos.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ACHADO 4 -->
+        <div class="ins-insight">
+
+            <div class="ins-insight-head">
+                <div>
+                    <span class="ins-insight-number">ACHADO 04</span>
+                    <h3>Reputação do autor não garante mais vendas</h3>
+                </div>
+                <span class="ins-badge media">⚠️ Média</span>
+            </div>
+
+            <span class="ins-block-label">ACHADO</span>
+            <p>
+                Teste estatístico (teste t de Student) não encontrou
+                diferença significativa nas vendas entre autores
+                "Famous" e "Intermediate" (p = 0,51).
+            </p>
+
+            <span class="ins-block-label">BASE DA CONFIANÇA</span>
+            <p>
+                Resultado estatisticamente válido, mas o grupo "Famous"
+                tem amostra pequena (48 livros), o que limita a
+                capacidade de detectar diferenças sutis.
+            </p>
+
+            <div class="ins-recommendation">
+                <p>
+                    <strong>Recomendação:</strong> não tratar a fama do
+                    autor como fator decisivo isolado ao prever o sucesso
+                    de um título. Autores menos conhecidos podem
+                    performar tão bem quanto autores renomados — vale
+                    investir em divulgação independentemente da
+                    reputação prévia do autor.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ACHADO 5 -->
+        <div class="ins-insight">
+
+            <div class="ins-insight-head">
+                <div>
+                    <span class="ins-insight-number">ACHADO 05</span>
+                    <h3>Ficção domina em volume, mas gera reações mais polarizadas</h3>
+                </div>
+                <span class="ins-badge alta">✅ Alta</span>
+            </div>
+
+            <span class="ins-block-label">ACHADO</span>
+            <p>
+                Ficção concentra a maior parte dos títulos (759 de 988)
+                e do volume de avaliações, mas também apresenta a maior
+                amplitude de notas — tanto os livros mais bem avaliados
+                quanto os mais malvistos da base pertencem a esse gênero.
+                Livros infantis (children), por outro lado, têm recepção
+                mais consistente e uniforme.
+            </p>
+
+            <span class="ins-block-label">BASE DA CONFIANÇA</span>
+            <p>
+                Padrão visualmente claro nos boxplots de nota e volume
+                de avaliações por gênero.
+            </p>
+
+            <div class="ins-recommendation">
+                <p>
+                    <strong>Recomendação:</strong> ao investir em Ficção,
+                    esperar (e monitorar) uma variabilidade maior na
+                    recepção do público. Gêneros como infantil, embora
+                    menores em volume, representam menor risco de
+                    reação negativa forte.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ACHADO 6 -->
+        <div class="ins-insight">
+
+            <div class="ins-insight-head">
+                <div>
+                    <span class="ins-insight-number">ACHADO 06</span>
+                    <h3>Concentração de receita em poucas editoras e autores</h3>
+                </div>
+                <span class="ins-badge alta">✅ Alta</span>
+            </div>
+
+            <span class="ins-block-label">ACHADO</span>
+            <p>
+                A Penguin Group (USA) LLC lidera a receita total entre
+                editoras, seguida por Random House LLC e Amazon Digital
+                Services — esta última reforçando o peso crescente da
+                distribuição digital direta. Entre autores, Harper Lee,
+                Stephen King e David Sedaris lideram em vendas brutas
+                acumuladas.
+            </p>
+
+            <span class="ins-block-label">BASE DA CONFIANÇA</span>
+            <p>
+                Dado agregado direto, sem necessidade de teste
+                estatístico.
+            </p>
+
+            <div class="ins-recommendation">
+                <p>
+                    <strong>Recomendação:</strong> observar de perto o
+                    desempenho de canais de distribuição digital nas
+                    estratégias de receita, dado seu peso já relevante
+                    mesmo comparado a editoras tradicionais consolidadas.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- TABELA-RESUMO -->
+        <h2>Resumo — nível de confiança dos insights</h2>
+
+        <div class="ins-table-wrap">
+            <table class="ins-table">
+
+                <thead>
+                    <tr>
+                        <th>Insight</th>
+                        <th>Confiança</th>
+                        <th>Base estatística</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Engajamento (avaliações) prediz vendas</td>
+                        <td>✅ Alta</td>
+                        <td>Correlação 0,49</td>
+                    </tr>
+
+                    <tr>
+                        <td>Nota não prediz vendas</td>
+                        <td>✅ Alta</td>
+                        <td>Correlação -0,04</td>
+                    </tr>
+
+                    <tr>
+                        <td>Preço baixo é condição, não garantia</td>
+                        <td>⚠️ Média</td>
+                        <td>Correlação 0,27 + padrão visual</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fama do autor não garante vendas</td>
+                        <td>⚠️ Média</td>
+                        <td>Teste t, p = 0,51 (amostra pequena)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ficção é volumosa e polarizada</td>
+                        <td>✅ Alta</td>
+                        <td>Boxplots comparativos</td>
+                    </tr>
+
+                    <tr>
+                        <td>Concentração de receita em poucas editoras</td>
+                        <td>✅ Alta</td>
+                        <td>Agregação direta</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+
+
+        <!-- RECOMENDAÇÕES CONSOLIDADAS -->
+        <div class="ins-consolidated">
+
+            <h2>Recomendações consolidadas para o negócio</h2>
+
+            <ul>
+
+                <li>
+                    <span class="icon">📣</span>
+                    <span>Investir em campanhas que gerem reviews e engajamento — é o fator com maior relação estatística com vendas.</span>
+                </li>
+
+                <li>
+                    <span class="icon">⭐</span>
+                    <span>Não usar nota média isoladamente como critério de decisão editorial.</span>
+                </li>
+
+                <li>
+                    <span class="icon">💲</span>
+                    <span>Manter preços abaixo de US$ 15 para títulos com potencial de best-seller.</span>
+                </li>
+
+                <li>
+                    <span class="icon">📚</span>
+                    <span>Priorizar Ficção para maximizar alcance, mas monitorar a recepção — é o gênero mais sujeito a polarização.</span>
+                </li>
+
+                <li>
+                    <span class="icon">👤</span>
+                    <span>Não depender exclusivamente da fama do autor para prever sucesso comercial.</span>
+                </li>
+
+                <li>
+                    <span class="icon">🖥️</span>
+                    <span>Acompanhar de perto o crescimento dos canais de distribuição digital na receita.</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+       <!-- RODAPÉ -->
+    <footer class="ins-footer">
+
+        <p>Projeto desenvolvido por <strong>Viviane Andrade</strong></p>
+
+        <div class="ins-footer-actions">
+
+            <a href="https://github.com/VivianeAndrade1988/Analise_vendas_livros" target="_blank" class="btn btn-secondary">
+                Ver repositório no GitHub
+            </a>
+
+            <a href="index.html#projetos" class="btn btn-primary">
+                ← Voltar ao portfólio
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
