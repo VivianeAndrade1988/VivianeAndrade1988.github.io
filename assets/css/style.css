@@ -180,11 +180,11 @@ a {
 
 
 .hero h1 {
-    font-size: clamp(42px, 6vw, 72px);
+    font-size: clamp(32px, 4.2vw, 50px);
 
-    line-height: 1.05;
+    line-height: 1.15;
 
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
 
     margin-bottom: 28px;
 }
@@ -674,7 +674,7 @@ a {
 
     width: 100%;
 
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
 
     overflow: hidden;
 
@@ -1001,71 +1001,9 @@ a {
 }
 
 
-/* FORMULÁRIO DE CONTATO */
+/* BOTÕES DE CONTATO DIRETO */
 
-.contact-form {
-    max-width: 560px;
-
-    margin: 0 auto 36px;
-
-    text-align: left;
-}
-
-
-.form-field {
-    margin-bottom: 20px;
-}
-
-
-.form-field label {
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: #94A3B8;
-
-    font-size: 13px;
-    font-weight: 600;
-}
-
-
-.form-field input,
-.form-field textarea {
-    width: 100%;
-
-    padding: 13px 16px;
-
-    border: 1px solid #334155;
-
-    border-radius: 8px;
-
-    background: #1E293B;
-
-    color: #ffffff;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 14px;
-
-    resize: vertical;
-}
-
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-    color: #64748B;
-}
-
-
-.form-field input:focus,
-.form-field textarea:focus {
-    outline: none;
-
-    border-color: #2563EB;
-}
-
-
-.form-actions {
+.contact-buttons {
     display: flex;
 
     justify-content: center;
@@ -1073,6 +1011,8 @@ a {
     gap: 16px;
 
     flex-wrap: wrap;
+
+    margin-bottom: 36px;
 }
 
 
@@ -1082,8 +1022,6 @@ a {
     color: #ffffff;
 
     border: 2px solid #25D366;
-
-    cursor: pointer;
 }
 
 
@@ -1093,20 +1031,6 @@ a {
     border-color: #1FBD5A;
 
     transform: translateY(-2px);
-}
-
-
-.form-actions .btn {
-    cursor: pointer;
-
-    border: none;
-
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
-.form-actions .btn-primary {
-    border: 2px solid #2563EB;
 }
 
 
@@ -1160,7 +1084,7 @@ footer {
 
 
     .project-image {
-        height: 280px;
+        height: 220px;
     }
 
 
@@ -1216,12 +1140,12 @@ footer {
     }
 
 
-    .form-actions {
+    .contact-buttons {
         flex-direction: column;
     }
 
 
-    .form-actions .btn {
+    .contact-buttons .btn {
         width: 100%;
     }
 
@@ -1254,7 +1178,7 @@ footer {
 
 
     .project-image {
-        height: 220px;
+        height: 180px;
     }
 
 

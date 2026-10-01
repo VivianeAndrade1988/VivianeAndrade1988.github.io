@@ -1,1340 +1,1151 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análise Executiva — Rotatividade, Retenção e Produtividade | Viviane Andrade</title>
+    <meta charset="UTF-8">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Viviane Andrade | Data Analytics & Business Intelligence
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
+
 
 <style>
+/* =========================================
+   PORTFÓLIO — VERSÃO ENXUTA
+========================================= */
 
-:root{
-    --navy:#1E2761;
-    --navy-dark:#141A45;
-    --navy-deep:#2A3480;
-    --ice:#CADCFC;
-    --ice-soft:#EEF3FD;
-    --white:#FFFFFF;
-    --ink:#1B2340;
-    --muted:#5B6584;
-    --coral:#E85C41;
-    --good:#1F9D6B;
+.about-compact {
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr;
+    gap: 70px;
+    align-items: start;
+    margin-top: 35px;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-
-html{scroll-behavior:smooth;}
-
-body{
-    font-family:'Inter', sans-serif;
-    background:var(--white);
-    color:var(--ink);
-    line-height:1.6;
-}
-
-h1,h2,h3{
-    font-family:'Playfair Display', serif;
-}
-
-.wrap{
-    max-width:1180px;
-    margin:0 auto;
-    padding:0 6%;
-}
-
-.kicker{
-    display:block;
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:2px;
-    color:var(--navy);
-    margin-bottom:16px;
-}
-
-.kicker.on-dark{ color:var(--ice); }
-.kicker.coral{ color:var(--coral); }
-
-/* ==========================
-   BOTÃO VOLTAR (fixo)
-========================== */
-
-.back-bar{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(20,26,69,0.96);
-    backdrop-filter:blur(6px);
-    padding:16px 6%;
-}
-
-.back-bar a{
-    color:var(--ice);
-    text-decoration:none;
-    font-size:14px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.back-bar a:hover{ color:var(--white); }
-
-
-/* ==========================
-   CAPA
-========================== */
-
-.cover{
-    position:relative;
-    min-height:82vh;
-    background:linear-gradient(135deg, var(--navy) 0%, var(--navy) 55%, var(--navy-dark) 100%);
-    color:var(--white);
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-}
-
-.cover::before{
-    content:"";
-    position:absolute;
-    left:-140px;
-    bottom:-160px;
-    width:420px;
-    height:420px;
-    border-radius:50%;
-    background:var(--navy-deep);
-    opacity:.55;
-}
-
-.cover::after{
-    content:"";
-    position:absolute;
-    left:-40px;
-    bottom:-100px;
-    width:220px;
-    height:220px;
-    border-radius:50%;
-    background:#2E3980;
-    opacity:.6;
-}
-
-.cover-inner{
-    position:relative;
-    z-index:2;
-    max-width:760px;
-    padding:80px 6%;
-}
-
-.cover h1{
-    font-size:clamp(36px, 5.2vw, 58px);
-    font-weight:800;
-    line-height:1.08;
-    letter-spacing:-1px;
-    margin-bottom:26px;
-}
-
-.cover p.lead{
-    font-size:17px;
-    color:var(--ice);
-    max-width:600px;
-    margin-bottom:34px;
-    line-height:1.7;
-}
-
-.cover-divider{
-    width:70px;
-    height:2px;
-    background:var(--ice);
-    margin-bottom:26px;
-}
-
-.cover-author strong{
-    display:block;
-    font-size:15px;
-    margin-bottom:4px;
-}
-
-.cover-author span{
-    font-size:14px;
-    color:var(--ice);
-}
-
-.cover-tools{
-    margin-top:34px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-}
-
-.cover-tools span{
-    padding:7px 14px;
-    border-radius:20px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.18);
-    color:var(--ice);
-    font-size:12px;
-    font-weight:600;
-}
-
-
-/* ==========================
-   SEÇÃO GERAL
-========================== */
-
-section.block{
-    padding:90px 0;
-}
-
-section.block.on-dark{
-    background:var(--navy);
-    color:var(--white);
-}
-
-section.block.on-navy-dark{
-    background:var(--navy-dark);
-    color:var(--white);
-}
-
-h2.section-title{
-    font-size:clamp(26px,3.4vw,34px);
-    font-weight:800;
-    line-height:1.2;
-    letter-spacing:-0.5px;
-    color:var(--ink);
-    max-width:820px;
-    margin-bottom:18px;
-}
-
-.on-dark h2.section-title,
-.on-navy-dark h2.section-title{
-    color:var(--white);
-}
-
-p.section-lead{
-    font-size:15.5px;
-    color:var(--muted);
-    max-width:760px;
-    line-height:1.75;
-}
-
-.on-dark p.section-lead,
-.on-navy-dark p.section-lead{
-    color:var(--ice);
-}
-
-
-/* ==========================
-   SUMÁRIO EXECUTIVO — CARDS
-========================== */
-
-.summary-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:22px;
-    margin-top:44px;
-}
-
-.summary-card{
-    background:var(--ice-soft);
-    border-radius:14px;
-    padding:26px 22px;
-}
-
-.summary-icon{
-    width:44px;
-    height:44px;
-    border-radius:50%;
-    background:var(--navy);
-    color:var(--white);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:18px;
-    margin-bottom:22px;
-}
-
-.summary-card .label{
-    display:block;
-    font-size:10.5px;
-    font-weight:800;
-    letter-spacing:1px;
-    color:var(--navy);
-    margin-bottom:10px;
-}
-
-.summary-card .value{
-    font-family:'Playfair Display', serif;
-    font-size:18px;
-    font-weight:700;
-    line-height:1.3;
-    color:var(--ink);
-}
-
-
-/* ==========================
-   DESAFIO — DUAS COLUNAS
-========================== */
-
-.challenge-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-    margin-top:44px;
-    align-items:start;
-}
-
-.challenge-list{
-    list-style:none;
-}
-
-.challenge-list li{
-    padding:12px 0;
-    border-bottom:1px solid #E2E8F0;
-    font-size:15px;
-    color:var(--ink);
-}
-
-.dashboard-panel{
-    background:var(--navy);
-    color:var(--white);
-    border-radius:14px;
-    padding:32px;
-}
-
-.dashboard-panel h4{
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1.2px;
-    color:var(--ice);
-    margin-bottom:20px;
-}
-
-.dashboard-panel ul{
-    list-style:none;
-}
-
-.dashboard-panel li{
-    padding:10px 0;
-    font-size:15px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.dashboard-panel li:last-child{ border-bottom:none; }
-
-
-/* ==========================
-   ACHADO 1 — STAT + DONUT
-========================== */
-
-.finding-1{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-    align-items:center;
-    margin-top:44px;
-}
-
-.stat-card{
-    background:var(--ice-soft);
-    border-radius:14px;
-    padding:36px;
-}
-
-.stat-card .label{
-    font-size:10.5px;
-    font-weight:800;
-    letter-spacing:1px;
-    color:var(--navy);
-    display:block;
-    margin-bottom:14px;
-}
-
-.stat-card .big-number{
-    font-family:'Playfair Display', serif;
-    font-size:74px;
-    font-weight:800;
-    color:var(--navy);
-    line-height:1;
-    margin-bottom:18px;
-}
-
-.stat-card .desc{
-    font-size:14px;
-    color:var(--ink);
-    margin-bottom:22px;
-}
-
-.stat-card hr{
-    border:none;
-    border-top:1px solid #D7E3FA;
-    margin-bottom:18px;
-}
-
-.stat-card .note{
-    font-size:12.5px;
-    font-style:italic;
-    color:var(--muted);
-    line-height:1.6;
-}
-
-.donut-wrap{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-}
-
-.donut-wrap svg{ max-width:280px; }
-
-.donut-legend{
-    display:flex;
-    gap:22px;
-    margin-top:18px;
-}
-
-.donut-legend .item{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-size:12.5px;
-    color:var(--muted);
-}
-
-.donut-legend .dot{
-    width:11px;height:11px;border-radius:3px;
-}
-
-
-/* ==========================
-   ACHADO 2 — BARRAS + CARD
-========================== */
-
-.finding-2{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    margin-top:44px;
-}
-
-.bar-card{
-    background:var(--navy-dark);
-    border-radius:14px;
-    padding:30px;
-}
-
-.bar-card h4{
-    font-size:12px;
-    color:var(--ice);
-    font-weight:700;
-    margin-bottom:26px;
-    text-align:center;
-}
-
-.bar-chart{
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    gap:40px;
-    height:180px;
-}
-
-.bar-col{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-end;
-    height:100%;
-}
-
-.bar-col .bar{
-    width:64px;
-    border-radius:8px 8px 0 0;
-}
-
-.bar-col .val{
-    color:var(--white);
-    font-size:14px;
-    font-weight:700;
-    margin-bottom:8px;
+.about-text {
+    max-width: 760px;
 }
 
-.bar-col .name{
-    margin-top:10px;
-    color:var(--ice);
-    font-size:12.5px;
+.about-text p {
+    color: #5B6584;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 18px;
 }
 
-.age-card{
-    background:var(--navy-dark);
-    border-radius:14px;
-    padding:32px;
+.about-text .about-lead {
+    color: #1B2340;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.5;
 }
 
-.age-card .label{
-    font-size:10.5px;
-    font-weight:800;
-    letter-spacing:1px;
-    color:var(--ice);
-    display:block;
-    margin-bottom:14px;
+.about-education {
+    padding: 28px;
+    background: #EEF3FD;
+    border-radius: 14px;
 }
 
-.age-card .big{
-    font-family:'Playfair Display', serif;
-    font-size:44px;
-    font-weight:800;
-    color:var(--white);
-    margin-bottom:16px;
+.education-item {
+    padding: 17px 0;
+    border-bottom: 1px solid #D7E3FA;
 }
 
-.age-card p{
-    font-size:13.5px;
-    color:var(--ice);
-    line-height:1.6;
-    margin-bottom:20px;
+.education-item:last-child {
+    border-bottom: 0;
 }
 
-.age-card hr{
-    border:none;
-    border-top:1px solid #3B4694;
-    margin-bottom:16px;
+.education-item strong {
+    display: block;
+    color: #1B2340;
+    font-size: 15px;
+    margin-bottom: 4px;
 }
 
-.age-card .tag{
-    font-size:13.5px;
-    color:var(--white);
-    font-weight:600;
+.education-item span {
+    display: block;
+    color: #5B6584;
+    font-size: 13px;
 }
 
 
-/* ==========================
-   ACHADO 3 — CICLO
-========================== */
+/* =========================================
+   GRUPOS DE PROJETOS
+========================================= */
 
-.cycle-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    margin-top:44px;
+.project-group {
+    margin-top: 65px;
 }
 
-.cycle-card{
-    background:var(--ice-soft);
-    border-radius:12px;
-    padding:24px 20px;
-    position:relative;
+.project-group:first-of-type {
+    margin-top: 45px;
 }
 
-.cycle-card .num{
-    font-family:'Playfair Display', serif;
-    font-size:26px;
-    font-weight:800;
-    color:var(--navy);
-    margin-bottom:14px;
+.project-group-header {
+    margin-bottom: 25px;
+    max-width: 760px;
 }
 
-.cycle-card .title{
-    font-size:14.5px;
-    font-weight:700;
-    color:var(--ink);
-    margin-bottom:8px;
+.project-group-label,
+.skill-group-label {
+    display: block;
+    color: #1E2761;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    margin-bottom: 9px;
 }
 
-.cycle-card .desc{
-    font-size:12.5px;
-    color:var(--muted);
-    line-height:1.5;
+.project-group-header h3 {
+    color: #1B2340;
+    font-size: 25px;
+    margin-bottom: 7px;
 }
 
-
-/* ==========================
-   RECOMENDAÇÕES
-========================== */
-
-.rec-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:32px 48px;
-    margin-top:44px;
-}
-
-.rec-item{
-    display:flex;
-    gap:18px;
-}
-
-.rec-item .rnum{
-    font-family:'Playfair Display', serif;
-    font-size:26px;
-    font-weight:800;
-    color:var(--ice);
-    flex:0 0 auto;
-}
-
-.rec-item h3{
-    font-size:15.5px;
-    font-weight:700;
-    color:var(--ink);
-    margin-bottom:6px;
-}
-
-.rec-item p{
-    font-size:13.5px;
-    color:var(--muted);
-    line-height:1.6;
-}
-
-
-/* ==========================
-   RISCOS
-========================== */
-
-.risk-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    margin-top:44px;
-}
-
-.risk-card{
-    background:var(--ice-soft);
-    border-radius:12px;
-    overflow:hidden;
-    padding:0 0 22px;
-}
-
-.risk-card .bar-top{
-    height:6px;
-    background:var(--coral);
-}
-
-.risk-card .inner{ padding:22px 20px 0; }
-
-.risk-card h3{
-    font-size:14px;
-    font-weight:700;
-    color:var(--ink);
-    margin-bottom:12px;
-    line-height:1.3;
+.project-group-header p {
+    color: #5B6584;
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 0;
 }
 
-.risk-card p.desc{
-    font-size:12px;
-    color:var(--muted);
-    line-height:1.55;
-    margin-bottom:18px;
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
 }
 
-.risk-card .mit-label{
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:1px;
-    color:var(--good);
-    margin-bottom:8px;
+/* Faz os cards existentes ocuparem corretamente a grade,
+   sem alterar a explicação individual dos projetos. */
+.project-grid .project-card {
+    width: 100%;
+    min-width: 0;
 }
 
-.risk-card p.mit{
-    font-size:12px;
-    color:var(--ink);
-    line-height:1.5;
+.project-grid .project-image img {
+    width: 100%;
+    display: block;
 }
 
 
-/* ==========================
-   PRÓXIMOS PASSOS
-========================== */
-
-.roadmap-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-    margin-top:44px;
-}
-
-.roadmap-card{
-    background:var(--navy-deep);
-    border-radius:14px;
-    padding:28px 26px;
-}
-
-.roadmap-card.active{
-    background:var(--ice);
-}
-
-.roadmap-card .phase{
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1px;
-    color:var(--ice);
-    margin-bottom:10px;
-}
-
-.roadmap-card.active .phase{ color:var(--navy); }
-
-.roadmap-card .when{
-    font-family:'Playfair Display', serif;
-    font-size:19px;
-    font-weight:800;
-    color:var(--white);
-    margin-bottom:20px;
-}
-
-.roadmap-card.active .when{ color:var(--ink); }
-
-.roadmap-card ul{
-    list-style:none;
-}
-
-.roadmap-card li{
-    position:relative;
-    padding-left:18px;
-    margin-bottom:12px;
-    font-size:13px;
-    color:var(--ice);
-    line-height:1.5;
-}
-
-.roadmap-card.active li{ color:var(--ink); }
-
-.roadmap-card li::before{
-    content:"●";
-    position:absolute;
-    left:0;
-    font-size:8px;
-    top:5px;
-}
-
-
-/* ==========================
-   ENCERRAMENTO
-========================== */
-
-.closing{
-    background:var(--navy-dark);
-    color:var(--white);
-    padding:110px 0;
-    position:relative;
-    overflow:hidden;
-}
+/* =========================================
+   COMO TRABALHO
+========================================= */
 
-.closing::before{
-    content:"";
-    position:absolute;
-    right:-120px;
-    top:-140px;
-    width:360px;
-    height:360px;
-    border-radius:50%;
-    background:var(--navy-deep);
-    opacity:.5;
+.how-i-work {
+    padding: 95px 0;
+    background: #F8FAFC;
 }
 
-.closing-inner{
-    position:relative;
-    z-index:2;
-    max-width:840px;
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-top: 42px;
 }
 
-.closing blockquote{
-    font-family:'Playfair Display', serif;
-    font-size:clamp(24px,3vw,30px);
-    font-weight:700;
-    font-style:italic;
-    line-height:1.4;
-    margin-bottom:44px;
+.process-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    padding: 28px 24px;
 }
 
-.closing-divider{
-    width:60px;
-    height:2px;
-    background:var(--ice);
-    margin-bottom:24px;
+.process-number {
+    display: block;
+    color: #1E2761;
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    font-weight: 800;
+    margin-bottom: 18px;
 }
 
-.closing-author strong{
-    display:block;
-    font-size:15px;
-    margin-bottom:4px;
+.process-card h3 {
+    color: #1B2340;
+    font-size: 18px;
+    margin-bottom: 8px;
 }
 
-.closing-author span{
-    display:block;
-    font-size:13.5px;
-    color:var(--ice);
-    margin-bottom:2px;
+.process-card p {
+    color: #5B6584;
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin: 0;
 }
 
 
-/* ==========================
-   RODAPÉ
-========================== */
+/* =========================================
+   COMPETÊNCIAS COMPACTAS
+========================================= */
 
-.page-footer{
-    padding:44px 0;
-    text-align:center;
-    background:var(--ice-soft);
+.skills-compact {
+    padding: 90px 0;
 }
 
-.page-footer a.btn{
-    display:inline-block;
-    margin-top:16px;
-    padding:14px 30px;
-    border-radius:10px;
-    background:var(--navy);
-    color:var(--white);
-    text-decoration:none;
-    font-weight:700;
-    font-size:14px;
-    transition:.3s;
+.skills-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 40px;
 }
 
-.page-footer a.btn:hover{
-    background:var(--navy-dark);
-    transform:translateY(-2px);
+.skill-group {
+    padding: 24px 22px;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    background: #FFFFFF;
 }
 
-.page-footer p{
-    font-size:13.5px;
-    color:var(--muted);
+.skill-group strong {
+    display: block;
+    color: #1B2340;
+    font-size: 14px;
+    line-height: 1.55;
 }
 
 
-/* ==========================
+/* =========================================
    RESPONSIVO
-========================== */
+========================================= */
 
-@media (max-width:900px){
+@media (max-width: 1000px) {
 
-    .summary-grid{ grid-template-columns:repeat(2,1fr); }
-    .challenge-grid{ grid-template-columns:1fr; gap:32px; }
-    .finding-1{ grid-template-columns:1fr; gap:32px; }
-    .finding-2{ grid-template-columns:1fr; }
-    .cycle-grid{ grid-template-columns:repeat(2,1fr); }
-    .rec-grid{ grid-template-columns:1fr; }
-    .risk-grid{ grid-template-columns:repeat(2,1fr); }
-    .roadmap-grid{ grid-template-columns:1fr; }
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-}
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-@media (max-width:600px){
-
-    section.block{ padding:60px 0; }
-    .summary-grid{ grid-template-columns:1fr; }
-    .cycle-grid{ grid-template-columns:1fr; }
-    .risk-grid{ grid-template-columns:1fr; }
-    .cover-inner{ padding:60px 6%; }
+    .skills-compact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
 }
 
+@media (max-width: 700px) {
+
+    .about-compact {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-compact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-group {
+        margin-top: 50px;
+    }
+
+}
 </style>
+
 </head>
+
 
 <body>
 
-<!-- BARRA DE VOLTAR -->
-<div class="back-bar">
-    <a href="index.html#projetos">← Voltar aos projetos</a>
-</div>
 
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
 
-<!-- ============================================
-     CAPA
-============================================= -->
+    <header class="navbar">
 
-<section class="cover">
-    <div class="cover-inner">
+        <div class="container navbar-content">
 
-        <span class="kicker on-dark">PEOPLE ANALYTICS · RECURSOS HUMANOS</span>
+            <a href="#inicio" class="logo">
+                VA
+            </a>
 
-        <h1>Rotatividade, Retenção<br>e Produtividade</h1>
+            <nav>
 
-        <p class="lead">
-            Análise executiva: por que a estabilidade no headcount
-            esconde um problema de retenção — e o que fazer a respeito.
-        </p>
+                <a href="#sobre">
+                    Sobre
+                </a>
 
-        <div class="cover-divider"></div>
+                <a href="#projetos">
+                    Projetos
+                </a>
 
-        <div class="cover-author">
-            <strong>Viviane Andrade</strong>
-            <span>Data Analyst | Business Intelligence</span>
-        </div>
+                <a href="#contato">
+                    Contato
+                </a>
 
-        <div class="cover-tools">
-            <span>Power BI</span>
-            <span>DAX</span>
-            <span>People Analytics</span>
-            <span>Excel</span>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ============================================
-     SUMÁRIO EXECUTIVO
-============================================= -->
-
-<section class="block">
-    <div class="wrap">
-
-        <span class="kicker">SUMÁRIO EXECUTIVO</span>
-
-        <h2 class="section-title">A empresa não perde gente por acaso — perde por processo</h2>
-
-        <p class="section-lead">
-            O quadro de funcionários se manteve estável ao longo do ano, mas essa
-            estabilidade esconde alta rotatividade: admissões estão apenas repondo
-            desligamentos, sem ampliar a capacidade operacional. Consolidamos um
-            dashboard de People Analytics para identificar as causas e apoiar
-            decisões de retenção.
-        </p>
-
-        <div class="summary-grid">
-
-            <div class="summary-card">
-                <div class="summary-icon">◎</div>
-                <span class="label">OBJETIVO</span>
-                <div class="value">Entender as causas da rotatividade e apoiar retenção</div>
-            </div>
-
-            <div class="summary-card">
-                <div class="summary-icon">◆</div>
-                <span class="label">ACHADO CENTRAL</span>
-                <div class="value">12% das contratações saem em menos de 60 dias</div>
-            </div>
-
-            <div class="summary-card">
-                <div class="summary-icon">▲</div>
-                <span class="label">GRUPO MAIS AFETADO</span>
-                <div class="value">Profissionais experientes de 35 a 54 anos</div>
-            </div>
-
-            <div class="summary-card">
-                <div class="summary-icon">→</div>
-                <span class="label">PRÓXIMO PASSO</span>
-                <div class="value">Reestruturar onboarding para cargos críticos</div>
-            </div>
+            </nav>
 
         </div>
 
-    </div>
-</section>
+    </header>
 
 
-<!-- ============================================
-     O DESAFIO DE NEGÓCIO
-============================================= -->
+    <!-- =========================================
+         HERO
+    ========================================== -->
 
-<section class="block" style="background:#F8FAFC;">
-    <div class="wrap">
+    <main>
 
-        <span class="kicker">O DESAFIO DE NEGÓCIO</span>
+        <section
+            id="inicio"
+            class="hero"
+        >
 
-        <h2 class="section-title">Estabilidade no headcount, instabilidade nas pessoas</h2>
+            <div class="hero-content">
 
-        <p class="section-lead">
-            A ausência de processos estruturados de retenção, integração e
-            desenvolvimento gera ciclos constantes de contratação, desligamento
-            e realocação — aumentando custos operacionais, perda de conhecimento
-            interno e dependência de horas extras para manter a produtividade.
-        </p>
-
-        <div class="challenge-grid">
-
-            <div>
-                <h4 style="font-size:12px;font-weight:800;letter-spacing:1px;color:var(--navy);margin-bottom:14px;">
-                    O QUE PRECISÁVAMOS RESPONDER
-                </h4>
-                <ul class="challenge-list">
-                    <li>Quais fatores impulsionam a rotatividade?</li>
-                    <li>Qual o perfil de quem está saindo?</li>
-                    <li>Como está o processo seletivo e o onboarding?</li>
-                    <li>Qual o impacto na operação (horas extras, faltas)?</li>
-                </ul>
-            </div>
-
-            <div class="dashboard-panel">
-                <h4>O QUE O DASHBOARD CONSOLIDA</h4>
-                <ul>
-                    <li>Demissões e headcount</li>
-                    <li>Má contratação</li>
-                    <li>Absenteísmo</li>
-                    <li>Horas extras</li>
-                    <li>Perfil de desligamento</li>
-                    <li>Evolução mensal</li>
-                </ul>
-            </div>
-
-        </div>
-
-    </div>
-</section>
+                <span class="hero-label">
+                    DATA ANALYTICS · BUSINESS INTELLIGENCE
+                </span>
 
 
-<!-- ============================================
-     ACHADO 1 — MÁ CONTRATAÇÃO
-============================================= -->
+                <!-- FOTO DE PERFIL -->
 
-<section class="block">
-    <div class="wrap">
+                <div class="profile-container">
 
-        <span class="kicker">O QUE OS DADOS REVELARAM · ACHADO 1</span>
+                    <img
+                        src="assets/images/profile.jpg"
+                        alt="Viviane Andrade"
+                        class="profile-photo"
+                    >
 
-        <h2 class="section-title">1 em cada 8 contratações falha nos primeiros 60 dias</h2>
+                </div>
 
-        <p class="section-lead">
-            12% das contratações resultam em desligamento em menos de 60 dias —
-            sinal claro de falhas no processo seletivo e/ou no onboarding, não
-            apenas de má sorte pontual.
-        </p>
 
-        <div class="finding-1">
+                <h1>
+                    Transformando dados
+                    <br>
+                    em decisões.
+                </h1>
 
-            <div class="stat-card">
-                <span class="label">MÁ CONTRATAÇÃO</span>
-                <div class="big-number">12%</div>
-                <p class="desc">das contratações saem em menos de 60 dias</p>
-                <hr>
-                <p class="note">
-                    Implicação: cada contratação perdida representa retrabalho
-                    de recrutamento, tempo de vaga aberta e curva de aprendizado
-                    reiniciada.
+
+                <p class="hero-description">
+
+                    Analista de Dados com foco em Business Intelligence e
+                    Business Analytics. Transformo problemas de negócio em
+                    análises estruturadas, dashboards e insights que apoiam
+                    decisões.
+
                 </p>
-            </div>
 
-            <div class="donut-wrap">
 
-                <svg viewBox="0 0 200 200" width="260" height="260">
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="#CADCFC" stroke-width="36"></circle>
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="#E85C41" stroke-width="36"
-                        stroke-dasharray="60.3 442.5"
-                        stroke-dashoffset="0"
-                        transform="rotate(-90 100 100)"></circle>
-                    <text x="100" y="94" text-anchor="middle" font-family="Playfair Display, serif" font-weight="800" font-size="34" fill="#1B2340">12%</text>
-                    <text x="100" y="118" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5B6584">saem em 60 dias</text>
-                </svg>
+                <!-- BOTÕES -->
 
-                <div class="donut-legend">
-                    <div class="item"><span class="dot" style="background:#CADCFC;"></span> Permanecem além de 60 dias</div>
-                    <div class="item"><span class="dot" style="background:#E85C41;"></span> Saem em até 60 dias</div>
+                <div class="hero-buttons">
+
+                    <a href="#projetos" class="btn btn-primary">
+                        Ver Projetos
+                    </a>
+
+
+                    <a href="docs/cv.pdf" target="_blank" class="btn btn-secondary">
+                        Download CV
+                    </a>
+
                 </div>
 
             </div>
 
+        </section>
+
+
+        <!-- =========================================
+             SOBRE
+        ========================================== -->
+
+        
+<section
+    id="sobre"
+    class="about"
+>
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>QUEM SOU</span>
+            <h2>Dados com visão de negócio.</h2>
         </div>
 
-    </div>
-</section>
+        <div class="about-compact">
 
+            <div class="about-text">
 
-<!-- ============================================
-     ACHADO 2 — PERFIL DE DESLIGAMENTO
-============================================= -->
+                <p class="about-lead">
+                    Sou formada em Administração e Ciência de Dados e atuo
+                    na interseção entre negócio e dados.
+                </p>
 
-<section class="block on-dark">
-    <div class="wrap">
-
-        <span class="kicker on-dark">O QUE OS DADOS REVELARAM · ACHADO 2</span>
-
-        <h2 class="section-title">As saídas concentram conhecimento e experiência perdidos</h2>
-
-        <p class="section-lead">
-            As saídas mais intensas ocorrem entre profissionais experientes de
-            35 a 54 anos, gerando perda de produtividade e conhecimento interno
-            — e 69% dos desligamentos são de colaboradores do sexo masculino,
-            concentrados em áreas operacionais.
-        </p>
-
-        <div class="finding-2">
-
-            <div class="bar-card">
-                <h4>DESLIGAMENTOS POR SEXO</h4>
-                <div class="bar-chart">
-
-                    <div class="bar-col">
-                        <span class="val">31%</span>
-                        <div class="bar" style="height:80px; background:#CADCFC;"></div>
-                        <span class="name">Feminino</span>
-                    </div>
-
-                    <div class="bar-col">
-                        <span class="val">69%</span>
-                        <div class="bar" style="height:150px; background:#E85C41;"></div>
-                        <span class="name">Masculino</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="age-card">
-                <span class="label">FAIXA ETÁRIA MAIS AFETADA</span>
-                <div class="big">35–54 anos</div>
                 <p>
-                    Profissionais experientes — maior impacto em produtividade
-                    e conhecimento institucional perdido.
+                    Meu foco é transformar problemas de negócio em análises
+                    estruturadas, dashboards e insights que possam apoiar
+                    decisões. Ao longo dos meus projetos, trabalho desde a
+                    compreensão do problema e preparação dos dados até a
+                    análise, visualização e apresentação dos resultados.
                 </p>
-                <hr>
-                <span class="tag">Concentração: cargos operacionais e comerciais</span>
+
+            </div>
+
+            <div class="about-education">
+
+                <span class="subsection-label">FORMAÇÃO</span>
+
+                <div class="education-item">
+                    <strong>Administração</strong>
+                    <span>Centro Universitário Anhanguera</span>
+                </div>
+
+                <div class="education-item">
+                    <strong>Ciência de Dados</strong>
+                    <span>DNC</span>
+                </div>
+
             </div>
 
         </div>
 
     </div>
+
 </section>
 
 
-<!-- ============================================
-     ACHADO 3 — CICLO DE SOBRECARGA
-============================================= -->
+<!-- =========================================
+     PROJETOS
+========================================== -->
 
-<section class="block">
-    <div class="wrap">
+<section id="projetos" class="projects">
 
-        <span class="kicker">O QUE OS DADOS REVELARAM · ACHADO 3</span>
+    <div class="container">
 
-        <h2 class="section-title">O turnover está sobrecarregando quem fica</h2>
+        <div class="section-title">
 
-        <p class="section-lead">
-            O crescimento de horas extras e absenteísmo é reflexo direto da
-            instabilidade operacional gerada pela rotatividade — quando alguém
-            sai, a equipe remanescente absorve a carga, criando um ciclo que
-            aumenta o risco de novas saídas.
-        </p>
+            <span>PROJETOS</span>
 
-        <div class="cycle-grid">
+            <h2>
+                Projetos que transformam
+                dados em decisões.
+            </h2>
 
-            <div class="cycle-card">
-                <div class="num">01</div>
-                <div class="title">Vaga aberta</div>
-                <div class="desc">Time atual assume a carga extra</div>
+            <p>
+                Uma seleção de projetos desenvolvidos para explorar problemas
+                de negócio, analisar dados e gerar insights.
+            </p>
+
+        </div>
+
+
+        <!-- BUSINESS INTELLIGENCE -->
+
+        <div class="project-group">
+
+            <div class="project-group-header">
+                <span class="project-group-label">BUSINESS INTELLIGENCE</span>
+                <h3>Dashboards, indicadores e performance.</h3>
+                <p>
+                    Projetos voltados à visualização de indicadores,
+                    acompanhamento de desempenho e apoio à tomada de decisão.
+                </p>
             </div>
 
-            <div class="cycle-card">
-                <div class="num">02</div>
-                <div class="title">Horas extras</div>
-                <div class="desc">Cresce para compensar o time reduzido</div>
+            <div class="project-grid">
+
+                <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/comercial.jpg"
+                                alt="Projeto Comercial — Power BI"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                BUSINESS INTELLIGENCE · SALES
+                            </span>
+
+                            <h3>
+                                Projeto Comercial — Power BI
+                            </h3>
+
+                            <p class="project-question">
+                                Como transformar vendas em decisões comerciais?
+                            </p>
+
+                            <p>
+                                Projeto de análise comercial utilizando
+                                indicadores e visualizações para apoiar
+                                decisões de vendas.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Power BI</span>
+                                <span>DAX</span>
+                                <span>Business Analytics</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="docs/analise-executiva-comercial.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Projeto-Comercial-Power-Bi" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/fitnesslife.jpg"
+                                alt="Análise de Receita — FitnessLife"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA ANALYTICS · BUSINESS INTELLIGENCE
+                            </span>
+
+                            <h3>
+                                Análise de Receita — FitnessLife
+                            </h3>
+
+                            <p class="project-question">
+                                O que explica a queda de receita?
+                            </p>
+
+                            <p>
+                                Projeto de análise de receita utilizando
+                                SQL, modelagem de dados, Power BI e DAX
+                                para investigar desempenho e indicadores.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>SQL</span>
+                                <span>Power BI</span>
+                                <span>DAX</span>
+                                <span>Business Analytics</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="docs/analise-executiva-fitnesslife.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Projeto_Analise_Receita_FitnessLife" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/logistica.jpg"
+                                alt="Dashboard de Logística"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA ANALYTICS · LOGISTICS
+                            </span>
+
+                            <h3>
+                                Dashboard de Logística
+                            </h3>
+
+                            <p class="project-question">
+                                Como transformar dados logísticos em decisões?
+                            </p>
+
+                            <p>
+                                Projeto de análise de indicadores
+                                operacionais e desempenho logístico.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Power BI</span>
+                                <span>SQL</span>
+                                <span>Python</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="docs/analise-executiva-logistica.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Dashboard-Log-stica" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
             </div>
 
-            <div class="cycle-card">
-                <div class="num">03</div>
-                <div class="title">Desgaste</div>
-                <div class="desc">Absenteísmo aumenta, produtividade cai</div>
+        </div>
+
+
+        <!-- BUSINESS ANALYTICS -->
+
+        <div class="project-group">
+
+            <div class="project-group-header">
+                <span class="project-group-label">BUSINESS ANALYTICS</span>
+                <h3>Investigação de problemas e geração de insights.</h3>
+                <p>
+                    Projetos que partem de perguntas de negócio para investigar
+                    causas, comportamentos e oportunidades a partir dos dados.
+                </p>
             </div>
 
-            <div class="cycle-card">
-                <div class="num">04</div>
-                <div class="title">Nova saída</div>
-                <div class="desc">O ciclo se repete</div>
+            <div class="project-grid">
+
+                <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/rfm.jpg"
+                                alt="Segmentação de Clientes RFM"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA ANALYTICS · CUSTOMER ANALYTICS
+                            </span>
+
+                            <h3>
+                                Segmentação de Clientes — RFM
+                            </h3>
+
+                            <p class="project-question">
+                                Como entender o comportamento dos clientes?
+                            </p>
+
+                            <p>
+                                Projeto de análise de clientes utilizando
+                                a metodologia RFM para identificar perfis
+                                de comportamento e apoiar decisões de negócio.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>RFM</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="docs/analise-executiva-rfm.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Segmentacao_clientes_Ecommerce_RFM" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/rh.jpg"
+                                alt="Projeto RH"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                PEOPLE ANALYTICS · BUSINESS ANALYTICS
+                            </span>
+
+                            <h3>
+                                Projeto RH
+                            </h3>
+
+                            <p class="project-question">
+                                Como transformar dados de pessoas em insights?
+                            </p>
+
+                            <p>
+                                Projeto de análise de dados de recursos
+                                humanos e indicadores para apoio à decisão.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Power BI</span>
+                                <span>Excel</span>
+                                <span>Data Analytics</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="docs/analise-executiva-rh.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Projeto-RH" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+            </div>
+
+        </div>
+
+
+        <!-- DATA SCIENCE -->
+
+        <div class="project-group">
+
+            <div class="project-group-header">
+                <span class="project-group-label">DATA SCIENCE</span>
+                <h3>Estatística, modelagem e análise preditiva.</h3>
+                <p>
+                    Projetos que utilizam Python, estatística e machine learning
+                    para investigar padrões e apoiar decisões.
+                </p>
+            </div>
+
+            <div class="project-grid">
+
+                <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/livros.png"
+                                alt="Análise de Vendas de Livros"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA SCIENCE · BUSINESS ANALYTICS
+                            </span>
+
+                            <h3>
+                                Análise de Vendas de Livros
+                            </h3>
+
+                            <p class="project-question">
+                                O que realmente faz um livro vender mais?
+                            </p>
+
+                            <p>
+                                Projeto de Ciência de Dados desenvolvido
+                                com a metodologia CRISP-DM para investigar
+                                os fatores associados ao sucesso comercial
+                                de livros.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                                <span>SciPy</span>
+                                <span>Estatística</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="docs/analise-executiva-livros.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Analise_vendas_livros" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/images/projects/churn.jpg"
+                                alt="Previsão de Churn Telecom"
+                            >
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                DATA SCIENCE · MACHINE LEARNING
+                            </span>
+
+                            <h3>
+                                Previsão de Churn — Telecom
+                            </h3>
+
+                            <p class="project-question">
+                                Como reduzir a evasão de clientes?
+                            </p>
+
+                            <p>
+                                Projeto de análise e previsão de churn
+                                para identificar clientes com maior
+                                probabilidade de evasão.
+                            </p>
+
+
+                            <div class="project-tags">
+
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>Scikit-learn</span>
+                                <span>Machine Learning</span>
+
+                            </div>
+
+
+                            <div class="project-actions">
+
+                                <a href="docs/analise-executiva-churn.html" target="_blank" class="btn btn-primary">
+                                    Análise Executiva
+                                </a>
+
+                                <a href="https://github.com/VivianeAndrade1988/Previs-o-de-churn-de-clientes--Telecom" target="_blank" class="btn btn-secondary">
+                                    GitHub →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     COMO TRABALHO
+========================================== -->
+
+<section class="how-i-work">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>COMO TRABALHO</span>
+
+            <h2>Do problema à decisão.</h2>
+
+            <p>
+                Meu processo começa pelo entendimento do negócio e termina
+                com uma análise que pode ser utilizada para tomar decisões.
+            </p>
+
+        </div>
+
+        <div class="process-grid">
+
+            <div class="process-card">
+                <span class="process-number">01</span>
+                <h3>Entender</h3>
+                <p>Compreender o contexto, o problema e os objetivos do negócio.</p>
+            </div>
+
+            <div class="process-card">
+                <span class="process-number">02</span>
+                <h3>Estruturar</h3>
+                <p>Transformar o problema em perguntas, indicadores e hipóteses.</p>
+            </div>
+
+            <div class="process-card">
+                <span class="process-number">03</span>
+                <h3>Analisar</h3>
+                <p>Preparar os dados, investigar padrões e encontrar evidências.</p>
+            </div>
+
+            <div class="process-card">
+                <span class="process-number">04</span>
+                <h3>Comunicar</h3>
+                <p>Traduzir os achados em insights claros e recomendações.</p>
             </div>
 
         </div>
 
     </div>
+
 </section>
 
 
-<!-- ============================================
-     RECOMENDAÇÕES
-============================================= -->
+<!-- =========================================
+     COMPETÊNCIAS
+========================================== -->
 
-<section class="block" style="background:#F8FAFC;">
-    <div class="wrap">
+<section id="competencias" class="skills-compact">
 
-        <span class="kicker">RECOMENDAÇÕES DE NEGÓCIO</span>
+    <div class="container">
 
-        <h2 class="section-title">Da análise à ação</h2>
+        <div class="section-title">
 
-        <div class="rec-grid">
+            <span>COMPETÊNCIAS</span>
 
-            <div class="rec-item">
-                <span class="rnum">01</span>
-                <div>
-                    <h3>Fortalecer recrutamento e seleção</h3>
-                    <p>Reduzir a má contratação com critérios e etapas de entrevista mais robustos, principalmente em cargos operacionais e comerciais.</p>
-                </div>
+            <h2>Ferramentas que uso para resolver problemas.</h2>
+
+        </div>
+
+        <div class="skills-compact-grid">
+
+            <div class="skill-group">
+                <span class="skill-group-label">BI & VISUALIZAÇÃO</span>
+                <strong>Power BI · DAX · Storytelling</strong>
             </div>
 
-            <div class="rec-item">
-                <span class="rnum">02</span>
-                <div>
-                    <h3>Estruturar onboarding</h3>
-                    <p>Criar plano de integração e desenvolvimento formal para cargos críticos, reduzindo desligamentos nos primeiros 60 dias.</p>
-                </div>
+            <div class="skill-group">
+                <span class="skill-group-label">DADOS</span>
+                <strong>SQL · Power Query · Modelagem</strong>
             </div>
 
-            <div class="rec-item">
-                <span class="rnum">03</span>
-                <div>
-                    <h3>Monitorar sazonalidade</h3>
-                    <p>Ajustar o quadro operacional nos períodos de maior demanda, evitando picos de sobrecarga.</p>
-                </div>
+            <div class="skill-group">
+                <span class="skill-group-label">ANÁLISE</span>
+                <strong>Python · Pandas · Estatística</strong>
             </div>
 
-            <div class="rec-item">
-                <span class="rnum">04</span>
-                <div>
-                    <h3>Reduzir sobrecarga da equipe</h3>
-                    <p>Melhorar a gestão de escalas e horas extras para diminuir o desgaste de quem permanece.</p>
-                </div>
-            </div>
-
-            <div class="rec-item">
-                <span class="rnum">05</span>
-                <div>
-                    <h3>Ações preventivas de saúde</h3>
-                    <p>Priorizar saúde e ergonomia para colaboradores acima de 55 anos, grupo mais sensível ao desgaste operacional.</p>
-                </div>
+            <div class="skill-group">
+                <span class="skill-group-label">NEGÓCIO</span>
+                <strong>Business Analytics · CRISP-DM · Indicadores</strong>
             </div>
 
         </div>
 
     </div>
+
 </section>
 
 
-<!-- ============================================
-     RISCOS E MITIGAÇÕES
-============================================= -->
+        <!-- =========================================
+             CONTATO
+        ========================================== -->
 
-<section class="block">
-    <div class="wrap">
+        <section
+            id="contato"
+            class="contact"
+        >
 
-        <span class="kicker coral">RISCOS E MITIGAÇÕES</span>
+            <div class="container">
 
-        <h2 class="section-title">O que pode limitar essas conclusões</h2>
+                <div class="section-title">
 
-        <div class="risk-grid">
+                    <span>
+                        CONTATO
+                    </span>
 
-            <div class="risk-card">
-                <div class="bar-top"></div>
-                <div class="inner">
-                    <h3>Causalidade não comprovada</h3>
-                    <p class="desc">Os fatores associados à rotatividade são correlacionais — não provam causa isolada.</p>
-                    <div class="mit-label">MITIGAÇÃO</div>
-                    <p class="mit">Tratar como hipóteses priorizadas, validando com entrevistas de desligamento.</p>
+                    <h2>
+                        Vamos transformar dados em resultados?
+                    </h2>
+
+                    <p>
+
+                        Estou disponível para novos projetos e
+                        oportunidades. Preencha o assunto e a mensagem, e
+                        escolha como prefere enviar.
+
+                    </p>
+
                 </div>
+
+
+                <form class="contact-form" id="contactForm" onsubmit="return false;">
+
+                    <div class="form-field">
+                        <label for="contactSubject">Assunto</label>
+                        <input type="text" id="contactSubject" placeholder="Ex: Oportunidade de vaga em BI">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contactMessage">Mensagem</label>
+                        <textarea id="contactMessage" rows="5" placeholder="Escreva sua mensagem aqui..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+
+                        <button type="button" class="btn btn-primary" onclick="sendViaEmail()">
+                            Enviar por E-mail
+                        </button>
+
+                        <button type="button" class="btn btn-whatsapp" onclick="sendViaWhatsapp()">
+                            Enviar por WhatsApp
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+                <div class="contact-links">
+
+
+                    <a href="https://www.linkedin.com/" target="_blank">
+                        LinkedIn
+                    </a>
+
+
+                    <a href="https://github.com/VivianeAndrade1988" target="_blank">
+                        GitHub
+                    </a>
+
+
+                </div>
+
             </div>
 
-            <div class="risk-card">
-                <div class="bar-top"></div>
-                <div class="inner">
-                    <h3>Viés de um único ano</h3>
-                    <p class="desc">A análise cobre um período específico, que pode não repetir padrões sazonais futuros.</p>
-                    <div class="mit-label">MITIGAÇÃO</div>
-                    <p class="mit">Atualizar o dashboard continuamente e revisar tendências trimestralmente.</p>
-                </div>
-            </div>
+        </section>
 
-            <div class="risk-card">
-                <div class="bar-top"></div>
-                <div class="inner">
-                    <h3>Ação sem adesão da liderança</h3>
-                    <p class="desc">Recomendações de onboarding/seleção só funcionam se lideranças as aplicarem.</p>
-                    <div class="mit-label">MITIGAÇÃO</div>
-                    <p class="mit">Envolver gestores de área na construção do plano de ação, não só o RH.</p>
-                </div>
-            </div>
+    </main>
 
-            <div class="risk-card">
-                <div class="bar-top"></div>
-                <div class="inner">
-                    <h3>Custo de implementação</h3>
-                    <p class="desc">Reformular seleção e onboarding demanda tempo e orçamento de RH.</p>
-                    <div class="mit-label">MITIGAÇÃO</div>
-                    <p class="mit">Priorizar cargos críticos primeiro, medir impacto antes de expandir.</p>
-                </div>
-            </div>
+
+    <script>
+        function sendViaEmail() {
+            var subject = document.getElementById('contactSubject').value || 'Contato via portfólio';
+            var message = document.getElementById('contactMessage').value || '';
+            var email = 'viviane.analistadedados@gmail.com';
+            var url = 'mailto:' + email
+                + '?subject=' + encodeURIComponent(subject)
+                + '&body=' + encodeURIComponent(message);
+            window.location.href = url;
+        }
+
+        function sendViaWhatsapp() {
+            var subject = document.getElementById('contactSubject').value || 'Contato via portfólio';
+            var message = document.getElementById('contactMessage').value || '';
+            var phone = '5515997686058';
+            var text = subject + '\n\n' + message;
+            var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(text);
+            window.open(url, '_blank');
+        }
+    </script>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Viviane Andrade.
+                Data Analytics & Business Intelligence.
+            </p>
 
         </div>
 
-    </div>
-</section>
+    </footer>
 
-
-<!-- ============================================
-     PRÓXIMOS PASSOS
-============================================= -->
-
-<section class="block on-dark">
-    <div class="wrap">
-
-        <span class="kicker on-dark">PRÓXIMOS PASSOS</span>
-
-        <h2 class="section-title">Roteiro de implementação</h2>
-
-        <div class="roadmap-grid">
-
-            <div class="roadmap-card active">
-                <div class="phase">CURTO PRAZO</div>
-                <div class="when">0–30 dias</div>
-                <ul>
-                    <li>Revisar critérios de seleção para cargos críticos</li>
-                    <li>Mapear os cargos com maior taxa de desligamento precoce</li>
-                </ul>
-            </div>
-
-            <div class="roadmap-card">
-                <div class="phase">MÉDIO PRAZO</div>
-                <div class="when">1–3 meses</div>
-                <ul>
-                    <li>Implantar programa de onboarding estruturado</li>
-                    <li>Ajustar escalas nos períodos de pico de demanda</li>
-                </ul>
-            </div>
-
-            <div class="roadmap-card">
-                <div class="phase">LONGO PRAZO</div>
-                <div class="when">3–6 meses</div>
-                <ul>
-                    <li>Programa de saúde/ergonomia para 55+</li>
-                    <li>Expandir dashboard com modelo preditivo de turnover</li>
-                </ul>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ============================================
-     ENCERRAMENTO
-============================================= -->
-
-<section class="closing">
-    <div class="wrap">
-        <div class="closing-inner">
-
-            <blockquote>
-                "Os indicadores mostram que o problema não é falta de gente —
-                é um ciclo de rotatividade que consome tempo, dinheiro e
-                conhecimento."
-            </blockquote>
-
-            <div class="closing-divider"></div>
-
-            <div class="closing-author">
-                <strong>Viviane Andrade</strong>
-                <span>Data Analyst | Business Intelligence</span>
-                <span>github.com/VivianeAndrade1988/Projeto-RH</span>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- ============================================
-     RODAPÉ
-============================================= -->
-
-<footer class="page-footer">
-    <p>Projeto desenvolvido por Viviane Andrade</p>
-    <a href="index.html#projetos" class="btn">← Voltar ao portfólio</a>
-</footer>
 
 </body>
+
 </html>

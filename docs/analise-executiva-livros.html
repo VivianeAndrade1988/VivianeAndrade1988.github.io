@@ -1,275 +1,709 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análise Executiva | O que faz um livro vender mais?</title>
+<title>Análise Executiva — Vendas de Livros | Viviane Andrade</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
+
 :root{
-  --bg:#f5f7fb; --card:#ffffff; --text:#182235; --muted:#667085;
-  --blue:#2457d6; --blue-soft:#eef3ff; --orange:#e98b32;
-  --line:#e5e9f2; --dark:#111827; --green:#16855b;
+    --navy:#1E2761;
+    --navy-dark:#141A45;
+    --navy-deep:#2A3480;
+    --ice:#CADCFC;
+    --ice-soft:#EEF3FD;
+    --white:#FFFFFF;
+    --ink:#1B2340;
+    --muted:#5B6584;
+    --coral:#E85C41;
+    --good:#1F9D6B;
+    --amber:#D97706;
 }
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Arial,sans-serif;line-height:1.75}
-.article{max-width:920px;margin:40px auto;background:var(--card);padding:58px 68px;border-radius:22px;box-shadow:0 10px 35px rgba(16,24,40,.06)}
-.tag{display:inline-block;background:var(--blue-soft);color:var(--blue);padding:6px 13px;border-radius:20px;font-size:13px;font-weight:700}
-h1{font-size:42px;line-height:1.15;margin:18px 0 14px;letter-spacing:-1px}
-h2{font-size:27px;margin-top:52px;line-height:1.25}
-h3{font-size:20px;margin-top:30px}
-p{font-size:17px}
-.lead{font-size:20px;color:#4b5565;line-height:1.65}
-.note{border-left:4px solid var(--blue);background:var(--blue-soft);padding:18px 22px;margin:30px 0;border-radius:0 12px 12px 0}
-.problem{background:#fff8ef;border:1px solid #f4dfc8;padding:20px 24px;border-radius:14px;margin:25px 0}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
-.kpi{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
-.kpi strong{display:block;font-size:25px;color:var(--blue);line-height:1.2}
-.kpi span{font-size:13px;color:var(--muted)}
-.tree{margin:30px 0;padding:26px;background:#fbfcff;border:1px solid var(--line);border-radius:18px;text-align:center}
-.node{display:inline-block;padding:12px 18px;border:1px solid #cfd7e6;border-radius:12px;background:white;margin:6px;font-weight:600}
-.root{background:var(--blue);color:white;border-color:var(--blue);font-size:18px}
-.branch{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}
-.causes .node{font-weight:500;font-size:14px}
-.arrow{color:#8b95a7;font-size:24px}
-.insight{border:1px solid var(--line);padding:22px;border-radius:14px;margin:18px 0}
-.insight strong{color:var(--blue)}
-.result{border-left:4px solid var(--green);background:#f1faf6;padding:18px 22px;margin:22px 0;border-radius:0 12px 12px 0}
-table{width:100%;border-collapse:collapse;margin:25px 0;font-size:15px}
-th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:#f8f9fc}
-.badge{display:inline-block;padding:4px 9px;border-radius:12px;background:#f1f3f7;font-size:12px;font-weight:700}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
-.step{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
-.step b{color:var(--blue)}
-footer{margin-top:55px;padding-top:25px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-@media(max-width:700px){
- .article{margin:0;padding:35px 24px;border-radius:0}
- h1{font-size:34px}
- .kpis{grid-template-columns:repeat(2,1fr)}
- .steps{grid-template-columns:1fr}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter', sans-serif; background:var(--white); color:var(--ink); line-height:1.6;}
+h1,h2,h3{font-family:'Playfair Display', serif;}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 6%;}
+
+.kicker{display:block; font-size:12px; font-weight:800; letter-spacing:2px; color:var(--navy); margin-bottom:16px;}
+.kicker.on-dark{ color:var(--ice); }
+.kicker.coral{ color:var(--coral); }
+
+.back-bar{position:sticky; top:0; z-index:50; background:rgba(20,26,69,0.96); backdrop-filter:blur(6px); padding:16px 6%;}
+.back-bar a{color:var(--ice); text-decoration:none; font-size:14px; font-weight:600; transition:.3s;}
+.back-bar a:hover{ color:var(--white); }
+
+/* CAPA */
+.cover{position:relative; min-height:82vh; background:linear-gradient(135deg, var(--navy) 0%, var(--navy) 55%, var(--navy-dark) 100%); color:var(--white); display:flex; align-items:center; overflow:hidden;}
+.cover::before{content:""; position:absolute; left:-140px; bottom:-160px; width:420px; height:420px; border-radius:50%; background:var(--navy-deep); opacity:.55;}
+.cover::after{content:""; position:absolute; left:-40px; bottom:-100px; width:220px; height:220px; border-radius:50%; background:#2E3980; opacity:.6;}
+.cover-inner{position:relative; z-index:2; max-width:760px; padding:80px 6%;}
+.cover h1{font-size:clamp(32px, 4.8vw, 52px); font-weight:800; line-height:1.1; letter-spacing:-1px; margin-bottom:26px;}
+.cover p.lead{font-size:17px; color:var(--ice); max-width:600px; margin-bottom:34px; line-height:1.7;}
+.cover-divider{width:70px; height:2px; background:var(--ice); margin-bottom:26px;}
+.cover-author strong{display:block; font-size:15px; margin-bottom:4px;}
+.cover-author span{font-size:14px; color:var(--ice);}
+.cover-tools{margin-top:34px; display:flex; flex-wrap:wrap; gap:8px;}
+.cover-tools span{padding:7px 14px; border-radius:20px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); color:var(--ice); font-size:12px; font-weight:600;}
+
+/* SEÇÃO GERAL */
+section.block{padding:90px 0;}
+section.block.on-dark{background:var(--navy); color:var(--white);}
+h2.section-title{font-size:clamp(26px,3.4vw,34px); font-weight:800; line-height:1.2; letter-spacing:-0.5px; color:var(--ink); max-width:820px; margin-bottom:18px;}
+.on-dark h2.section-title{ color:var(--white); }
+p.section-lead{font-size:15.5px; color:var(--muted); max-width:790px; line-height:1.75;}
+.on-dark p.section-lead{ color:var(--ice); }
+
+/* SUMÁRIO */
+.summary-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:44px;}
+.summary-card{background:var(--ice-soft); border-radius:14px; padding:26px 22px;}
+.summary-icon{width:44px; height:44px; border-radius:50%; background:var(--navy); color:var(--white); display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:22px;}
+.summary-card .label{display:block; font-size:10.5px; font-weight:800; letter-spacing:1px; color:var(--navy); margin-bottom:10px;}
+.summary-card .value{font-family:'Playfair Display', serif; font-size:18px; font-weight:700; line-height:1.3; color:var(--ink);}
+
+/* BASE DE DADOS — PAINEL ESCURO */
+.data-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:44px; align-items:start;}
+.data-panel{background:var(--navy); border-radius:14px; padding:32px;}
+.data-panel h4{font-size:11px; font-weight:800; letter-spacing:1.2px; color:var(--ice); margin-bottom:20px;}
+.data-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+.data-stats strong{display:block; font-family:'Playfair Display', serif; font-size:26px; font-weight:800; color:var(--white); margin-bottom:4px;}
+.data-stats span{font-size:10.5px; color:var(--ice); font-weight:600; letter-spacing:0.3px;}
+.question-list{list-style:none;}
+.question-list li{padding:12px 0; border-bottom:1px solid #E2E8F0; font-size:15px; color:var(--ink);}
+
+/* METODOLOGIA */
+.method-flow{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:30px;}
+.method-step{padding:12px 20px; background:var(--ice-soft); color:var(--ink); border-radius:24px; font-size:13px; font-weight:700; border:1px solid #D7E3FA;}
+.method-arrow{color:#94A3B8; font-size:16px;}
+
+/* SELO DE CONFIANÇA */
+.confidence-badge{ display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:20px; font-size:11.5px; font-weight:800; letter-spacing:0.3px; margin-bottom:18px; }
+.confidence-badge.alta{ background:#DCFCE7; color:#15803D; }
+.confidence-badge.media{ background:#FEF3C7; color:#B45309; }
+.on-dark .confidence-badge.alta{ background:rgba(34,197,94,0.18); color:#86EFAC; }
+.on-dark .confidence-badge.media{ background:rgba(217,119,6,0.18); color:#FCD34D; }
+
+/* COMPARAÇÃO (BARRAS HORIZONTAIS) */
+.compare-wrap{ margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.compare-card{ background:var(--ice-soft); border-radius:14px; padding:28px; }
+.compare-card.on-navy{ background:var(--navy-dark); }
+.compare-card .clabel{ font-size:10.5px; font-weight:800; letter-spacing:1px; color:var(--navy); margin-bottom:18px; display:block; }
+.compare-card.on-navy .clabel{ color:var(--ice); }
+.compare-row{ display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+.compare-row:last-child{ margin-bottom:0; }
+.compare-row .cname{ flex:0 0 140px; font-size:12.5px; color:var(--ink); font-weight:600; }
+.compare-card.on-navy .cname{ color:var(--white); }
+.compare-row .ctrack{ flex:1; height:26px; background:#DCE6FA; border-radius:6px; overflow:hidden; position:relative; display:flex; align-items:center; }
+.compare-card.on-navy .ctrack{ background:rgba(255,255,255,0.12); }
+.compare-row .cfill{ height:100%; border-radius:6px; }
+.compare-row .cval{ margin-left:10px; font-size:12px; font-weight:700; color:var(--ink); white-space:nowrap; }
+.compare-card.on-navy .cval{ color:var(--white); }
+
+/* STAT CARD SIMPLES */
+.stat-card{ background:var(--ice-soft); border-radius:14px; padding:32px; margin-top:36px; }
+.stat-card .label{ font-size:10.5px; font-weight:800; letter-spacing:1px; color:var(--navy); display:block; margin-bottom:14px; }
+.stat-card .big-number{ font-family:'Playfair Display', serif; font-size:56px; font-weight:800; color:var(--navy); line-height:1; margin-bottom:14px; }
+.stat-card .desc{ font-size:14px; color:var(--ink); max-width:560px; line-height:1.6; }
+
+/* OUTROS ACHADOS — LISTA */
+.finding-list{ margin-top:36px; display:flex; flex-direction:column; gap:16px; }
+.finding-row{ display:flex; gap:20px; background:var(--ice-soft); border-radius:12px; padding:22px 24px; align-items:flex-start; }
+.finding-row .ficon{ flex:0 0 auto; font-size:22px; }
+.finding-row h4{ font-size:15px; color:var(--ink); margin-bottom:6px; }
+.finding-row p{ font-size:13.5px; color:var(--muted); line-height:1.6; margin:0; }
+
+/* TABELA-RESUMO */
+.summary-table{ margin-top:20px; width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden; }
+.summary-table th{ background:var(--navy); color:var(--white); text-align:left; padding:14px 18px; font-size:11px; font-weight:800; letter-spacing:0.5px; }
+.summary-table td{ padding:14px 18px; border-bottom:1px solid #E2E8F0; font-size:13.5px; color:var(--ink); background:var(--ice-soft); }
+
+/* RECOMENDAÇÕES */
+.rec-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px 48px; margin-top:44px;}
+.rec-item{display:flex; gap:18px;}
+.rec-item .rnum{font-family:'Playfair Display', serif; font-size:26px; font-weight:800; color:var(--ice); flex:0 0 auto;}
+.rec-item h3{font-size:15.5px; font-weight:700; color:var(--ink); margin-bottom:6px;}
+.rec-item p{font-size:13.5px; color:var(--muted); line-height:1.6;}
+
+/* RISCOS */
+.risk-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:44px;}
+.risk-card{background:var(--ice-soft); border-radius:12px; overflow:hidden; padding:0 0 22px;}
+.risk-card .bar-top{height:6px; background:var(--coral);}
+.risk-card .inner{ padding:22px 20px 0; }
+.risk-card h3{font-size:14px; font-weight:700; color:var(--ink); margin-bottom:12px; line-height:1.3;}
+.risk-card p.desc{font-size:12px; color:var(--muted); line-height:1.55; margin-bottom:18px;}
+.risk-card .mit-label{font-size:10px; font-weight:800; letter-spacing:1px; color:var(--good); margin-bottom:8px;}
+.risk-card p.mit{font-size:12px; color:var(--ink); line-height:1.5;}
+
+/* PRÓXIMOS PASSOS */
+.roadmap-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:44px;}
+.roadmap-card{background:var(--navy-deep); border-radius:14px; padding:28px 26px;}
+.roadmap-card.active{background:var(--ice);}
+.roadmap-card .phase{font-size:11px; font-weight:800; letter-spacing:1px; color:var(--ice); margin-bottom:10px;}
+.roadmap-card.active .phase{ color:var(--navy); }
+.roadmap-card .when{font-family:'Playfair Display', serif; font-size:19px; font-weight:800; color:var(--white); margin-bottom:20px;}
+.roadmap-card.active .when{ color:var(--ink); }
+.roadmap-card ul{list-style:none;}
+.roadmap-card li{position:relative; padding-left:18px; margin-bottom:12px; font-size:13px; color:var(--ice); line-height:1.5;}
+.roadmap-card.active li{ color:var(--ink); }
+.roadmap-card li::before{content:"●"; position:absolute; left:0; font-size:8px; top:5px;}
+
+/* ENCERRAMENTO */
+.closing{background:var(--navy-dark); color:var(--white); padding:110px 0; position:relative; overflow:hidden;}
+.closing::before{content:""; position:absolute; right:-120px; top:-140px; width:360px; height:360px; border-radius:50%; background:var(--navy-deep); opacity:.5;}
+.closing-inner{position:relative; z-index:2; max-width:840px;}
+.closing blockquote{font-family:'Playfair Display', serif; font-size:clamp(22px,2.8vw,28px); font-weight:700; font-style:italic; line-height:1.4; margin-bottom:44px;}
+.closing-divider{width:60px; height:2px; background:var(--ice); margin-bottom:24px;}
+.closing-author strong{display:block; font-size:15px; margin-bottom:4px;}
+.closing-author span{display:block; font-size:13.5px; color:var(--ice); margin-bottom:2px;}
+
+/* RODAPÉ */
+.page-footer{padding:44px 0; text-align:center; background:var(--ice-soft);}
+.page-footer p{font-size:13.5px; color:var(--muted); margin-bottom:16px;}
+.page-footer-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+.page-footer .btn{display:inline-block; padding:14px 30px; border-radius:10px; background:var(--navy); color:var(--white); text-decoration:none; font-weight:700; font-size:14px; transition:.3s; border:2px solid var(--navy);}
+.page-footer .btn:hover{background:var(--navy-dark); border-color:var(--navy-dark); transform:translateY(-2px);}
+.page-footer .btn-secondary{ background:transparent; border:2px solid var(--navy); color:var(--navy); }
+.page-footer .btn-secondary:hover{ background:var(--navy); color:#fff; }
+
+/* RESPONSIVO */
+@media (max-width:900px){
+    .summary-grid{ grid-template-columns:repeat(2,1fr); }
+    .data-grid{ grid-template-columns:1fr; gap:32px; }
+    .compare-wrap{ grid-template-columns:1fr; }
+    .rec-grid{ grid-template-columns:1fr; }
+    .risk-grid{ grid-template-columns:repeat(2,1fr); }
+    .roadmap-grid{ grid-template-columns:1fr; }
+    .data-stats{ grid-template-columns:repeat(3,1fr); }
+    .summary-table{ display:block; overflow-x:auto; white-space:nowrap; }
 }
+@media (max-width:600px){
+    section.block{ padding:60px 0; }
+    .summary-grid{ grid-template-columns:1fr; }
+    .risk-grid{ grid-template-columns:1fr; }
+    .cover-inner{ padding:60px 6%; }
+    .data-stats{ grid-template-columns:repeat(2,1fr); }
+    .compare-row{ flex-direction:column; align-items:flex-start; }
+    .compare-row .ctrack{ width:100%; }
+    .finding-row{ flex-direction:column; }
+}
+
 </style>
 </head>
 
 <body>
-<main class="article">
 
-<span class="tag">ANÁLISE EXECUTIVA · DATA SCIENCE</span>
-
-<h1>O que realmente faz um livro vender mais?</h1>
-
-<p class="lead">
-O mercado editorial publica milhares de títulos, mas apenas uma parcela alcança grande desempenho comercial.
-Este projeto investiga quais fatores estão mais associados às vendas de livros, combinando
-<strong>Ciência de Dados, Estatística e visão de negócio</strong>.
-</p>
-
-<div class="note">
-<strong>Pergunta executiva:</strong><br>
-Quais características estão mais relacionadas ao sucesso comercial de um livro — avaliação,
-engajamento dos leitores, preço, reputação do autor ou gênero?
+<div class="back-bar">
+    <a href="../index.html#projetos">← Voltar aos projetos</a>
 </div>
 
-<h2>1. O problema de negócio</h2>
 
-<p>
-Uma editora precisa decidir onde concentrar esforços de marketing, precificação e lançamento.
-Uma nota média alta parece, à primeira vista, um possível indicador de sucesso. Mas uma boa avaliação
-não necessariamente significa alto volume de vendas.
-</p>
+<!-- CAPA -->
+<section class="cover">
+    <div class="cover-inner">
 
-<p>
-Por isso, a análise foi estruturada para separar <strong>percepção de qualidade</strong> de
-<strong>desempenho comercial</strong> e identificar quais variáveis apresentam relação mais relevante
-com as vendas.
-</p>
+        <span class="kicker on-dark">DATA SCIENCE · ESTATÍSTICA</span>
 
-<div class="kpis">
-<div class="kpi"><strong>1.070</strong><span>livros analisados</span></div>
-<div class="kpi"><strong>669</strong><span>autores</span></div>
-<div class="kpi"><strong>9</strong><span>editoras</span></div>
-<div class="kpi"><strong>4</strong><span>gêneros</span></div>
-</div>
+        <h1>O que realmente faz um livro vender mais?</h1>
 
-<h2>2. Árvore de hipóteses</h2>
+        <p class="lead">
+            Análise executiva sobre os fatores que impulsionam o sucesso
+            comercial de livros, aplicando a metodologia CRISP-DM,
+            Python e Estatística.
+        </p>
 
-<p>
-Antes de testar os dados, o problema foi decomposto em hipóteses. A árvore não representa causas
-confirmadas: ela organiza as perguntas que a análise precisa responder.
-</p>
+        <div class="cover-divider"></div>
 
-<div class="tree">
-<div class="node root">PROBLEMA: baixo desempenho comercial</div>
-<div class="arrow">↓</div>
-<div class="branch">
-<div class="node">Avaliação</div>
-<div class="node">Engajamento</div>
-<div class="node">Preço</div>
-<div class="node">Autor</div>
-<div class="node">Editora</div>
-<div class="node">Gênero</div>
-</div>
-<div class="arrow">↓</div>
-<div class="branch causes">
-<div class="node">nota média</div>
-<div class="node">nº de avaliações</div>
-<div class="node">preço de venda</div>
-<div class="node">reputação do autor</div>
-<div class="node">receita por editora</div>
-<div class="node">desempenho por gênero</div>
-</div>
-</div>
+        <div class="cover-author">
+            <strong>Viviane Andrade</strong>
+            <span>Data Analyst | Business Intelligence</span>
+        </div>
 
-<h2>3. As perguntas que orientaram a investigação</h2>
+        <div class="cover-tools">
+            <span>Python</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>Matplotlib</span>
+            <span>Seaborn</span>
+            <span>SciPy</span>
+        </div>
 
-<table>
-<thead>
-<tr><th>Hipótese</th><th>Pergunta analítica</th><th>Abordagem</th></tr>
-</thead>
-<tbody>
-<tr><td>A avaliação influencia as vendas</td><td>Livros com notas maiores vendem mais?</td><td>Correlação</td></tr>
-<tr><td>Engajamento influencia o desempenho</td><td>O número de avaliações está associado às vendas?</td><td>Correlação</td></tr>
-<tr><td>Preço reduz o volume</td><td>Livros mais caros apresentam menor volume de vendas?</td><td>EDA e comparação</td></tr>
-<tr><td>Autores famosos vendem mais</td><td>Existe diferença estatística entre grupos de autores?</td><td>Teste t</td></tr>
-<tr><td>Gênero altera o desempenho</td><td>Quais gêneros concentram títulos e avaliações?</td><td>Análise descritiva</td></tr>
-<tr><td>Editoras concentram receita</td><td>Quais editoras apresentam maior participação comercial?</td><td>Análise comparativa</td></tr>
-</tbody>
-</table>
+    </div>
+</section>
 
-<h2>4. O que os dados mostraram</h2>
 
-<div class="insight">
-<strong>01 · A nota média não explica as vendas.</strong><br>
-A análise não encontrou uma relação significativa entre a avaliação média dos livros e o volume de vendas.
-Isso indica que uma nota alta, isoladamente, não deve ser tratada como indicador suficiente de sucesso comercial.
-</div>
+<!-- SUMÁRIO EXECUTIVO -->
+<section class="block">
+    <div class="wrap">
 
-<div class="insight">
-<strong>02 · Engajamento aparece como um sinal mais relevante.</strong><br>
-O número de avaliações apresentou correlação moderada com as vendas, com
-<strong>correlação de 0,49</strong>. O resultado sugere uma associação relevante entre participação dos leitores
-e desempenho comercial.
-</div>
+        <span class="kicker">SUMÁRIO EXECUTIVO</span>
+        <h2 class="section-title">O engajamento do leitor, não a nota, decide as vendas</h2>
+        <p class="section-lead">
+            Investigamos 1.070 títulos com Python e Estatística, seguindo
+            a metodologia CRISP-DM, para identificar o que realmente
+            impulsiona o sucesso comercial de um livro — e transformar
+            isso em decisões práticas de precificação, marketing e catálogo.
+        </p>
 
-<div class="insight">
-<strong>03 · Autor famoso não significa necessariamente mais vendas.</strong><br>
-O teste estatístico não identificou diferença significativa entre os grupos analisados,
-com <strong>p-valor de 0,5121</strong>. A reputação do autor, sozinha, não explica o desempenho comercial.
-</div>
+        <div class="summary-grid">
 
-<div class="insight">
-<strong>04 · Preço importa.</strong><br>
-Livros acima de <strong>US$ 15</strong> apresentaram baixo volume de vendas quando comparados aos títulos
-de menor preço, indicando que a precificação pode ser uma variável relevante para o alcance comercial.
-</div>
+            <div class="summary-card">
+                <div class="summary-icon">◎</div>
+                <span class="label">OBJETIVO</span>
+                <div class="value">Identificar os fatores que explicam o sucesso de vendas</div>
+            </div>
 
-<div class="insight">
-<strong>05 · Ficção concentra alcance e engajamento.</strong><br>
-O gênero Fiction concentra a maior quantidade de títulos e também o maior volume de avaliações no conjunto analisado.
-</div>
+            <div class="summary-card">
+                <div class="summary-icon">◆</div>
+                <span class="label">ACHADO CENTRAL</span>
+                <div class="value">Avaliações pesam mais que nota média (correlação 0,49)</div>
+            </div>
 
-<h2>5. A principal descoberta</h2>
+            <div class="summary-card">
+                <div class="summary-icon">▲</div>
+                <span class="label">RECOMENDAÇÃO CHAVE</span>
+                <div class="value">Priorizar engajamento do leitor sobre reputação/nota</div>
+            </div>
 
-<div class="result">
-<strong>O sucesso comercial parece estar mais relacionado ao engajamento do público do que à nota média.</strong><br><br>
-O número de avaliações foi o indicador que apresentou a relação mais relevante com as vendas entre as variáveis
-investigadas. Isso muda a pergunta estratégica: em vez de olhar apenas para “qualidade percebida”,
-é necessário observar também o quanto o público está participando e interagindo com o título.
-</div>
+            <div class="summary-card">
+                <div class="summary-icon">→</div>
+                <span class="label">PRÓXIMO PASSO</span>
+                <div class="value">Pilotar campanha de avaliações em 1 gênero</div>
+            </div>
 
-<h2>6. O que isso significa para o negócio?</h2>
+        </div>
 
-<p>
-Os resultados não significam que avaliação, preço, autor ou gênero sejam irrelevantes.
-Eles mostram que essas variáveis precisam ser interpretadas dentro de um contexto maior e que
-<strong>não é adequado tomar decisões editoriais com base em um único indicador</strong>.
-</p>
+    </div>
+</section>
 
-<div class="steps">
-<div class="step"><b>01 — Engajamento</b><br>Estimular avaliações e participação dos leitores.</div>
-<div class="step"><b>02 — Precificação</b><br>Considerar preço como parte da estratégia comercial.</div>
-<div class="step"><b>03 — Portfólio</b><br>Explorar oportunidades em gêneros com maior alcance.</div>
-</div>
 
-<h2>7. Recomendações executivas</h2>
+<!-- O DESAFIO + BASE DE DADOS -->
+<section class="block" style="background:#F8FAFC;">
+    <div class="wrap">
 
-<table>
-<thead>
-<tr><th>Achado</th><th>Implicação</th><th>Recomendação</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>Correlação de 0,49 entre avaliações e vendas</td>
-<td>Engajamento é um sinal comercial relevante</td>
-<td>Estimular campanhas de avaliação e interação com leitores</td>
-</tr>
-<tr>
-<td>Nota média não explica as vendas</td>
-<td>Rating isolado é insuficiente</td>
-<td>Combinar avaliação com volume de avaliações e vendas</td>
-</tr>
-<tr>
-<td>Preço acima de US$ 15 apresenta menor volume</td>
-<td>Maior preço pode limitar alcance</td>
-<td>Usar precificação competitiva conforme objetivo do título</td>
-</tr>
-<tr>
-<td>Ficção concentra títulos e avaliações</td>
-<td>Existe forte presença do gênero na base</td>
-<td>Avaliar oportunidades de alcance e portfólio em Fiction</td>
-</tr>
-</tbody>
-</table>
+        <span class="kicker">O DESAFIO DE NEGÓCIO</span>
+        <h2 class="section-title">O mercado lança milhares de livros — poucos viram best-seller</h2>
+        <p class="section-lead">
+            Sem entender os fatores de sucesso, decisões de precificação,
+            marketing e curadoria de catálogo seguem baseadas em intuição,
+            não em evidência.
+        </p>
 
-<h2>8. Como a análise foi construída</h2>
+        <div class="data-grid">
 
-<p>
-O projeto seguiu a metodologia <strong>CRISP-DM</strong>, conectando o problema de negócio às etapas
-de preparação, exploração, estatística e geração de recomendações.
-</p>
+            <div>
+                <span class="kicker" style="margin-top:8px;">PERGUNTAS QUE GUIARAM A ANÁLISE</span>
+                <ul class="question-list">
+                    <li>A nota média influencia as vendas?</li>
+                    <li>Livros mais baratos vendem mais?</li>
+                    <li>A reputação do autor impacta o desempenho?</li>
+                    <li>Avaliações se relacionam com volume de vendas?</li>
+                    <li>O gênero literário influencia o desempenho comercial?</li>
+                </ul>
+            </div>
 
-<div class="steps">
-<div class="step"><b>01 — Business Understanding</b><br>Definição do problema e das perguntas.</div>
-<div class="step"><b>02 — Data Understanding</b><br>Exploração das variáveis e qualidade dos dados.</div>
-<div class="step"><b>03 — Data Preparation</b><br>Tratamento, limpeza e preparação da base.</div>
-<div class="step"><b>04 — EDA</b><br>Distribuições, relações, outliers e comparações.</div>
-<div class="step"><b>05 — Estatística</b><br>Correlação de Pearson e teste t.</div>
-<div class="step"><b>06 — Business Insights</b><br>Interpretação dos resultados e recomendações.</div>
-</div>
+            <div class="data-panel">
+                <h4>A BASE DE DADOS</h4>
+                <div class="data-stats">
+                    <div><strong>1.070</strong><span>LIVROS</span></div>
+                    <div><strong>669</strong><span>AUTORES</span></div>
+                    <div><strong>9</strong><span>EDITORAS</span></div>
+                    <div><strong>8</strong><span>IDIOMAS</span></div>
+                    <div><strong>4</strong><span>GÊNEROS</span></div>
+                    <div><strong>15</strong><span>VARIÁVEIS</span></div>
+                </div>
+            </div>
 
-<h2>9. Ferramentas utilizadas</h2>
+        </div>
 
-<p>
-<strong>Python</strong> para tratamento e análise dos dados; <strong>Pandas</strong> e
-<strong>NumPy</strong> para manipulação; <strong>Matplotlib</strong> e <strong>Seaborn</strong>
-para visualização; <strong>SciPy</strong> para análises estatísticas; e
-<strong>Jupyter Notebook</strong> para documentar a investigação.
-</p>
+        <div class="method-flow">
+            <span class="method-step">Business Understanding</span>
+            <span class="method-arrow">→</span>
+            <span class="method-step">Data Understanding</span>
+            <span class="method-arrow">→</span>
+            <span class="method-step">Data Preparation</span>
+            <span class="method-arrow">→</span>
+            <span class="method-step">EDA</span>
+            <span class="method-arrow">→</span>
+            <span class="method-step">Statistical Analysis</span>
+            <span class="method-arrow">→</span>
+            <span class="method-step">Business Insights</span>
+        </div>
 
-<h2>10. Conclusão executiva</h2>
+    </div>
+</section>
 
-<p>
-A análise mostra que o desempenho comercial de um livro não pode ser explicado apenas por sua nota média
-ou pela fama do autor. Entre as variáveis investigadas, o <strong>número de avaliações</strong> apresentou
-a associação mais relevante com as vendas.
-</p>
 
-<p>
-Para decisões de marketing, precificação e lançamento, a recomendação é olhar para o conjunto de sinais:
-<strong>engajamento do público, preço, gênero e desempenho comercial</strong>, evitando decisões baseadas
-em um único indicador.
-</p>
+<!-- ACHADO 1 — ENGAJAMENTO VS NOTA -->
+<section class="block">
+    <div class="wrap">
 
-<div class="note">
-<strong>Mensagem final:</strong><br>
-Não basta perguntar se o leitor gostou do livro. Para entender o sucesso comercial,
-é preciso investigar <strong>quanto o público está se envolvendo com ele e como esse engajamento se relaciona às vendas</strong>.
-</div>
+        <span class="confidence-badge alta">✅ CONFIANÇA ALTA</span>
+        <h2 class="section-title">Engajamento do leitor pesa mais que a nota média</h2>
+        <p class="section-lead">
+            A quantidade de avaliações recebidas tem correlação moderada e
+            positiva (0,49) com as vendas — a relação mais forte de toda a
+            análise, com volume amostral robusto (1.070 livros). Já a nota
+            média tem correlação praticamente nula (-0,04): livros com
+            nota 4,5 vendem tão pouco (ou tanto) quanto livros com nota 3,5.
+        </p>
 
-<footer>
-Análise Executiva · Análise de Vendas de Livros · Portfólio de Viviane Andrade
+        <div class="compare-wrap">
+
+            <div class="compare-card">
+                <span class="clabel">CORRELAÇÃO COM VENDAS BRUTAS</span>
+
+                <div class="compare-row">
+                    <span class="cname">Qtd. de avaliações</span>
+                    <div class="ctrack"><div class="cfill" style="width:100%; background:#1F9D6B;"></div></div>
+                    <span class="cval">0,49</span>
+                </div>
+
+                <div class="compare-row">
+                    <span class="cname">Nota média</span>
+                    <div class="ctrack"><div class="cfill" style="width:8%; background:#94A3B8;"></div></div>
+                    <span class="cval">-0,04</span>
+                </div>
+            </div>
+
+            <div class="stat-card" style="margin-top:0;">
+                <span class="label">RECOMENDAÇÃO DIRETA</span>
+                <div class="desc" style="font-size:15px;">
+                    Priorizar ações que aumentem o volume de avaliações e o
+                    engajamento do público (campanhas de review, parcerias
+                    com influenciadores, incentivos pós-compra) tende a
+                    gerar mais retorno comercial do que investir apenas em
+                    melhorar a percepção de qualidade.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ACHADO 2 — PREÇO -->
+<section class="block on-dark">
+    <div class="wrap">
+
+        <span class="confidence-badge media">⚠️ CONFIANÇA MÉDIA</span>
+        <h2 class="section-title">Preço baixo é necessário, mas não suficiente</h2>
+        <p class="section-lead">
+            Nenhum livro com preço acima de US$ 15 atingiu o patamar de
+            best-seller (mais de 30 mil unidades) na base analisada. Ao
+            mesmo tempo, a maioria dos livros baratos (US$ 1–5) também
+            vende pouco — preço baixo não garante sucesso, mas parece ser
+            uma condição de entrada para o sucesso em grande escala. A
+            correlação linear é apenas fraca a moderada (0,27), pois a
+            relação não é proporcional.
+        </p>
+
+        <div class="compare-wrap" style="grid-template-columns:1fr;">
+
+            <div class="compare-card on-navy">
+                <span class="clabel">PREÇO × POTENCIAL DE BEST-SELLER</span>
+
+                <div class="compare-row">
+                    <span class="cname">Correlação preço-vendas</span>
+                    <div class="ctrack"><div class="cfill" style="width:27%; background:#CADCFC;"></div></div>
+                    <span class="cval">0,27</span>
+                </div>
+
+                <div class="compare-row">
+                    <span class="cname">Best-sellers acima de US$15</span>
+                    <div class="ctrack"><div class="cfill" style="width:2%; background:#E85C41;"></div></div>
+                    <span class="cval">0</span>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="section-lead" style="margin-top:20px; font-size:13px; font-style:italic;">
+            Recomendação: manter preços competitivos (idealmente abaixo de US$ 15) para títulos com ambição de best-seller, sem esperar que o preço baixo, isoladamente, garanta alto volume — o engajamento continua sendo decisivo.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- ACHADO 3 — AUTOR -->
+<section class="block">
+    <div class="wrap">
+
+        <span class="confidence-badge media">⚠️ CONFIANÇA MÉDIA</span>
+        <h2 class="section-title">Reputação do autor não garante mais vendas</h2>
+        <p class="section-lead">
+            Um teste t de Student não encontrou diferença estatisticamente
+            significativa nas vendas entre autores "Famous" e
+            "Intermediate". O resultado é válido, mas o grupo "Famous" tem
+            amostra pequena (48 livros), o que limita a capacidade de
+            detectar diferenças mais sutis.
+        </p>
+
+        <div class="stat-card">
+            <span class="label">VALOR-P (TESTE T)</span>
+            <div class="big-number">0,51</div>
+            <div class="desc">
+                Muito acima do limiar de 0,05 — não há evidência estatística de diferença entre os grupos. Não tratar a fama do autor como fator decisivo isolado: autores menos conhecidos podem performar tão bem quanto autores renomados.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- OUTROS ACHADOS -->
+<section class="block" style="background:#F8FAFC;">
+    <div class="wrap">
+
+        <span class="confidence-badge alta">✅ CONFIANÇA ALTA</span>
+        <h2 class="section-title">Ficção domina o mercado — e concentra a receita</h2>
+        <p class="section-lead">
+            Dois achados adicionais, com base agregada direta e padrões
+            visuais claros nos boxplots por gênero.
+        </p>
+
+        <div class="finding-list">
+
+            <div class="finding-row">
+                <span class="ficon">📚</span>
+                <div>
+                    <h4>Ficção é volumosa, mas polarizada</h4>
+                    <p>Ficção concentra a maior parte dos títulos (759 de 988) e do volume de avaliações, mas também tem a maior amplitude de notas — os livros mais bem e mais mal avaliados da base pertencem a esse gênero. Livros infantis têm recepção mais consistente e uniforme.</p>
+                </div>
+            </div>
+
+            <div class="finding-row">
+                <span class="ficon">🏢</span>
+                <div>
+                    <h4>Receita concentrada em poucas editoras e autores</h4>
+                    <p>A Penguin Group (USA) LLC lidera a receita entre editoras, seguida por Random House LLC e Amazon Digital Services — reforçando o peso crescente da distribuição digital direta. Entre autores, Harper Lee, Stephen King e David Sedaris lideram em vendas brutas acumuladas.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Insight</th>
+                    <th>Confiança</th>
+                    <th>Base estatística</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Engajamento (avaliações) prediz vendas</td><td>✅ Alta</td><td>Correlação 0,49</td></tr>
+                <tr><td>Nota não prediz vendas</td><td>✅ Alta</td><td>Correlação -0,04</td></tr>
+                <tr><td>Preço baixo é condição, não garantia</td><td>⚠️ Média</td><td>Correlação 0,27 + padrão visual</td></tr>
+                <tr><td>Fama do autor não garante vendas</td><td>⚠️ Média</td><td>Teste t, p = 0,51 (amostra pequena)</td></tr>
+                <tr><td>Ficção é volumosa e polarizada</td><td>✅ Alta</td><td>Boxplots comparativos</td></tr>
+                <tr><td>Concentração de receita em poucas editoras</td><td>✅ Alta</td><td>Agregação direta</td></tr>
+            </tbody>
+        </table>
+
+    </div>
+</section>
+
+
+<!-- RECOMENDAÇÕES -->
+<section class="block">
+    <div class="wrap">
+
+        <span class="kicker">RECOMENDAÇÕES DE NEGÓCIO</span>
+        <h2 class="section-title">Da análise à ação</h2>
+
+        <div class="rec-grid">
+
+            <div class="rec-item">
+                <span class="rnum">01</span>
+                <div>
+                    <h3>Investir em campanhas de avaliações</h3>
+                    <p>Gerar reviews e engajamento — é o fator com maior relação estatística com vendas.</p>
+                </div>
+            </div>
+
+            <div class="rec-item">
+                <span class="rnum">02</span>
+                <div>
+                    <h3>Não usar nota média isoladamente</h3>
+                    <p>Nota é indicador de satisfação do leitor, não de potencial comercial — não deve guiar decisão editorial sozinha.</p>
+                </div>
+            </div>
+
+            <div class="rec-item">
+                <span class="rnum">03</span>
+                <div>
+                    <h3>Manter preços abaixo de US$ 15</h3>
+                    <p>Para títulos com potencial de best-seller, mantendo preço competitivo como condição de entrada.</p>
+                </div>
+            </div>
+
+            <div class="rec-item">
+                <span class="rnum">04</span>
+                <div>
+                    <h3>Priorizar Ficção, monitorando a recepção</h3>
+                    <p>Maximiza alcance, mas é o gênero mais sujeito a polarização — acompanhar de perto.</p>
+                </div>
+            </div>
+
+            <div class="rec-item">
+                <span class="rnum">05</span>
+                <div>
+                    <h3>Não depender da fama do autor</h3>
+                    <p>Vale investir em divulgação independentemente da reputação prévia.</p>
+                </div>
+            </div>
+
+            <div class="rec-item">
+                <span class="rnum">06</span>
+                <div>
+                    <h3>Acompanhar canais de distribuição digital</h3>
+                    <p>O peso da Amazon Digital Services já rivaliza com editoras tradicionais consolidadas.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- RISCOS -->
+<section class="block" style="background:#F8FAFC;">
+    <div class="wrap">
+
+        <span class="kicker coral">RISCOS E MITIGAÇÕES</span>
+        <h2 class="section-title">O que pode limitar essas conclusões</h2>
+
+        <div class="risk-grid">
+
+            <div class="risk-card">
+                <div class="bar-top"></div>
+                <div class="inner">
+                    <h3>Generalização do dataset</h3>
+                    <p class="desc">A base cobre 9 editoras e 4 gêneros — pode não representar todo o mercado editorial.</p>
+                    <div class="mit-label">MITIGAÇÃO</div>
+                    <p class="mit">Validar achados com uma segunda base antes de decisões estruturais.</p>
+                </div>
+            </div>
+
+            <div class="risk-card">
+                <div class="bar-top"></div>
+                <div class="inner">
+                    <h3>Manipulação de avaliações</h3>
+                    <p class="desc">Incentivar avaliações pode abrir espaço para reviews falsos ou comprados.</p>
+                    <div class="mit-label">MITIGAÇÃO</div>
+                    <p class="mit">Monitorar padrões suspeitos e usar apenas fontes verificadas de avaliação.</p>
+                </div>
+            </div>
+
+            <div class="risk-card">
+                <div class="bar-top"></div>
+                <div class="inner">
+                    <h3>Correlação ≠ causalidade</h3>
+                    <p class="desc">Avaliações e vendas se relacionam, mas a direção da causa não está comprovada.</p>
+                    <div class="mit-label">MITIGAÇÃO</div>
+                    <p class="mit">Tratar o achado como hipótese de priorização, não como certeza causal.</p>
+                </div>
+            </div>
+
+            <div class="risk-card">
+                <div class="bar-top"></div>
+                <div class="inner">
+                    <h3>Pressão de preço na margem</h3>
+                    <p class="desc">Reduzir preços pode aumentar volume, mas reduzir margem por unidade.</p>
+                    <div class="mit-label">MITIGAÇÃO</div>
+                    <p class="mit">Testar em piloto controlado, acompanhando margem, não só volume.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PRÓXIMOS PASSOS -->
+<section class="block on-dark">
+    <div class="wrap">
+
+        <span class="kicker on-dark">PRÓXIMOS PASSOS</span>
+        <h2 class="section-title">Roteiro de implementação</h2>
+
+        <div class="roadmap-grid">
+
+            <div class="roadmap-card active">
+                <div class="phase">CURTO PRAZO</div>
+                <div class="when">0–30 dias</div>
+                <ul>
+                    <li>Validar achados com stakeholders editoriais</li>
+                    <li>Selecionar 1 gênero piloto para campanha de avaliações</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-card">
+                <div class="phase">MÉDIO PRAZO</div>
+                <div class="when">1–3 meses</div>
+                <ul>
+                    <li>Rodar piloto de precificação em títulos acima de US$ 15</li>
+                    <li>Estruturar dashboard de acompanhamento (Power BI)</li>
+                </ul>
+            </div>
+
+            <div class="roadmap-card">
+                <div class="phase">LONGO PRAZO</div>
+                <div class="when">3–6 meses</div>
+                <ul>
+                    <li>Ampliar a base de dados para múltiplas editoras</li>
+                    <li>Incorporar achados ao processo de decisão editorial</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ENCERRAMENTO -->
+<section class="closing">
+    <div class="wrap">
+        <div class="closing-inner">
+
+            <blockquote>
+                "O sucesso comercial de um livro está muito mais ligado ao
+                engajamento do público do que à sua avaliação média."
+            </blockquote>
+
+            <div class="closing-divider"></div>
+
+            <div class="closing-author">
+                <strong>Viviane Andrade</strong>
+                <span>Data Analyst | Business Intelligence</span>
+                <span>github.com/VivianeAndrade1988/Analise_vendas_livros</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- RODAPÉ -->
+<footer class="page-footer">
+    <p>Projeto desenvolvido por Viviane Andrade</p>
+    <div class="page-footer-actions">
+        <a href="https://github.com/VivianeAndrade1988/Analise_vendas_livros" target="_blank" class="btn btn-secondary">Ver repositório no GitHub</a>
+        <a href="index.html#projetos" class="btn">← Voltar ao portfólio</a>
+    </div>
 </footer>
 
-</main>
 </body>
 </html>
