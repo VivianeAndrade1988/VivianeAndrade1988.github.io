@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Warehouse: entendendo a Arquitetura Medallion | Viviane Andrade</title>
+<meta name="description" content="Como as camadas Bronze, Silver e Gold transformam dados brutos em informações confiáveis para apoiar decisões estratégicas.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Warehouse: entendendo a Arquitetura Medallion">
+<meta property="og:description" content="Como as camadas Bronze, Silver e Gold transformam dados brutos em informações confiáveis para apoiar decisões estratégicas.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="container navbar-content">
+    <a href="../index.html#inicio" class="logo">VA</a>
+    <nav>
+      <a href="../index.html#sobre">Sobre</a>
+      <a href="../index.html#projetos">Projetos</a>
+      <a href="../artigos.html">Artigos</a>
+      <a href="../index.html#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<header class="article-head">
+  <div class="article-wrap">
+    <a href="../artigos.html" class="back-link">← Todos os artigos</a>
+    <span class="eyebrow" style="display:block">DATA WAREHOUSE · ENGENHARIA DE DADOS · BI</span>
+    <h1>Data Warehouse: entendendo a Arquitetura Medallion</h1>
+    <div class="article-meta">
+      <span>Por Viviane de Andrade</span>
+      <span>16 de julho de 2026</span>
+      <span>4 min de leitura</span>
+    </div>
+    <div class="chips"><span>Data Warehouse</span><span>Arquitetura Medallion</span><span>Bronze · Silver · Gold</span><span>Engenharia de Dados</span></div>
+  </div>
+</header>
+
+<article class="article-body">
+<div class="article-wrap">
+
+<p class="lead">Como transformar dados brutos em informações confiáveis para apoiar decisões estratégicas.</p>
+
+<div class="callout"><p><strong>O que você vai ver neste artigo:</strong> o problema das empresas · o que é um Data Warehouse · o que é a arquitetura Medallion · principais benefícios · um exemplo prático.</p></div>
+
+<h2>Introdução</h2>
+<p>Empresas geram dados continuamente por meio de ERPs, CRMs, e-commerces, APIs e diversos outros sistemas. Porém, armazenar essas informações não é suficiente. Para que elas apoiem decisões estratégicas, é necessário <strong>organizá-las, tratá-las e disponibilizá-las de forma confiável</strong>.</p>
+<p>É nesse contexto que o Data Warehouse e a Arquitetura Medallion se destacam como uma das principais abordagens da Engenharia de Dados moderna. Neste artigo, você entenderá como essa arquitetura funciona e por que ela se tornou referência na construção de ambientes analíticos.</p>
+
+<!-- IMAGEM: o problema das empresas — assets/images/artigos/medallion-problema.png
+<figure class="figure-slot"><img src="../assets/images/artigos/medallion-problema.png" alt="O problema das empresas"></figure> -->
+
+<h2>O que é um Data Warehouse?</h2>
+<p>Um <strong>Data Warehouse (DW)</strong> é um repositório centralizado que integra dados de diferentes fontes para análises históricas e estratégicas. Enquanto sistemas transacionais registram operações do dia a dia, o Data Warehouse organiza essas informações para responder perguntas de negócio, como:</p>
+<ul>
+  <li>qual foi o faturamento do último ano?</li>
+  <li>quais produtos tiveram maior crescimento?</li>
+  <li>como evoluiu o desempenho logístico da empresa?</li>
+</ul>
+<p>Seu principal objetivo é fornecer uma <strong>fonte única e confiável</strong> para análises e tomada de decisão.</p>
+
+<!-- IMAGEM: fluxo do Data Warehouse — assets/images/artigos/medallion-fluxo-dw.png
+<figure class="figure-slot"><img src="../assets/images/artigos/medallion-fluxo-dw.png" alt="Fluxo do Data Warehouse"></figure> -->
+
+<h2>O que é a Arquitetura Medallion?</h2>
+<p>A Arquitetura Medallion organiza os dados em <strong>três camadas de refinamento</strong>, garantindo qualidade e rastreabilidade ao longo do pipeline.</p>
+
+<div class="flow">
+  <div class="bronze"><strong>Bronze</strong><span>Dados brutos, como chegam das fontes</span></div>
+  <div class="silver"><strong>Silver</strong><span>Dados limpos e padronizados</span></div>
+  <div class="gold"><strong>Gold</strong><span>Dados modelados para consumo</span></div>
+</div>
+
+<h3>Bronze</h3>
+<p>É a camada de <strong>ingestão</strong> dos dados. Aqui as informações são armazenadas exatamente como chegam das fontes, preservando o histórico e permitindo reprocessamentos futuros.</p>
+<h3>Silver</h3>
+<p>Nesta etapa os dados passam por <strong>limpeza e padronização</strong>. São removidas duplicidades, tratados valores nulos, corrigidos formatos e aplicadas regras de negócio para garantir consistência.</p>
+<h3>Gold</h3>
+<p>É a camada voltada ao <strong>consumo</strong>. Os dados já estão modelados e preparados para alimentar dashboards, indicadores, relatórios e modelos de Machine Learning.</p>
+
+<h2>Principais benefícios</h2>
+<p>A Arquitetura Medallion oferece diversas vantagens para projetos de dados:</p>
+<ul>
+  <li><strong>Qualidade:</strong> dados padronizados e consistentes.</li>
+  <li><strong>Governança:</strong> maior controle sobre cada etapa do pipeline.</li>
+  <li><strong>Escalabilidade:</strong> facilita a integração de novas fontes de dados.</li>
+  <li><strong>Rastreabilidade:</strong> preserva os dados originais para auditoria e reprocessamento.</li>
+  <li><strong>Performance:</strong> otimiza consultas analíticas e dashboards.</li>
+</ul>
+
+<h2>Exemplo prático</h2>
+<p>Imagine uma empresa de Supply Chain que recebe diariamente dados de pedidos, estoque, compras e transportadoras.</p>
+<ul>
+  <li>Na camada <strong>Bronze</strong>, todos os registros são armazenados sem alterações.</li>
+  <li>Na <strong>Silver</strong>, os dados são tratados e padronizados.</li>
+  <li>Na <strong>Gold</strong>, são criados indicadores como OTIF, Fill Rate, Giro de Estoque e Forecast Accuracy, que alimentam os dashboards utilizados pelos gestores na tomada de decisão.</li>
+</ul>
+
+<h2>Conclusão</h2>
+<p>Mais do que uma forma de organizar dados, a Arquitetura Medallion estabelece uma base sólida para Business Intelligence, Analytics e Inteligência Artificial.</p>
+<div class="takeaway">Ao dividir o pipeline em camadas de refinamento, as organizações garantem maior <strong>qualidade, governança e escalabilidade</strong>, transformando dados brutos em informações confiáveis para apoiar decisões estratégicas.</div>
+
+<div class="author-box">
+  <strong>Veja na prática</strong>
+  <p>O projeto de análise de receita da FitnessLife aplica essa lógica de camadas, do SQL Server ao Power BI, com um Data Warehouse completo.</p>
+  <a href="https://github.com/VivianeAndrade1988/Projeto_Analise_Receita_FitnessLife" target="_blank" rel="noopener" class="btn btn-primary">Ver projeto no GitHub →</a>
+</div>
+
+<div class="article-end">
+  <p>Gostou do conteúdo? Veja como aplico essa visão de negócio nos meus projetos.</p>
+  <a href="../index.html#projetos" class="btn btn-primary">Ver projetos</a>
+  <a href="../artigos.html" class="btn btn-secondary">← Todos os artigos</a>
+</div>
+
+</div>
+</article>
+
+</main>
+<footer>
+  <div class="container">
+    <p>© 2026 Viviane Andrade. Data Analytics &amp; Business Intelligence.</p>
+  </div>
+</footer>
+</body>
+</html>
