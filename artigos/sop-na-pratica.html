@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S&amp;OP na prática: da demanda ao faturamento | Viviane Andrade</title>
+<meta name="description" content="Como Forecast, DOH, WMAPE, RCCP e OTIF se conectam no S&amp;OP para transformar dados operacionais em decisões de negócio.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="S&amp;OP na prática: da demanda ao faturamento">
+<meta property="og:description" content="Dados mostram. KPIs sinalizam. Análise explica. RCCP antecipa. S&amp;OP conecta tudo para decidir.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="container navbar-content">
+    <a href="../index.html#inicio" class="logo">VA</a>
+    <nav>
+      <a href="../index.html#sobre">Sobre</a>
+      <a href="../index.html#projetos">Projetos</a>
+      <a href="../artigos.html">Artigos</a>
+      <a href="../index.html#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+<main>
+
+<header class="article-head">
+  <div class="article-wrap">
+    <a href="../artigos.html" class="back-link">← Todos os artigos</a>
+    <span class="eyebrow" style="display:block">S&amp;OP · SUPPLY CHAIN · ANALYTICS</span>
+    <h1>S&amp;OP na prática: da demanda ao faturamento</h1>
+    <div class="article-meta">
+      <span>Por Viviane de Andrade</span>
+      <span>9 de agosto de 2026</span>
+      <span>8 min de leitura</span>
+    </div>
+    <div class="chips"><span>S&amp;OP</span><span>Forecast</span><span>WMAPE</span><span>RCCP</span><span>OTIF</span></div>
+  </div>
+</header>
+
+<article class="article-body">
+<div class="article-wrap">
+
+<p class="lead">Imagine uma empresa que precisa decidir quanto produzir no próximo mês.</p>
+<p>Parece simples: <em>"é só olhar quanto vamos vender e produzir."</em> Mas não é tão simples assim.</p>
+<p>Se produzirmos demais, teremos estoque parado e dinheiro imobilizado. Se produzirmos de menos, teremos rupturas, pedidos não atendidos e perda de vendas. E se a fábrica não tiver capacidade para produzir o necessário?</p>
+<p>É aí que entra o <strong>S&amp;OP — Sales and Operations Planning</strong>. Ele conecta diferentes áreas para transformar uma previsão de demanda em um plano integrado de negócio.</p>
+
+<div class="callout"><p><strong>O caminho do artigo:</strong> Demanda → Estoque → Produção → Capacidade (RCCP) → Atendimento → Financeiro.</p></div>
+
+<!-- ============ 1. DEMANDA ============ -->
+<h2><span class="num">1</span>Demanda: estamos prevendo corretamente?</h2>
+<p>Tudo começa tentando entender o comportamento futuro do mercado. Para isso, podemos utilizar:</p>
+<ul>
+  <li>histórico de vendas e sazonalidade;</li>
+  <li>tendências e promoções;</li>
+  <li>comportamento do consumidor;</li>
+  <li>informações do Comercial;</li>
+  <li>modelos estatísticos e Machine Learning.</li>
+</ul>
+<p>Imagine que uma empresa estime vender <strong>10.000 unidades</strong> de determinado produto no mês. Esse é o <strong>Forecast</strong>. Mas previsão não é certeza: no final do mês, a empresa vendeu apenas <strong>8.000</strong>.</p>
+<p>Essa diferença de 2.000 unidades importa, porque uma previsão acima da realidade pode levar a empresa a produzir ou comprar mais do que realmente precisava.</p>
+
+<h3>Forecast Accuracy</h3>
+<div class="formula"><small>FÓRMULA</small>Forecast Accuracy = [1 − |Real − Forecast| ÷ Real] × 100</div>
+<p>No exemplo: [1 − |8.000 − 10.000| ÷ 8.000] × 100 = <strong>75%</strong>. Ou seja, a previsão apresentou uma acuracidade de aproximadamente 75% nessa metodologia. Quanto maior a acuracidade, mais próxima a previsão esteve da realidade.</p>
+<p>Então por que erramos? Pode ter ocorrido:</p>
+<ul>
+  <li>sazonalidade não considerada;</li>
+  <li>promoção que não aconteceu;</li>
+  <li>mudança no comportamento do consumidor;</li>
+  <li>entrada de um concorrente;</li>
+  <li>alteração de preço;</li>
+  <li>problema de distribuição.</li>
+</ul>
+<div class="callout"><p>O KPI mostra o desvio. A análise busca explicar a causa.</p></div>
+
+<h3>WMAPE: qual foi o tamanho do erro?</h3>
+<p>Quando trabalhamos com muitos produtos, não podemos simplesmente olhar a acuracidade de cada SKU e fazer uma média simples. Imagine o Produto A vendendo 100.000 unidades e o Produto B vendendo 1.000: um erro de 500 unidades tem impactos muito diferentes nos dois.</p>
+<p>Por isso podemos utilizar o <strong>WMAPE — Weighted Mean Absolute Percentage Error</strong>:</p>
+<div class="formula"><small>FÓRMULA</small>WMAPE = Σ |Real − Forecast| ÷ Σ Real × 100</div>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>PRODUTO</th><th>REAL</th><th>FORECAST</th><th>ERRO</th></tr></thead>
+  <tbody>
+    <tr><td>A</td><td>100.000</td><td>95.000</td><td>5.000</td></tr>
+    <tr><td>B</td><td>20.000</td><td>24.000</td><td>4.000</td></tr>
+    <tr><td>C</td><td>5.000</td><td>4.000</td><td>1.000</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Erro total: 10.000 unidades. Demanda real total: 125.000 unidades. <strong>WMAPE = 10.000 ÷ 125.000 × 100 = 8%</strong>. O WMAPE é especialmente útil no S&amp;OP porque dá maior peso aos produtos de maior volume.</p>
+
+<!-- ============ 2. ESTOQUE ============ -->
+<h2><span class="num">2</span>Estoque: quanto tempo conseguimos operar?</h2>
+<p>Voltando ao exemplo: a empresa previa vender 10.000 unidades, mas vendeu 8.000. As 2.000 unidades que não foram vendidas podem permanecer no estoque. E estoque não é simplesmente "produto parado": ele representa <strong>capital investido</strong>.</p>
+<p>Quanto maior o estoque sem necessidade, maior o capital imobilizado e o risco de obsolescência. Por outro lado, estoque insuficiente provoca ruptura. Uma das perguntas mais importantes é:</p>
+<p class="question">Quantos dias conseguimos operar com o estoque atual?</p>
+
+<!-- IMAGEM: análise de DOH (Days on Hand) — salve em assets/images/artigos/ e descomente abaixo
+<figure class="figure-slot"><img src="../assets/images/artigos/sop-doh.png" alt="Análise de DOH"></figure>
+-->
+
+<p>Para isso usamos o <strong>DOH — Days on Hand</strong>:</p>
+<div class="formula"><small>FÓRMULA</small>DOH = Estoque disponível ÷ Consumo médio diário</div>
+<p>No exemplo da análise, o resultado foi de <strong>30 dias</strong> de cobertura, mantendo o consumo médio atual. Agora imagine que o fornecedor demora 30 dias para entregar. Se não houver estoque de segurança ou outro plano de abastecimento, o estoque acaba antes da próxima reposição. E então temos: <strong>ruptura</strong>.</p>
+
+<!-- ============ 3. PRODUÇÃO ============ -->
+<h2><span class="num">3</span>Produção: a fábrica consegue executar o plano?</h2>
+<p>Agora chegamos ao chão de fábrica. Temos uma previsão de demanda, temos estoque e temos uma necessidade de produção. Mas precisamos responder: <em>a fábrica consegue produzir o que estamos planejando?</em> Aqui entram questões como:</p>
+<ul>
+  <li>capacidade das máquinas;</li>
+  <li>mão de obra e turnos;</li>
+  <li>manutenção;</li>
+  <li>matéria-prima;</li>
+  <li>tempo de setup;</li>
+  <li>restrições das linhas.</li>
+</ul>
+
+<!-- IMAGEM: aderência ao plano de produção
+<figure class="figure-slot"><img src="../assets/images/artigos/sop-aderencia.png" alt="Aderência ao plano de produção"></figure>
+-->
+
+<p>Usamos a <strong>aderência</strong> para medir se o chão de fábrica está alinhado ao planejamento:</p>
+<div class="formula"><small>FÓRMULA</small>Aderência = Produção realizada ÷ Produção planejada × 100</div>
+<p>A aderência foi de <strong>92%</strong>, então precisamos entender o que causou a falta de produção das 8.000 unidades. É preciso uma análise mais detalhada para encontrar o gargalo:</p>
+<ul>
+  <li>falta de matéria-prima;</li>
+  <li>máquina parada ou manutenção;</li>
+  <li>falta de mão de obra;</li>
+  <li>alteração de prioridade;</li>
+  <li>problema de qualidade;</li>
+  <li>capacidade insuficiente.</li>
+</ul>
+
+<!-- ============ 4. RCCP ============ -->
+<h2><span class="num">4</span>RCCP: temos capacidade para atender a demanda?</h2>
+<p>Aqui entra o <strong>RCCP — Rough-Cut Capacity Planning</strong>. Ele faz uma análise agregada para verificar se a capacidade disponível é suficiente para atender o plano. Imagine:</p>
+<ul>
+  <li>Demanda prevista = 100.000 unidades;</li>
+  <li>Estoque inicial = 20.000;</li>
+  <li>Estoque final desejado = 10.000.</li>
+</ul>
+<div class="formula"><small>FÓRMULA</small>Produção = Demanda + Estoque final desejado − Estoque inicial<br>Produção = 100.000 + 10.000 − 20.000 = 90.000</div>
+
+<!-- IMAGEM: simulação da necessidade de produção (RCCP)
+<figure class="figure-slot"><img src="../assets/images/artigos/sop-rccp.png" alt="Simulação RCCP"></figure>
+-->
+
+<p>A empresa precisa produzir <strong>90.000</strong> unidades, mas sua capacidade atual é de apenas <strong>80.000</strong>. Temos um <strong>GAP de 10.000</strong>. Será preciso avaliar os cenários possíveis e escolher o que melhor se adequa à necessidade. Se não agir, poderá ocorrer ruptura, atrasos e perda de vendas.</p>
+<div class="callout"><p>O RCCP permite antecipar esse déficit e avaliar alternativas antes que o problema aconteça.</p></div>
+
+<!-- ============ 5. ATENDIMENTO ============ -->
+<h2><span class="num">5</span>Atendimento: conseguimos entregar o que planejamos?</h2>
+<p>Produzir não significa necessariamente entregar. Podemos fabricar o produto, mas ter problemas em separação, expedição, transporte, disponibilidade ou planejamento de entrega. Por isso, o S&amp;OP também precisa olhar para o cliente.</p>
+<p>Para verificar a qualidade das entregas usamos o KPI <strong>OTIF — On Time In Full</strong>, que verifica se o pedido foi entregue <em>no prazo</em> e <em>completo</em>:</p>
+<div class="formula"><small>FÓRMULA</small>OTIF = Pedidos entregues no prazo e completos ÷ Total de pedidos × 100</div>
+<p>Imagine 1.000 pedidos, dos quais 920 foram entregues no prazo e completos: <strong>OTIF = 92%</strong>. Parece bom, mas não podemos deixar de olhar os outros 8%, pois são <strong>80 pedidos</strong> que tiveram algum problema. E precisamos entender: foi atraso? Faltou produto? Houve erro de separação? O transporte atrasou?</p>
+<div class="callout"><p>O KPI mostra o tamanho do problema. A análise mostra onde devemos atuar.</p></div>
+
+<!-- ============ 6. FINANCEIRO ============ -->
+<h2><span class="num">6</span>Financeiro: o plano virou resultado?</h2>
+<p>No final, todas essas decisões precisam aparecer no resultado financeiro. Imagine que a empresa planejou faturar <strong>R$ 10 milhões</strong>, mas realizou <strong>R$ 9 milhões</strong>.</p>
+<div class="formula"><small>FÓRMULA</small>Atingimento = Receita realizada ÷ Receita planejada × 100<br>Atingimento = 9 ÷ 10 × 100 = 90%</div>
+<p>A empresa atingiu 90% do faturamento planejado. Por que faltaram R$ 1 milhão? É aqui que podemos fazer uma verdadeira <strong>engenharia reversa do resultado</strong>.</p>
+
+<!-- IMAGEM: engenharia reversa do GAP financeiro
+<figure class="figure-slot"><img src="../assets/images/artigos/sop-gap-financeiro.png" alt="Engenharia reversa do resultado"></figure>
+-->
+
+<p>O GAP de R$ 1 milhão não é apenas um problema financeiro: ele é o reflexo de possíveis falhas ao longo da cadeia. A engenharia reversa permite sair do resultado e investigar demanda, estoque, produção, capacidade e atendimento para encontrar a causa. O objetivo não é apenas explicar o que aconteceu, mas identificar <strong>onde agir</strong> para recuperar o resultado.</p>
+<p>Um erro de Forecast pode desencadear excesso de estoque e capital imobilizado ou, no sentido contrário, ruptura e perda de vendas. Por isso, DOH, OTIF e faturamento não devem ser analisados isoladamente. O verdadeiro insight está em entender a relação de causa e efeito entre os indicadores.</p>
+
+<!-- ============ CONCLUSÃO ============ -->
+<h2>S&amp;OP é transformar dados em decisões</h2>
+<p>No fim, o objetivo do S&amp;OP não é simplesmente prever a demanda, controlar estoque ou acompanhar indicadores. É conectar todas essas informações para tomar melhores decisões.</p>
+<p>Uma previsão influencia o estoque. O estoque influencia a produção. A produção depende da capacidade. A capacidade impacta o atendimento. E o atendimento, no final, aparece no faturamento.</p>
+<p>Olhar um KPI isoladamente pode mostrar <em>o que</em> aconteceu; conectar os KPIs ajuda a entender <em>por que</em> aconteceu e onde agir.</p>
+
+<div class="takeaway">
+  <strong>Dados mostram. KPIs sinalizam. Análise explica. RCCP antecipa restrições. S&amp;OP conecta tudo para decidir.</strong><br><br>
+  Não esperar o problema aparecer no faturamento para começar a procurar a causa.<br>
+  <strong style="color:var(--accent)">Antecipar. Conectar. Decidir. Agir.</strong>
+</div>
+
+<div class="chips" style="margin-top:24px"><span>#SOP</span><span>#SupplyChain</span><span>#Planejamento</span><span>#DemandPlanning</span><span>#Analytics</span><span>#RCCP</span></div>
+
+<div class="article-end">
+  <p>Gostou do conteúdo? Veja como aplico essa visão de negócio nos meus projetos.</p>
+  <a href="../index.html#projetos" class="btn btn-primary">Ver projetos</a>
+  <a href="../artigos.html" class="btn btn-secondary">← Todos os artigos</a>
+</div>
+
+</div>
+</article>
+
+</main>
+<footer>
+  <div class="container">
+    <p>© 2026 Viviane Andrade. Data Analytics &amp; Business Intelligence.</p>
+  </div>
+</footer>
+</body>
+</html>
