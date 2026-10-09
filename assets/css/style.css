@@ -143,3 +143,23 @@ footer p{color:#cbd5e1;font-size:13px}
 .contact .section-title{text-align:center;margin-left:auto;margin-right:auto}
 .contact-actions,.contact-links{justify-content:center}
 footer{text-align:center}
+
+/* ===== Cargo-alvo e Experiência ===== */
+.hero-target{color:var(--navy);font-size:.95rem;margin:-6px 0 22px}
+.hero-target strong{color:var(--orange)}
+.experience{background:#fff}
+.exp-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:start}
+.tl-item{border-left:3px solid var(--navy);padding:2px 0 4px 22px;position:relative}
+.tl-item::before{content:"";position:absolute;left:-8px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--orange);border:2px solid #fff}
+.tl-head strong{display:block;font-size:1.1rem;color:var(--navy)}
+.tl-head span{display:block;font-size:.85rem;color:var(--muted);margin-bottom:12px}
+.tl-item ul{margin:0 0 0 18px;color:#4e5969;font-size:.95rem}
+.tl-item li{margin-bottom:8px}
+.tl-item b{color:var(--navy)}
+.cert-list{display:grid;gap:10px}
+.cert-list>div{padding:12px 16px;background:var(--soft);border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:var(--radius)}
+.cert-list strong{display:block;font-size:.92rem;color:var(--navy);line-height:1.3}
+.cert-list span{font-size:.8rem;color:var(--muted)}
+@media(max-width:900px){.exp-grid{grid-template-columns:1fr;gap:36px}}
+.carousel-arrow:disabled{opacity:.3;cursor:default;background:#fff;color:var(--navy)}
+.projects-track{will-change:transform}
