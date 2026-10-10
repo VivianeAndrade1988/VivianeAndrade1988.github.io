@@ -4,7 +4,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análise Executiva — Por que a receita caiu? | Viviane Andrade</title>
+<title>Resumo Executivo — Por que a receita caiu? | Viviane Andrade</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -168,6 +168,15 @@ p.section-lead{font-size:15.5px; color:var(--muted); max-width:790px; line-heigh
     .cover-inner{ padding:60px 6%; }
 }
 
+
+/* ---- ajustes: botões GitHub e voltar ---- */
+.back-bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.back-bar .gh-top{padding:6px 14px;border:1px solid rgba(255,255,255,.35);border-radius:20px;font-size:13px}
+.back-bar .gh-top:hover{background:var(--ice);color:var(--navy)}
+.footer-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.footer-btns a.btn{margin-top:16px}
+.page-footer a.btn.btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.page-footer a.btn.btn-outline:hover{background:var(--navy);color:var(--white)}
 </style>
 </head>
 
@@ -175,6 +184,7 @@ p.section-lead{font-size:15.5px; color:var(--muted); max-width:790px; line-heigh
 
 <div class="back-bar">
     <a href="../index.html#projetos">← Voltar aos projetos</a>
+    <a class="gh-top" href="https://github.com/VivianeAndrade1988/Projeto_Analise_Receita_FitnessLife" target="_blank" rel="noopener">Ver no GitHub ↗</a>
 </div>
 
 
@@ -187,7 +197,7 @@ p.section-lead{font-size:15.5px; color:var(--muted); max-width:790px; line-heigh
         <h1>Por que a receita caiu mesmo com mais clientes?</h1>
 
         <p class="lead">
-            Análise executiva da queda de receita da FitnessLife em 2023,
+            Resumo executivo da queda de receita da FitnessLife em 2023,
             da causa raiz às recomendações.
         </p>
 
@@ -566,7 +576,10 @@ p.section-lead{font-size:15.5px; color:var(--muted); max-width:790px; line-heigh
 <!-- RODAPÉ -->
 <footer class="page-footer">
     <p>Projeto desenvolvido por Viviane Andrade</p>
-    <a href="index.html#projetos" class="btn">← Voltar ao portfólio</a>
+    <div class="footer-btns">
+        <a href="https://github.com/VivianeAndrade1988/Projeto_Analise_Receita_FitnessLife" target="_blank" rel="noopener" class="btn btn-outline">Ver repositório no GitHub</a>
+        <a href="../index.html#projetos" class="btn">← Voltar ao portfólio</a>
+    </div>
 </footer>
 
 </body>
