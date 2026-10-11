@@ -39,50 +39,51 @@ section{padding:80px 0}
 .hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
 /* TÍTULOS DE SEÇÃO */
-.section-title{text-align:center;margin:0 auto 44px;max-width:780px}
+.section-title{text-align:left;margin:0 0 44px;max-width:780px}
 .section-title span{font-size:13px;letter-spacing:1.5px;color:var(--orange);font-weight:700}
 .section-title h2{font-size:clamp(1.7rem,3.6vw,2.4rem);color:var(--navy);margin:8px 0 12px;line-height:1.25}
 .section-title p{color:var(--muted)}
 
 /* SOBRE */
-.about-intro{max-width:780px;margin:0 auto 52px;text-align:center}
+.about-intro{max-width:780px;margin:0 0 48px;text-align:left}
 .about-intro h3{font-size:1.4rem;color:var(--navy);margin-bottom:12px}
-.about-intro p{color:#4e5969;margin:0 auto 12px}
-.skills-block{margin:0 auto 44px;max-width:1100px}
-.subsection-label{display:block;text-align:center;font-size:12px;letter-spacing:1.5px;color:var(--orange);font-weight:700;margin-bottom:16px}
+.about-intro p{color:#4e5969;margin:0 0 12px}
+.skills-block{margin:0 0 44px}
+.subsection-label{display:block;text-align:left;font-size:12px;letter-spacing:1.5px;color:var(--orange);font-weight:700;margin-bottom:16px}
 .skills-grid,.softskills-grid,.value-grid{display:grid;gap:16px}
 .skills-grid{grid-template-columns:repeat(4,1fr)}
 .softskills-grid,.value-grid{grid-template-columns:repeat(3,1fr)}
 .skill,.softskill{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:.2s;text-align:left}
-.skill .skill-icon,.softskill .skill-icon{grid-row:1/3;font-size:1.25rem}
+.skill .skill-icon,.softskill .skill-icon{grid-row:1/3;color:var(--blue);display:flex}
 .skill strong,.softskill strong{font-size:.92rem;line-height:1.3;color:var(--navy)}
 .skill span:last-child,.softskill span:last-child{font-size:.8rem;line-height:1.3;color:var(--muted)}
 .skill:hover,.softskill:hover{border-color:var(--navy);background:var(--soft)}
-.value-card{display:flex;flex-direction:column;gap:6px;padding:22px;text-align:center;background:var(--soft);border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:var(--radius)}
+.value-card{display:flex;flex-direction:column;gap:6px;padding:22px;text-align:left;background:var(--soft);border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:var(--radius)}
 .value-card strong{color:var(--navy)}
 .value-card p{color:var(--muted);font-size:.9rem}
-.highlight-card{display:flex;flex-direction:column;align-items:center;gap:8px;max-width:780px;margin:0 auto;text-align:center;background:var(--soft);border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:var(--radius);padding:26px 30px}
+.highlight-card{display:flex;align-items:center;gap:28px;max-width:780px;background:var(--soft);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:var(--radius);padding:24px 28px;text-align:left}
 .highlight-number{font-size:2.8rem;font-weight:800;color:var(--navy);line-height:1}
-.highlight-card strong{display:block;color:var(--navy);font-size:1.05rem}
+.highlight-card strong{display:block;margin-bottom:4px;color:var(--navy);font-size:1.05rem}
 .highlight-card p{color:#4e5969;font-size:.92rem}
 .highlight-card b{color:var(--navy)}
 
 /* FORMAÇÃO ACADÊMICA (modelo) */
 .education{background:var(--soft)}
-.edu-badge{display:flex;width:max-content;align-items:center;gap:8px;margin:0 auto 14px;padding:7px 18px;border-radius:999px;background:#e3effd;border:1px solid #bcd7f6;color:var(--blue);font-size:.85rem;font-weight:700}
-.edu-list{display:grid;gap:18px;max-width:1000px;margin:0 auto}
-.edu-card{display:flex;align-items:center;gap:26px;background:#fff;border-radius:18px;padding:30px 40px;box-shadow:0 8px 28px rgba(18,53,91,.08);text-align:left}
-.edu-icon{flex:0 0 70px;height:70px;border-radius:16px;background:#e3effd;color:var(--blue);display:flex;align-items:center;justify-content:center}
-.edu-card h3{font-size:1.3rem;color:#141a24;margin-bottom:2px}
-.edu-card p{color:#6b7280;font-size:1rem}
-.edu-card span{display:block;margin-top:4px;color:var(--blue);font-weight:700;font-size:.95rem}
+.edu-badge{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:7px 18px;border-radius:999px;background:#e3effd;border:1px solid #bcd7f6;color:var(--blue);font-size:.85rem;font-weight:700}
+.edu-list{display:grid;gap:14px;max-width:1000px}
+.edu-card{display:flex;align-items:center;gap:20px;background:#fff;border-radius:14px;padding:16px 26px;box-shadow:0 6px 20px rgba(18,53,91,.07);text-align:left}
+.edu-icon{flex:0 0 48px;height:48px;border-radius:12px;background:#e3effd;color:var(--blue);display:flex;align-items:center;justify-content:center}
+.edu-icon svg{width:24px;height:24px}
+.edu-card h3{font-size:1.1rem;color:#141a24;line-height:1.3}
+.edu-card p{color:#6b7280;font-size:.92rem;line-height:1.4}
+.edu-card span{display:block;margin-top:2px;color:var(--blue);font-weight:700;font-size:.88rem}
 
 /* PROJETOS */
 .projects{background:#fff}
 .projects-carousel{display:flex;align-items:center;gap:14px}
 .projects-viewport{flex:1;overflow:hidden}
 .projects-track{display:flex;gap:24px;transition:transform .45s ease;will-change:transform}
-.project-card{flex:0 0 calc((100% - 48px) / 3);background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(18,53,91,.06)}
+.project-card{flex:0 0 calc((100% - 48px) / 3);background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(18,53,91,.06)}
 .project-image{aspect-ratio:16/9;background:var(--soft2);overflow:hidden}
 .project-image img{width:100%;height:100%;object-fit:cover;object-position:center}
 .project-content{padding:14px 16px;display:flex;flex-direction:column;gap:6px;flex:1;text-align:left}
@@ -101,7 +102,7 @@ section{padding:80px 0}
 
 /* ARTIGOS (modelo: linha laranja, categoria, título, texto, link) */
 .articles-home{background:var(--soft)}
-.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 .cat-card{display:flex;flex-direction:column;gap:10px;border-top:3px solid var(--orange);padding-top:22px;text-align:left;transition:.2s}
 .cat-card .cat{font-size:.72rem;letter-spacing:1px;font-weight:700;color:var(--orange)}
 .cat-card h3{font-size:1.2rem;line-height:1.3;color:var(--navy)}
@@ -111,7 +112,8 @@ section{padding:80px 0}
 .cat-card:hover h3,.cat-card:hover .read{color:var(--orange)}
 
 /* CONTATO */
-.contact{background:#fff;border-top:1px solid #e5e8ed}
+.contact{background:#fff;border-top:1px solid #e5e8ed;text-align:center}
+.contact .section-title{text-align:center;margin:0 auto 44px}
 .contact-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
 .contact-links{display:flex;gap:24px;justify-content:center}
 .contact-links a{color:var(--navy);font-weight:700}
@@ -123,6 +125,7 @@ footer p{color:#cbd5e1;font-size:13px}
 
 /* RESPONSIVO */
 @media(max-width:1000px){.project-card{flex:0 0 calc((100% - 24px) / 2)}}
-@media(max-width:900px){.skills-grid,.softskills-grid,.value-grid{grid-template-columns:repeat(2,1fr)}.cat-grid{grid-template-columns:1fr;max-width:560px}}
-@media(max-width:640px){.project-card{flex:0 0 100%}.edu-card{padding:22px;gap:18px}.edu-icon{flex-basis:56px;height:56px}}
+@media(max-width:900px){.skills-grid,.softskills-grid,.value-grid{grid-template-columns:repeat(2,1fr)}.cat-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.project-card{flex:0 0 100%}.edu-card{padding:14px 18px;gap:14px}}
+@media(max-width:700px){.highlight-card{flex-direction:column;align-items:flex-start;gap:12px}}
 @media(max-width:560px){section{padding:60px 0}.skills-grid,.softskills-grid,.value-grid{grid-template-columns:1fr}.navbar nav{gap:12px}.navbar nav a{font-size:12px}.logo{font-size:15px}.carousel-arrow{flex-basis:38px;height:38px}}
