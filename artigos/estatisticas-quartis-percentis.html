@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A empresa tinha 100 mil clientes… mas poucos realmente geravam valor | Viviane de Andrade</title>
+<meta name="description" content="Como Quartis e Percentis revelam quais clientes geram mais valor e orientam decisões estratégicas. Capítulo 4 da série Estatística nos Negócios.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A empresa tinha 100 mil clientes… mas poucos realmente geravam valor">
+<meta property="og:description" content="Como Quartis e Percentis revelam quais clientes geram mais valor e orientam decisões estratégicas. Capítulo 4 da série Estatística nos Negócios.">
+<link rel="stylesheet" href="../assets/css/artigo.css">
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="../index.html" class="logo">Viviane de Andrade</a>
+    <ul class="menu">
+      <li><a href="../index.html#inicio">Início</a></li>
+      <li><a href="../index.html#sobre">Sobre</a></li>
+      <li><a href="../index.html#projetos">Projetos</a></li>
+      <li><a href="../index.html#artigos">Artigos</a></li>
+      <li><a href="../index.html#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="../index.html">Início</a> &nbsp;/&nbsp; <a href="../index.html#artigos">Artigos</a> &nbsp;/&nbsp; Quartis e Percentis
+  </div>
+</div>
+
+<section class="article-hero">
+  <div class="chapter">Estatística nos Negócios · Capítulo 04</div>
+  <h1>A empresa tinha 100 mil clientes… mas poucos realmente geravam valor</h1>
+  <p class="subtitle">Como Quartis e Percentis ajudam empresas a encontrar os clientes mais importantes e tomar decisões mais inteligentes.</p>
+  <p class="byline">Por Viviane de Andrade · 6 min de leitura</p>
+  <div class="tags"><span class="tag">Quartis</span><span class="tag">Percentis</span><span class="tag">Segmentação de clientes</span><span class="tag">Curva ABC</span></div>
+</section>
+
+<main class="article-layout">
+  <aside class="toc">
+    <div class="toc-title">Neste artigo</div>
+    <ul><li><a href="#sec1">1. O problema: todos os clientes têm o mesmo valor?</a></li><li><a href="#sec2">2. A primeira análise: olhando apenas o total</a></li><li><a href="#sec3">3. O problema da visão tradicional</a></li><li><a href="#sec4">4. Como a Estatística ajuda?</a></li><li><a href="#sec5">5. O que são Percentis?</a></li><li><a href="#sec6">6. Aplicação no caso da Nutrivance</a></li><li><a href="#sec7">7. E os Quartis?</a></li><li><a href="#sec8">8. Criando uma segmentação de clientes</a></li><li><a href="#sec9">9. Resultado da análise</a></li><li><a href="#sec10">10. Onde Quartis e Percentis são usados nas empresas?</a></li><li><a href="#sec11">11. Como o Analista de Dados faria essa análise?</a></li><li><a href="#sec12">12. Conclusão</a></li></ul>
+  </aside>
+
+  <article class="article-content">
+
+<p class="lead">Como Quartis e Percentis ajudam empresas a encontrar os clientes mais importantes e tomar decisões mais inteligentes.</p>
+
+<h2 id="sec1">1. O problema: todos os clientes têm o mesmo valor?</h2>
+<p>A empresa <strong>Nutrivance</strong>, uma marca de suplementos com operação online e vendas para clientes B2C e B2B, possui:</p>
+<ul><li>100 mil clientes cadastrados;</li><li>milhões de pedidos históricos;</li><li>diversos produtos no catálogo.</li></ul>
+<p>O time comercial está planejando a estratégia do próximo ano. A diretoria pergunta:</p>
+<blockquote>"Devemos investir o mesmo esforço em todos os clientes?"</blockquote>
+<p>A primeira resposta parece óbvia: <em>"Sim. Todos os clientes geram receita."</em> Mas o Analista de Dados decide investigar e levanta uma pergunta:</p>
+<div class="highlight"><p><strong>"Todos os clientes realmente possuem o mesmo impacto financeiro para a empresa?"</strong></p></div>
+
+<h2 id="sec2">2. A primeira análise: olhando apenas o total</h2>
+<p>O faturamento anual da empresa é de <strong>R$ 50 milhões</strong>. A equipe comemora. Porém, o analista separa os clientes por faturamento. Resultado:</p>
+<div class="table-wrapper"><table><thead><tr><th>Grupo</th><th>Clientes</th><th>Receita gerada</th></tr></thead><tbody>
+<tr><td>Clientes 1</td><td>20%</td><td>80%</td></tr><tr><td>Clientes 2</td><td>80%</td><td>20%</td></tr></tbody></table></div>
+<p>A descoberta: uma pequena parcela dos clientes concentrava a maior parte do faturamento.</p>
+
+<h2 id="sec3">3. O problema da visão tradicional</h2>
+<p>Muitas empresas tratam todos os clientes da mesma forma.</p>
+<div class="comparison">
+<div class="comparison-card"><h3>Cliente A</h3><ul><li>compra todos os meses;</li><li>alto ticket médio;</li><li>baixo custo de atendimento.</li></ul></div>
+<div class="comparison-card"><h3>Cliente B</h3><ul><li>comprou uma única vez;</li><li>baixo valor;</li><li>exige muito suporte.</li></ul></div>
+</div>
+<p>Ambos aparecem apenas como "cliente cadastrado". Mas o impacto no negócio é completamente diferente.</p>
+
+<h2 id="sec4">4. Como a Estatística ajuda?</h2>
+<p>Aqui entram dois conceitos importantes: <strong>Quartis e Percentis</strong>. Eles ajudam a dividir os dados em grupos e entender posições relativas. Em vez de perguntar <em>"Qual é a média de compra dos clientes?"</em>, perguntamos:</p>
+<blockquote>"Como os clientes estão distribuídos?"</blockquote>
+
+<h2 id="sec5">5. O que são Percentis?</h2>
+<p>Percentis dividem os dados em 100 partes iguais e mostram a posição de um valor dentro de um conjunto. Se um cliente está no <strong>percentil 90</strong>, significa que ele possui um resultado superior a aproximadamente 90% dos clientes.</p>
+<p>Na prática: um cliente no percentil 90 de faturamento é um cliente de alto valor.</p>
+
+<h2 id="sec6">6. Aplicação no caso da Nutrivance</h2>
+<p>O analista calcula o faturamento acumulado dos clientes. Resultado:</p>
+<div class="table-wrapper"><table><thead><tr><th>Percentil</th><th>Perfil do cliente</th></tr></thead><tbody>
+<tr><td>P90 – P100</td><td>Clientes estratégicos</td></tr><tr><td>P50 – P90</td><td>Clientes regulares</td></tr><tr><td>P0 – P50</td><td>Clientes de menor valor</td></tr></tbody></table></div>
+<p>Agora a empresa consegue criar estratégias diferentes:</p>
+<h3>Clientes estratégicos</h3>
+<ul><li>atendimento personalizado;</li><li>programas de fidelidade;</li><li>ofertas exclusivas;</li><li>relacionamento próximo.</li></ul>
+<h3>Clientes regulares</h3>
+<ul><li>campanhas de relacionamento;</li><li>aumento de frequência de compra;</li><li>cross-selling.</li></ul>
+<h3>Clientes de menor valor</h3>
+<ul><li>automação;</li><li>campanhas de baixo custo;</li><li>nutrição via marketing.</li></ul>
+
+<h2 id="sec7">7. E os Quartis?</h2>
+<p>Quartis dividem os dados em quatro grandes grupos, e cada grupo representa 25% da população:</p>
+<ul>
+<li><strong>Q1:</strong> primeiros 25%, clientes de menor valor;</li>
+<li><strong>Q2:</strong> entre 25% e 50%;</li>
+<li><strong>Q3:</strong> entre 50% e 75%;</li>
+<li><strong>Q4:</strong> últimos 25%, clientes de maior valor.</li>
+</ul>
+
+<h2 id="sec8">8. Criando uma segmentação de clientes</h2>
+<p>O analista cria uma classificação:</p>
+<div class="table-wrapper"><table><thead><tr><th>Grupo</th><th>Quartil</th><th>Estratégia</th></tr></thead><tbody>
+<tr><td>Premium</td><td>Q4</td><td>Relacionamento próximo</td></tr><tr><td>Crescimento</td><td>Q3</td><td>Aumentar frequência</td></tr><tr><td>Oportunidade</td><td>Q2</td><td>Estimular compra</td></tr><tr><td>Baixo valor</td><td>Q1</td><td>Automação</td></tr></tbody></table></div>
+<p>Agora a empresa deixa de tratar todos igualmente e passa a investir onde existe maior retorno.</p>
+
+<h2 id="sec9">9. Resultado da análise</h2>
+<p>Antes, a empresa investia o mesmo orçamento, a mesma comunicação e o mesmo atendimento. Depois, direcionou recursos. Resultados após seis meses:</p>
+<div class="table-wrapper"><table><thead><tr><th>Indicador</th><th>Antes</th><th>Depois</th></tr></thead><tbody>
+<tr><td>Retenção de clientes premium</td><td>75%</td><td>89%</td></tr><tr><td>Ticket médio</td><td>R$ 180</td><td>R$ 240</td></tr><tr><td>Conversão de campanhas</td><td>4,5%</td><td>7,2%</td></tr></tbody></table></div>
+
+<h2 id="sec10">10. Onde Quartis e Percentis são usados nas empresas?</h2>
+<ul>
+<li><strong>Marketing:</strong> identificar clientes mais valiosos, melhores leads e comportamento de compra.</li>
+<li><strong>Comercial:</strong> identificar vendedores de alta performance e maiores oportunidades.</li>
+<li><strong>Supply Chain:</strong> classificar produtos estratégicos e itens de maior impacto financeiro. A Curva ABC utiliza uma lógica semelhante.</li>
+<li><strong>Recursos Humanos:</strong> analisar desempenho, salários e avaliações.</li>
+</ul>
+
+<h2 id="sec11">11. Como o Analista de Dados faria essa análise?</h2>
+<h3>SQL</h3>
+<p class="code-title">Criando um ranking de clientes:</p>
+<pre><code>SELECT
+    cliente,
+    SUM(valor_pedido) AS faturamento,
+    NTILE(4) OVER (ORDER BY SUM(valor_pedido)) AS quartil
+FROM pedidos
+GROUP BY cliente;</code></pre>
+<p>O comando <strong>NTILE</strong> divide os clientes em grupos.</p>
+<h3>Python</h3>
+<p>Com Pandas:</p>
+<pre><code>df["quartil"] = pd.qcut(df["faturamento"], 4, labels=False)</code></pre>
+<h3>Power BI</h3>
+<p>Criaria ranking de clientes, distribuição por quartil, receita acumulada e curva ABC.</p>
+<!-- IMAGEM (sugestão visual) — assets/images/artigos/cap04-quartis.png
+<figure class="figure-slot"><img src="../assets/images/artigos/cap04-quartis.png" alt="Distribuição por quartil"></figure> -->
+
+<h2 id="sec12">12. Conclusão</h2>
+<p>Empresas não precisam apenas de mais clientes. Elas precisam entender <strong>quais clientes geram mais valor</strong>. Quartis e Percentis ajudam a transformar uma base enorme de dados em uma visão estratégica:</p>
+<ul><li>quem merece mais atenção;</li><li>onde investir recursos;</li><li>quais clientes possuem maior potencial.</li></ul>
+<div class="takeaway"><strong>O papel do Analista de Dados não é apenas criar rankings. É transformar segmentações em decisões de negócio.</strong></div>
+
+<section id="reflexao"><div class="exercise"><div class="exercise-label">Reflexão para o leitor</div>
+<h3>Uma empresa possui 100 mil clientes, mas apenas 5 mil representam 70% da receita.</h3>
+<p><strong>Você trataria todos os clientes da mesma forma?</strong></p></div></section>
+
+<div class="insight"><div class="insight-label">Próximo artigo da série · em breve</div>
+<h3>Artigo 5 — Distribuição dos Dados</h3>
+<p><strong>O faturamento médio parecia normal, mas a empresa estava tomando decisões erradas.</strong> No próximo capítulo vamos entender como a forma como os dados se distribuem pode revelar riscos escondidos, comportamentos fora do padrão e oportunidades de negócio.</p></div>
+
+  </article>
+</main>
+
+<section class="article-navigation">
+  <a href="../index.html#artigos" class="nav-card">
+    <div class="nav-label">← Portfólio</div>
+    <h3>Todos os artigos</h3>
+    <p>Voltar para a lista de artigos.</p>
+  </a>
+  <a href="estatistica-populacao-amostra.html" class="nav-card">
+    <div class="nav-label">Próximo artigo →</div>
+    <h3>A empresa não perguntou para todos os clientes. Mesmo assim descobriu o que eles pensavam.</h3>
+    <p>Como a Estatística Inferencial permite tomar decisões estratégicas usando uma amostra representativa dos dados.</p>
+  </a>
+</section>
+
+<footer>
+  <p>© 2026 Viviane de Andrade · Data Analyst Portfolio</p>
+</footer>
+
+</body>
+</html>
