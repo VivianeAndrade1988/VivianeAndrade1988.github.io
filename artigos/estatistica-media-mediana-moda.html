@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A empresa cresceu 25%… mas a maioria das lojas piorou | Viviane de Andrade</title>
+<meta name="description" content="Como Média, Mediana e Moda revelaram que a maioria das lojas estava abaixo do esperado. Capítulo 2 da série Estatística nos Negócios.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A empresa cresceu 25%… mas a maioria das lojas piorou">
+<meta property="og:description" content="Como Média, Mediana e Moda revelaram que a maioria das lojas estava abaixo do esperado. Capítulo 2 da série Estatística nos Negócios.">
+<link rel="stylesheet" href="../assets/css/artigo.css">
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="../index.html" class="logo">Viviane de Andrade</a>
+    <ul class="menu">
+      <li><a href="../index.html#inicio">Início</a></li>
+      <li><a href="../index.html#sobre">Sobre</a></li>
+      <li><a href="../index.html#projetos">Projetos</a></li>
+      <li><a href="../index.html#artigos">Artigos</a></li>
+      <li><a href="../index.html#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="../index.html">Início</a> &nbsp;/&nbsp; <a href="../index.html#artigos">Artigos</a> &nbsp;/&nbsp; Média, Mediana e Moda
+  </div>
+</div>
+
+<section class="article-hero">
+  <div class="chapter">Estatística nos Negócios · Capítulo 02</div>
+  <h1>A empresa cresceu 25%… mas a maioria das lojas piorou</h1>
+  <p class="subtitle">Como uma análise simples de Média, Mediana e Moda revelou um problema escondido nos resultados.</p>
+  <p class="byline">Por Viviane de Andrade · 7 min de leitura</p>
+  <div class="tags"><span class="tag">Média</span><span class="tag">Mediana</span><span class="tag">Moda</span><span class="tag">Estatística Descritiva</span></div>
+</section>
+
+<main class="article-layout">
+  <aside class="toc">
+    <div class="toc-title">Neste artigo</div>
+    <ul><li><a href="#sec1">1. O problema: quando um indicador parece bom demais</a></li><li><a href="#sec2">2. O perigo de olhar apenas para a média</a></li><li><a href="#sec3">3. O que a Média mostra?</a></li><li><a href="#sec4">4. A pergunta correta: qual é o comportamento normal?</a></li><li><a href="#sec5">5. O insight encontrado pelo analista</a></li><li><a href="#sec6">6. Onde entra a Moda?</a></li><li><a href="#sec7">7. Como o analista transformou estatística em decisão?</a></li><li><a href="#sec8">8. Como calcular na prática?</a></li><li><a href="#sec9">9. Principais aprendizados</a></li><li><a href="#sec10">10. Conclusão</a></li></ul>
+  </aside>
+
+  <article class="article-content">
+
+<p class="lead">No último artigo vimos que empresas podem tomar decisões erradas mesmo tendo muitos dados. Agora vamos aprofundar um dos primeiros conceitos da Estatística Descritiva: as <strong>medidas de tendência central</strong>.</p>
+<p>Elas ajudam a responder uma pergunta fundamental:</p>
+<blockquote>"Qual é o comportamento típico dos meus dados?"</blockquote>
+
+<h2 id="sec1">1. O problema: quando um indicador parece bom demais</h2>
+<p>A empresa <strong>NovaMarket</strong>, uma rede varejista com 50 lojas no Brasil, encerrou o trimestre com uma notícia positiva. O diretor comercial apresenta os resultados:</p>
+<div class="table-wrapper"><table><thead><tr><th>Indicador</th><th>Resultado</th></tr></thead><tbody>
+<tr><td>Faturamento total</td><td>+25%</td></tr><tr><td>Número de clientes</td><td>+18%</td></tr><tr><td>Ticket médio</td><td>+8%</td></tr></tbody></table></div>
+<p>A conclusão da diretoria:</p>
+<blockquote>"Todas as lojas estão crescendo. Podemos acelerar a expansão."</blockquote>
+<p>O plano: abrir novas unidades, aumentar estoque e contratar equipe comercial. Mas o analista de dados decide investigar um pouco mais.</p>
+<div class="highlight"><p><strong>"Esse crescimento representa realmente a maioria das lojas?"</strong></p></div>
+
+<h2 id="sec2">2. O perigo de olhar apenas para a média</h2>
+<p>A empresa analisou o faturamento médio por loja. Dados:</p>
+<div class="table-wrapper"><table><thead><tr><th>Loja</th><th>Faturamento mensal</th></tr></thead><tbody>
+<tr><td>Loja A</td><td>R$ 100 mil</td></tr><tr><td>Loja B</td><td>R$ 110 mil</td></tr><tr><td>Loja C</td><td>R$ 120 mil</td></tr><tr><td>Loja D</td><td>R$ 130 mil</td></tr><tr><td>Loja E</td><td>R$ 1 milhão</td></tr></tbody></table></div>
+<div class="formula"><small>CÁLCULO DA MÉDIA</small>(100 + 110 + 120 + 130 + 1.000) ÷ 5 = R$ 292 mil</div>
+<p>A diretoria interpreta: <em>"Em média, nossas lojas faturam quase R$ 300 mil."</em> Mas existe um problema. Será que uma loja realmente representa o padrão da empresa?</p>
+
+<h2 id="sec3">3. O que a Média mostra?</h2>
+<p>A média é uma medida que representa o valor médio de um conjunto de dados. Ela é calculada assim:</p>
+<div class="formula"><small>FÓRMULA</small>Média = Soma de todos os valores ÷ quantidade de valores</div>
+<p>No exemplo: faturamento total de R$ 1.460.000 dividido por 5 lojas = <strong>R$ 292.000</strong>.</p>
+<h3>Quando a média funciona bem?</h3>
+<p>Quando os valores são relativamente próximos. Exemplo, com lojas de 100, 110, 120, 130 e 140 mil: a média (R$ 120 mil) representa bem o grupo.</p>
+<h3>Quando a média engana?</h3>
+<p>Quando existem valores muito extremos, como uma loja excepcional, um cliente gigante, um vendedor fora da curva ou uma venda extraordinária. Esses valores são chamados de <strong>outliers</strong>.</p>
+
+<h2 id="sec4">4. A pergunta correta: qual é o comportamento normal?</h2>
+<p>O analista decide calcular outra medida: a <strong>mediana</strong>, que representa o valor central dos dados. Primeiro organizamos os valores: 100, 110, <strong>120</strong>, 130, 1.000. O valor do meio é a mediana: <strong>R$ 120 mil</strong>.</p>
+<div class="table-wrapper"><table><thead><tr><th>Indicador</th><th>Resultado</th></tr></thead><tbody>
+<tr><td>Média</td><td>R$ 292 mil</td></tr><tr><td>Mediana</td><td>R$ 120 mil</td></tr></tbody></table></div>
+<p>Existe uma grande diferença, e isso revela algo importante: a maioria das lojas está próxima de R$ 120 mil. A média foi puxada pela loja de R$ 1 milhão.</p>
+
+<h2 id="sec5">5. O insight encontrado pelo analista</h2>
+<p>A diretoria acreditava: <em>"Todas as lojas estão crescendo."</em> Mas os dados mostraram:</p>
+<ul><li>uma loja teve crescimento extraordinário;</li><li>poucas lojas acompanharam;</li><li>a maioria está abaixo do esperado.</li></ul>
+<p>A empresa não tinha um problema de expansão. Ela tinha um <strong>problema de replicação de performance</strong>. A pergunta mudou:</p>
+<div class="comparison">
+<div class="comparison-card"><h3>Antes</h3><div class="question">"Quantas lojas devemos abrir?"</div></div>
+<div class="comparison-card"><h3>Depois</h3><div class="question">"O que a melhor loja está fazendo diferente das demais?"</div></div>
+</div>
+
+<h2 id="sec6">6. Onde entra a Moda?</h2>
+<p>Além da média e da mediana, existe uma terceira medida: a <strong>moda</strong>, o valor que mais aparece. Ela responde: <em>"Qual é o comportamento mais frequente?"</em></p>
+<p>Exemplo: uma empresa analisa o tamanho dos pedidos.</p>
+<div class="table-wrapper"><table><thead><tr><th>Pedido</th><th>Valor</th></tr></thead><tbody>
+<tr><td>Cliente A</td><td>R$ 99</td></tr><tr><td>Cliente B</td><td>R$ 99</td></tr><tr><td>Cliente C</td><td>R$ 149</td></tr><tr><td>Cliente D</td><td>R$ 99</td></tr><tr><td>Cliente E</td><td>R$ 299</td></tr></tbody></table></div>
+<p>A moda é <strong>R$ 99</strong>: o valor de pedido mais comum.</p>
+<h3>Aplicações da Moda nos negócios</h3>
+<ul>
+<li><strong>Varejo:</strong> produto mais vendido. Qual tamanho de roupa tem maior saída?</li>
+<li><strong>Logística:</strong> quantidade mais frequente de itens por pedido.</li>
+<li><strong>Marketing:</strong> canal mais utilizado pelos clientes (Instagram, Google ou indicação).</li>
+<li><strong>Recursos Humanos:</strong> faixa salarial predominante.</li>
+</ul>
+
+<h2 id="sec7">7. Como o analista transformou estatística em decisão?</h2>
+<p>Depois da análise, a empresa mudou sua estratégia. Em vez de abrir 20 lojas, criou um projeto de melhoria e passou a analisar a loja líder:</p>
+<ul><li>mix de produtos;</li><li>localização;</li><li>treinamento dos vendedores;</li><li>atendimento;</li><li>estratégias promocionais.</li></ul>
+<p>Resultados após seis meses:</p>
+<div class="table-wrapper"><table><thead><tr><th>Indicador</th><th>Antes</th><th>Depois</th></tr></thead><tbody>
+<tr><td>Lojas acima da meta</td><td>8</td><td>27</td></tr><tr><td>Ticket médio</td><td>R$ 85</td><td>R$ 110</td></tr><tr><td>Crescimento sustentável</td><td>Não</td><td>Sim</td></tr></tbody></table></div>
+
+<h2 id="sec8">8. Como calcular na prática?</h2>
+<h3>SQL</h3>
+<p class="code-title">Média de faturamento:</p>
+<pre><code>SELECT AVG(valor_venda) AS media_vendas
+FROM vendas;</code></pre>
+<p class="code-title">Mediana (em bancos como o SQL Server):</p>
+<pre><code>SELECT DISTINCT
+    PERCENTILE_CONT(0.5)
+        WITHIN GROUP (ORDER BY valor_venda)
+        OVER () AS mediana
+FROM vendas;</code></pre>
+<p class="code-title">Moda:</p>
+<pre><code>SELECT TOP 1
+    produto,
+    COUNT(*) AS quantidade
+FROM vendas
+GROUP BY produto
+ORDER BY quantidade DESC;</code></pre>
+<h3>Python</h3>
+<p>Com Pandas:</p>
+<pre><code>import pandas as pd
+
+media = df["vendas"].mean()
+mediana = df["vendas"].median()
+moda = df["vendas"].mode()</code></pre>
+<h3>Power BI</h3>
+<p>Um dashboard comercial poderia mostrar:</p>
+<ul><li>faturamento médio;</li><li>faturamento mediano;</li><li>produto mais vendido;</li><li>loja líder;</li><li>dispersão entre lojas.</li></ul>
+<!-- IMAGEM (sugestão visual) — assets/images/artigos/cap02-dashboard.png
+<figure class="figure-slot"><img src="../assets/images/artigos/cap02-dashboard.png" alt="Dashboard comercial"></figure> -->
+
+<h2 id="sec9">9. Principais aprendizados</h2>
+<div class="comparison comparison-3">
+<div class="comparison-card"><h3>Média</h3><div class="question">"Qual é o valor médio?"</div></div>
+<div class="comparison-card"><h3>Mediana</h3><div class="question">"Qual é o comportamento típico?"</div></div>
+<div class="comparison-card"><h3>Moda</h3><div class="question">"O que acontece com maior frequência?"</div></div>
+</div>
+<p>Um bom analista não olha apenas um indicador. Ele compara diferentes perspectivas para entender a realidade.</p>
+
+<h2 id="sec10">10. Conclusão</h2>
+<p>A empresa da nossa história não tinha falta de dados. Ela tinha falta de <strong>interpretação</strong>. A média mostrou crescimento, mas a mediana mostrou a realidade.</p>
+<p>A estatística descritiva permite que empresas parem de olhar apenas números isolados e comecem a entender o comportamento dos dados.</p>
+<div class="takeaway"><strong>Uma decisão baseada em uma média errada pode custar milhões.</strong></div>
+
+<section id="reflexao"><div class="exercise"><div class="exercise-label">Reflexão para o leitor</div>
+<h3>Uma empresa informa: "Nosso faturamento médio por cliente aumentou 30%."</h3>
+<p>Antes de comemorar, quais perguntas você faria?</p>
+<ul><li>A mediana também aumentou?</li><li>Alguns clientes grandes estão distorcendo o resultado?</li><li>O cliente comum está gastando mais?</li><li>O crescimento veio de poucos ou de muitos clientes?</li></ul></div></section>
+
+<div class="insight"><div class="insight-label">Próximo artigo da série · em breve</div>
+<h3>Artigo 3 — Variância e Desvio Padrão</h3>
+<p><strong>O faturamento médio era igual, mas uma fábrica era muito mais arriscada que outra.</strong> No próximo artigo vamos entender como empresas usam medidas de dispersão para descobrir fornecedores instáveis, vendedores inconsistentes, processos com muita variação e riscos escondidos nos indicadores.</p></div>
+
+  </article>
+</main>
+
+<section class="article-navigation">
+  <a href="../index.html#artigos" class="nav-card">
+    <div class="nav-label">← Portfólio</div>
+    <h3>Todos os artigos</h3>
+    <p>Voltar para a lista de artigos.</p>
+  </a>
+  <a href="estatistica-quartis-percentis.html" class="nav-card">
+    <div class="nav-label">Próximo artigo →</div>
+    <h3>A empresa tinha 100 mil clientes… mas poucos realmente geravam valor</h3>
+    <p>Como Quartis e Percentis ajudam empresas a encontrar os clientes mais importantes e tomar decisões mais inteligentes.</p>
+  </a>
+</section>
+
+<footer>
+  <p>© 2026 Viviane de Andrade · Data Analyst Portfolio</p>
+</footer>
+
+</body>
+</html>
