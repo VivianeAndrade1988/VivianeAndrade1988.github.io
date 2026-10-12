@@ -1,1 +1,6 @@
+Copyright (C) Ano - Seu Nome Completo. Todos os direitos reservados.
+
+Este código e os artigos presentes neste repositório são de propriedade exclusiva do autor. 
+Não é permitida a cópia, distribuição, modificação ou uso comercial de nenhum dos arquivos 
+sem a autorização prévia e por escrito do titular dos direitos autorais.
 
