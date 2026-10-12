@@ -1,4 +1,4 @@
-Copyright (C) Ano - Seu Nome Completo. Todos os direitos reservados.
+Copyright (C) 2026  Viviane de Andrade. Todos os direitos reservados.
 
 Este código e os artigos presentes neste repositório são de propriedade exclusiva do autor. 
 Não é permitida a cópia, distribuição, modificação ou uso comercial de nenhum dos arquivos 
